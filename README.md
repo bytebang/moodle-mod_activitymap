@@ -77,4 +77,4 @@ Furthermore we want to give credits to the [viz.js](https://github.com/mdaines/v
 
 ## License
 
-We release this software under the (GNU GENERAL PUBLIC LICENSE v3)[https://www.gnu.org/licenses/gpl-3.0.html].
+We release this software under the [GNU GENERAL PUBLIC LICENSE v3](https://www.gnu.org/licenses/gpl-3.0.html).
