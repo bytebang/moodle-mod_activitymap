@@ -27,6 +27,7 @@
 require('../../config.php');
 
 
+
 use availability_completion\condition;
 
 require_once($CFG->libdir . '/completionlib.php');
@@ -40,7 +41,6 @@ $courseid = $cm->course;
 require_course_login($course, true, $cm);
 $context = context_module::instance($cm->id);
 require_capability('mod/actionmap:view', $context);
-
 $PAGE->set_url('/mod/actionmap/view.php', array('id' => $cm->id));
 
 /// Print the page header

@@ -183,14 +183,14 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
             if($cond->op == "&")
             {
                 $joinnode = "condition_" . $level . "_AND_" . $basecm; 
-                $joinstyle["label"] = "&";
-                $joinstyle["tooltip"] = "All incoming activitied have to be completed.";
+                $joinstyle["label"] = get_string('condition_AND_label', 'actionmap');
+                $joinstyle["tooltip"] = get_string('condition_AND_tooltip', 'actionmap');
             }
             if($cond->op == "|")
             {
-                $joinnode = "condition_" . $level . "_OR_" . $basecm;  
-                $joinstyle["label"] = ">=1";
-                $joinstyle["tooltip"] = "At least one activity has to be completed.";
+                $joinnode = "condition_" . $level . "_OR_" . $basecm; 
+                $joinstyle["label"] = get_string('condition_OR_label', 'actionmap');
+                $joinstyle["tooltip"] = get_string('condition_OR_tooltip', 'actionmap'); 
             }
             
             // Add the joinnode to the list of nodes

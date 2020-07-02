@@ -56,6 +56,10 @@ $string['currentSection'] = 'Current section';
 
 $string['content'] = 'Content';
 
+$string['condition_AND_label'] = '&';
+$string['condition_AND_tooltip'] = 'All incoming activities have to be completed';
+$string['condition_OR_label'] = '>=1';
+$string['condition_OR_tooltip'] = 'At least one incoming activitiy has to be completed';
 
 $string['modulename'] = 'Actionmap';
 $string['modulename_help'] = 'The actionmap module enables a teacher to place activities on an image like a map. This can be used for adaptive gamified learning experiences.';
