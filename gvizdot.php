@@ -67,12 +67,114 @@ if($debug)
     die;
 }
 
+/**
+    returns true if the string needle is at the beginning of the stirng haystack
+    @param haystack String that should be tested
+    @param needle String that is haystack supposed to start with 
+*/
 function startsWith($haystack, $needle)
 {
      $length = strlen($needle);
      return (substr($haystack, 0, $length) === $needle);
 }
 
+/**
+    returns true if the string needle is at the end of the stirng haystack
+    @param haystack String that should be tested
+    @param needle String that is haystack supposed to end with 
+*/
+function endsWith($haystack, $needle)
+{
+    $length = strlen($needle);
+    if ($length == 0) {
+        return true;
+    }
+
+    return (substr($haystack, -$length) === $needle);
+}
+
+/**
+    Converts one or more lines of HTML code into the HTML dialect that DOT understands
+    by stripping out unnecessary Tags and so on.
+    
+    @see https://graphviz.org/doc/info/shapes.html#html
+    
+*/
+function convertToGraphvizTextitem($content)
+{
+
+    // Define all the allowed tags
+    $allowed_tags = array(
+            '<BR/>'     => '::DO_A_LINE_BREAK::',
+            '<FONT>'    => '::FONT_CHANGE_START::',
+            '</FONT>'   => '::FONT_CHANGE_END::',
+            '<I>'       => '::ITALIC_START::',
+            '</I>'      => '::ITALIC_END::',
+            '<B>'       => '::BOLD_START::',
+            '</B>'      => '::BOLD_END::',
+            '<O>'       => '::O_START::',
+            '</O>'      => '::O_END::',
+            '<U>'       => '::UNDERLINE_START::',
+            '</U>'      => '::UNDERLINE_END::',
+            '<S>'       => '::STRIKETHROUGH_START::',
+            '</S>'      => '::STRIKETHROUGH_END::',
+            '<SUB>'     => '::SUBSCRIPT_START::',
+            '</SUB>'    => '::SUBSCRIPT_END::',
+            '<SUP>'     => '::SUPERSCRIPT_START::',
+            '</SUP>'    => '::SUPERSCRIPT_END::'
+            ); 
+    
+    $ret = $content;
+    
+    // Now do the replacements of your choice
+    
+    $ret = str_replace("</p>", "::DO_A_LINE_BREAK::", $ret);
+    $ret = str_replace("<br/>", "::DO_A_LINE_BREAK::", $ret);
+    $ret = str_replace("<br>", "::DO_A_LINE_BREAK::", $ret);
+
+    // Strip all remeaning html tags
+    $ret = strip_tags($ret);
+    
+    // and replace the paceholders with the one which are understood by GV
+    $ret = str_replace(array_values($allowed_tags), array_keys($allowed_tags), $ret);
+    
+    // some final postprocessing
+    // like strippeng <BR/> at the end     
+    while(endsWith($ret, "<BR/>"))
+    {
+        $ret = substr($ret, 0, strlen($ret) - strlen("<br/>"));
+    }
+    //$ret = preg_replace("/\<BR\/>$/","",$ret);
+    
+    return $ret;
+    
+    /*
+
+    // Convert paragraphs to <BR/> 
+    $ret = str_replace("</p>", "<BR/>", $content);
+    
+    $ret = str_replace("</br>", "<BR/>", $content);
+    
+        return $ret;
+    // Strip all HTML Tags except those which are allowed
+    $ret = strip_tags($ret, "<BR><FONT><I><B><U><O><S><SUB><SUP>");
+
+    // Since strip_tags does some dirty moves, we have to postprocess our result
+    // it converts our <BR/> to <br> - so lets reverse this one
+    $ret = str_replace("<br>", "<br/>", $ret);
+
+    // Graphviz does not like <BR/> at the end of a String - filter it
+    if(endsWith($ret, "<br/>"))
+    {
+        $ret = substr($ret, 0, strlen($ret) - strlen("<br/>"));
+    }    
+    
+    
+    // and return the final result
+    return $ret;
+    
+    */
+}
 
 /**
     Generates conditions from the availability information
@@ -202,7 +304,7 @@ foreach ($modinfo->cms as $id => $othercm) {
         // Print description if we should
         if($othercm->showdescription)
         {
-            $gvnodeattributes["label"] = $gvnodeattributes["label"] . PHP_EOL . strip_tags($othercm->content) . PHP_EOL;
+            $gvnodeattributes["label"] = $gvnodeattributes["label"] . PHP_EOL . convertToGraphvizTextitem($othercm->content) . PHP_EOL;
         }
 
         // Display available activities in black, others in grey 
@@ -280,7 +382,7 @@ if ($advMap->content == "allSectionsGrouped")
             // Print description if we should
             if($secInfo->summary)
             {
-                print("  label=< <B>" . $secInfo->name . " </B> <BR/>" . PHP_EOL . strip_tags($secInfo->summary) . " >" . PHP_EOL);
+                print("  label=< <B>" . $secInfo->name . " </B> <BR/>" . PHP_EOL . convertToGraphvizTextitem($secInfo->summary) . " >" . PHP_EOL);
             }
             else
             {
