@@ -131,7 +131,7 @@ function convertToGraphvizTextitem($content)
             ); 
     
     $ret = $content;
-    
+    //return $ret;
     // Now do the replacements of your choice
     
     $ret = str_replace("</p>", "::DO_A_LINE_BREAK::", $ret);
@@ -156,7 +156,8 @@ function convertToGraphvizTextitem($content)
     $ret = str_replace("<sup>", "::SUPERSCRIPT_START::", $ret);
     $ret = str_replace("</sup>", "::SUPERSCRIPT_END::", $ret);
 
-    
+    $ret = str_replace("<li>", "&#8226; ", $ret);
+    $ret = str_replace("</li>", "::DO_A_LINE_BREAK::", $ret);    
     
     // Strip all remeaning html tags
     $ret = strip_tags($ret);
@@ -204,8 +205,8 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
             if($cond->op == "&")
             {
                 $joinnode = "condition_" . $level . "_AND_" . $basecm; 
-                $joinstyle["label"] = get_string('condition_AND_label', 'actionmap');
-                $joinstyle["tooltip"] = get_string('condition_AND_tooltip', 'actionmap');
+                $joinstyle["label"] = htmlentities(get_string('condition_AND_label', 'actionmap'));
+                $joinstyle["tooltip"] = htmlentities(get_string('condition_AND_tooltip', 'actionmap'));
             }
             if($cond->op == "|")
             {
@@ -299,7 +300,7 @@ foreach ($modinfo->cms as $id => $othercm) {
 
         $gvnodeattributes = array(); //<! Graphviz node attributes         
         $gvnodeattributes["shape"] = $advMap->elementshape;
-        $gvnodeattributes["label"] = $othercm->name;
+        $gvnodeattributes["label"] = "<b>" . $othercm->name . "</b>";
         $gvnodeattributes["tooltip"] = $othercm->name;
         
         // Remember in which section this cm is
@@ -312,7 +313,8 @@ foreach ($modinfo->cms as $id => $othercm) {
         // Print description if we should
         if($othercm->showdescription)
         {
-            $gvnodeattributes["label"] = $gvnodeattributes["label"] . PHP_EOL . convertToGraphvizTextitem($othercm->content) . PHP_EOL;
+            //$gvnodeattributes["label"] = $gvnodeattributes["label"] . "<BR/>" . convertToGraphvizTextitem($othercm->content);
+            $gvnodeattributes["label"] = "<table border=\"0\" cellborder=\"0\" cellspacing=\"1\"> <tr><td align=\"center\">" . $gvnodeattributes["label"] . "</td></tr><hr/><tr><td balign=\"left\">" . convertToGraphvizTextitem($othercm->content) . "</td></tr></table>";
         }
 
         // Display available activities in black, others in grey 
@@ -363,7 +365,16 @@ foreach ($gvnodes as $node => $attributes)
 		print(" " . $node . " [");
         foreach ($attributes as $attrib => $value) 
         {
-           print(" ". $attrib . "=\"" . $value . "\"");
+            if($attrib == "label")
+            {
+                // Labels are treated as HTML Strings
+                print(" ". $attrib . "= < " . $value . " >");
+            }
+            else
+            {
+                // The rest is a so called escString
+                print(" ". $attrib . "=\"" . $value . "\"");
+            }
         }
         print(" ];".PHP_EOL);
 }
@@ -400,7 +411,7 @@ if ($advMap->content == "allSectionsGrouped")
             // Print description if we should
             if($secInfo->summary)
             {
-                print("  label=< <FONT POINT-SIZE=\"20\"><B>" . $secInfo->name . " </B></FONT> <BR/><BR/>" . PHP_EOL . convertToGraphvizTextitem($secInfo->summary) . " >" . PHP_EOL);
+                print("  label=< <FONT POINT-SIZE=\"20\"><B><U>" . $secInfo->name . "</U></B></FONT> <BR/><BR/>" . PHP_EOL . convertToGraphvizTextitem($secInfo->summary) . " >" . PHP_EOL);
             }
             else
             {
