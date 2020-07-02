@@ -111,21 +111,21 @@ function convertToGraphvizTextitem($content)
     $allowed_tags = array(
             '<BR/>'     => '::DO_A_LINE_BREAK::',
             '<FONT>'    => '::FONT_CHANGE_START::',
-            '</FONT>'   => '::FONT_CHANGE_END::',
+            '</FONT>&nbsp;'   => '::FONT_CHANGE_END::',
             '<I>'       => '::ITALIC_START::',
-            '</I>'      => '::ITALIC_END::',
+            '</I>&nbsp;'      => '::ITALIC_END::',
             '<B>'       => '::BOLD_START::',
-            '</B> '     => '::BOLD_END::',
+            '</B>&nbsp;'     => '::BOLD_END::',
             '<O>'       => '::O_START::',
-            '</O>'      => '::O_END::',
+            '</O>&nbsp;'      => '::O_END::',
             '<U>'       => '::UNDERLINE_START::',
-            '</U>'      => '::UNDERLINE_END::',
+            '</U>&nbsp;'      => '::UNDERLINE_END::',
             '<S>'       => '::STRIKETHROUGH_START::',
-            '</S>'      => '::STRIKETHROUGH_END::',
+            '</S>&nbsp;'      => '::STRIKETHROUGH_END::',
             '<SUB>'     => '::SUBSCRIPT_START::',
-            '</SUB> '    => '::SUBSCRIPT_END::',
+            '</SUB>&nbsp;'    => '::SUBSCRIPT_END::',
             '<SUP>'     => '::SUPERSCRIPT_START::',
-            '</SUP> '    => '::SUPERSCRIPT_END::'
+            '</SUP>&nbsp;'    => '::SUPERSCRIPT_END::'
             ); 
     
     $ret = $content;
