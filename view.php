@@ -59,6 +59,7 @@ $module = $DB->get_record('actionmap', array('id'=>$cm->instance), '*', MUST_EXI
 
 <script src="javascript/viz.js"></script>
 <script src="javascript/full.render.js"></script>
+<script src="javascript/svg-pan-zoom.js"></script>
 <div id="actionmap"></div>
 <script>
     if (window.XMLHttpRequest)
@@ -80,6 +81,17 @@ $module = $DB->get_record('actionmap', array('id'=>$cm->instance), '*', MUST_EXI
             viz.renderSVGElement(xmlhttp.responseText)
             .then(function(element) {
                 document.getElementById("actionmap").appendChild(element);
+                
+                // Enable to pan and zoom via 3rd party library 
+                panZoom = svgPanZoom(element, {
+                  zoomEnabled: true,
+                  controlIconsEnabled: true,
+                  fit: true,
+                  contain: true,
+                  center: true,
+                  minZoom: 0.1
+                });
+        
             })
             .catch(error => {
                 // Create a new Viz instance (@see Caveats page for more info)

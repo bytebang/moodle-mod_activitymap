@@ -91,7 +91,7 @@ We only process the _Activity completion_ and the _Date_ restricion. Other restr
 We want to thank Robert Schrenk for providing us the base knowledge to create this beautiful plugin.
 
 
-Furthermore we want to give credits to the [viz.js](https://github.com/mdaines/viz.js) framework which is used to render the graphs on the clientside by utilizing a webasembly version of the [Graphviz](https://www.graphviz.org/) graph visualization software. 
+Furthermore we want to give credits to the [viz.js](https://github.com/mdaines/viz.js) framework which is used to render the graphs on the clientside by utilizing a webasembly version of the [Graphviz](https://www.graphviz.org/) graph visualization software and [svg-pan-zoom](https://github.com/ariutta/svg-pan-zoom) for a better user expierience with huge graphs.
 
 ## License
 

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<libraries>
+    <library>
+        <location>javascript/svg-pan-zoom.js</location>
+        <name>svg-pan-zoom</name>
+        <version>3.6.1</version>
+        <license>BSD license</license>
+        <licenseversion></licenseversion>
+    </library>
+    <library>
+        <location>javascript/viz.js</location>
+        <name>Graphviz</name>
+        <version></version>
+        <license>MIT license</license>
+        <licenseversion>1.0</licenseversion>
+    </library>
+    <library>
+        <location></location>
+        <name>Graphviz</name>
+        <version></version>
+        <license>Common Public License</license>
+        <licenseversion>1.0</licenseversion>
+    </library>
+</libraries>
