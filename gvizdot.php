@@ -42,13 +42,12 @@ $context = context_module::instance($cm->id);
 require_capability('mod/actionmap:view', $context);
 
 $PAGE->set_url('/mod/actionmap/gvizdot.php', array('id' => $cm->id));
+$modinfo = get_fast_modinfo($courseid);
 
 
-// https://moodle.org/mod/forum/discuss.php?d=215165
-
-// --------------------------------
-// PRINT THE MAIN PART OF THE PAGE
-// --------------------------------
+//------------------------------------------------------------------------------
+//              LINKS AND DOCUMENTATION
+//------------------------------------------------------------------------------
 
 // https://docs.moodle.org/dev/Conditional_activities_API -> Deprecated
 
@@ -58,7 +57,10 @@ $PAGE->set_url('/mod/actionmap/gvizdot.php', array('id' => $cm->id));
 
 // Interessante Tabellen: mdl_{course, couse_modules, course_sections, assign}
 
-$modinfo = get_fast_modinfo($courseid);
+
+//------------------------------------------------------------------------------
+//              DEBUGGING STUFF
+//------------------------------------------------------------------------------
 
 // If we want to debug, then just print the raw data and exit
 if($debug)
@@ -66,7 +68,9 @@ if($debug)
     print_r($modinfo); 
     die;
 }
-
+//------------------------------------------------------------------------------
+//              HELPER FUNCTIONS
+//------------------------------------------------------------------------------
 /**
     returns true if the string needle is at the beginning of the stirng haystack
     @param haystack String that should be tested
@@ -78,6 +82,7 @@ function startsWith($haystack, $needle)
      return (substr($haystack, 0, $length) === $needle);
 }
 
+//------------------------------------------------------------------------------
 /**
     returns true if the string needle is at the end of the stirng haystack
     @param haystack String that should be tested
@@ -92,7 +97,7 @@ function endsWith($haystack, $needle)
 
     return (substr($haystack, -$length) === $needle);
 }
-
+//------------------------------------------------------------------------------
 /**
     Converts one or more lines of HTML code into the HTML dialect that DOT understands
     by stripping out unnecessary Tags and so on.
@@ -144,38 +149,10 @@ function convertToGraphvizTextitem($content)
     {
         $ret = substr($ret, 0, strlen($ret) - strlen("<br/>"));
     }
-    //$ret = preg_replace("/\<BR\/>$/","",$ret);
     
     return $ret;
-    
-    /*
-
-    // Convert paragraphs to <BR/> 
-    $ret = str_replace("</p>", "<BR/>", $content);
-    
-    $ret = str_replace("</br>", "<BR/>", $content);
-    
-        return $ret;
-    // Strip all HTML Tags except those which are allowed
-    $ret = strip_tags($ret, "<BR><FONT><I><B><U><O><S><SUB><SUP>");
-
-    // Since strip_tags does some dirty moves, we have to postprocess our result
-    // it converts our <BR/> to <br> - so lets reverse this one
-    $ret = str_replace("<br>", "<br/>", $ret);
-
-    // Graphviz does not like <BR/> at the end of a String - filter it
-    if(endsWith($ret, "<br/>"))
-    {
-        $ret = substr($ret, 0, strlen($ret) - strlen("<br/>"));
-    }    
-    
-    
-    // and return the final result
-    return $ret;
-    
-    */
 }
-
+//------------------------------------------------------------------------------
 /**
     Generates conditions from the availability information
     
@@ -268,7 +245,9 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
     }
 }
 
-
+//------------------------------------------------------------------------------
+//              ACTUAL CODE STARTS HERE
+//------------------------------------------------------------------------------
 echo ("digraph course_".$courseid.PHP_EOL);
 print("{".PHP_EOL);
 //print("graph [fontname = \"helvetica\" nodesep=\"1.5\" ];".PHP_EOL);
@@ -335,7 +314,6 @@ foreach ($modinfo->cms as $id => $othercm) {
     }
 }
 
-//print_r($gvnodes); die;
 // Process the nodes
 print(PHP_EOL . "# All activities" . PHP_EOL);
 foreach ($gvnodes as $node => $attributes) 
@@ -365,8 +343,6 @@ foreach ($gvedges as $edge)
 
 
 // Aufteilen in Subcluster (=Themen)
-//print_r($gvsubgr); die;
-
 if ($advMap->content == "allSectionsGrouped")
 {
     print(PHP_EOL . "# Activites according to sections" . PHP_EOL);
@@ -409,3 +385,4 @@ if ($advMap->content == "allSectionsGrouped")
     }
 }
 print("}");
+
