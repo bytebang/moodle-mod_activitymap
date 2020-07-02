@@ -271,7 +271,7 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
                    
                     // Give the user a hint how long it is to wait
                     $daydiff = (int) (($condition->t - time()) / (60*60*24));
-                    $tstmpstyle["tooltip"] = htmlentities(get_string('this_is', 'actionmap')) . $daydiff . " " . htmlentities(get_string('days_from_now', 'actionmap'));
+                    $tstmpstyle["tooltip"] = htmlentities(get_string('this_is', 'actionmap')) . " " . $daydiff . " " . htmlentities(get_string('days_from_now', 'actionmap'));
                     
                     if($condition->d == "<")
                     {
