@@ -65,7 +65,7 @@ $string['condition_OR_label'] = '>=1';
 $string['condition_OR_tooltip'] = 'At least one incoming activitiy has to be completed';
 
 $string['this_is'] = 'this is';
-$string['from_now'] = 'days from now';
+$string['days_from_now'] = 'days from now';
 $string['before'] = 'before';
 $string['after'] = 'after';
 

@@ -271,11 +271,11 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
                    
                     // Give the user a hint how long it is to wait
                     $daydiff = (int) (($condition->t - time()) / (60*60*24));
-                    $tstmpstyle["tooltip"] = htmlentities(get_string('this_is', 'actionmap')) . $daydiff . htmlentities(get_string('days_from_now', 'actionmap'));
+                    $tstmpstyle["tooltip"] = htmlentities(get_string('this_is', 'actionmap')) . $daydiff . " " . htmlentities(get_string('days_from_now', 'actionmap'));
                     
                     if($condition->d == "<")
                     {
-                        $tstmpstyle["label"] = "&#8986; " . htmlentities(get_string('before', 'actionmap')) " " . str_replace(",", "<BR/>", userdate($condition->t));
+                        $tstmpstyle["label"] = "&#8986; " . htmlentities(get_string('before', 'actionmap')) . " " . str_replace(",", "<BR/>", userdate($condition->t));
                         if(time() < $condition->t)
                         {
                             $tstmpstyle["fontcolor"] = "black";
@@ -288,7 +288,7 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
                     }
                     else if ($condition->d == ">=")
                     {
-                        $tstmpstyle["label"] = "&#8986; " . htmlentities(get_string('after', 'actionmap')) " " .  str_replace(",", "<BR/>", userdate($condition->t));
+                        $tstmpstyle["label"] = "&#8986; " . htmlentities(get_string('after', 'actionmap')) . " " .  str_replace(",", "<BR/>", userdate($condition->t));
                         if(time() >= $condition->t )
                         {
                             $tstmpstyle["fontcolor"] = "black";
@@ -357,7 +357,6 @@ foreach ($modinfo->cms as $id => $othercm) {
         // Print description if we should
         if($othercm->showdescription)
         {
-            //$gvnodeattributes["label"] = $gvnodeattributes["label"] . "<BR/>" . convertToGraphvizTextitem($othercm->content);
             $gvnodeattributes["label"] = "<table border=\"0\" cellborder=\"0\" cellspacing=\"1\"> <tr><td align=\"center\">" . $gvnodeattributes["label"] . "</td></tr><hr/><tr><td balign=\"left\">" . convertToGraphvizTextitem($othercm->content) . "</td></tr></table>";
         }
 
