@@ -35,7 +35,7 @@ The font color of the nodes is representing the completion state:
 The default settings allow the user to create an overview about the whole course dependencies, grouped by the sections where the actions are appearing in. If you want to change this behaviour or the appearence of the graph then you have the following options
 
 #### Graph direction
-The main-direction of the graph can be either `Top -> Down` or `Left -> Right` and influences the visual appearence of the graph. If `Top -> Down` is selected then the graph is laid out from top to bottom - meaning that the directed edges  tend to go from top to bottom. 
+The main-direction of the graph can be either `Top -> Down` or `Left -> Right` (or the other way around) and influences the visual appearence of the graph. If `Top -> Down` is selected then the graph is laid out from top to bottom - meaning that the directed edges  tend to go from top to bottom. 
 
 #### Section background color
 It is possible to group the action nodes by their section they appear in. This option defines the background color of this grouping.

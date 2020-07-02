@@ -58,7 +58,9 @@ class mod_actionmap_mod_form extends moodleform_mod {
         //Direction
         $GraphDirections = array(
             "LR" => get_string('LR', 'actionmap'),
-            "UD" => get_string('UD', 'actionmap'),
+            "RL" => get_string('RL', 'actionmap'),
+            "TB" => get_string('TB', 'actionmap'),
+            "BT" => get_string('BT', 'actionmap'),
         );
 
         $mform->addElement('select', 'graphdirection', get_string('graphdirection', 'actionmap'), $GraphDirections);

@@ -26,7 +26,10 @@
 $string['actionmapsettings'] = 'Actionmap settings';
 $string['graphdirection'] = 'Graph direction';
 $string['LR'] = 'Left -> Right';
-$string['UD'] = 'Up -> Down';
+$string['RL'] = 'Right -> Left';
+$string['TB'] = 'Top -> Bottom';
+$string['BT'] = 'Bottom -> Top';
+
 
 $string['aliceblue'] = 'Aliceblue';
 $string['ghostwhite'] = 'Ghostwhite';

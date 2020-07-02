@@ -271,7 +271,10 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
 //------------------------------------------------------------------------------
 echo ("digraph course_".$courseid.PHP_EOL);
 print("{".PHP_EOL);
-print("graph [fontname = \"helvetica\" nodesep=\"".$advMap->nodeseperation."\" ];".PHP_EOL);
+print("graph [fontname = \"helvetica\" tooltip=\"" . $course->fullname . "\" ranksep=\"". ($advMap->nodeseperation) ."\" nodesep=\"" . ($advMap->nodeseperation*3) . "\" ];".PHP_EOL);
+//print("graph [fontname = \"helvetica\" tooltip=\"" . $course->fullname . "\" ranksep=\"".$advMap->nodeseperation."\" nodesep=\"".$advMap->nodeseperation."\" ];".PHP_EOL);
+//print("graph [fontname = \"helvetica\" tooltip=\"" . $course->fullname . "\" ranksep=\"2\" nodesep=\"5\" ];".PHP_EOL);
+
 print("node [fontname = \"helvetica\"];".PHP_EOL);
 print("edge [fontname = \"helvetica\"];".PHP_EOL);
 //Value for the  graphdirection from the Actionmap Database record is used
@@ -297,6 +300,7 @@ foreach ($modinfo->cms as $id => $othercm) {
         $gvnodeattributes = array(); //<! Graphviz node attributes         
         $gvnodeattributes["shape"] = $advMap->elementshape;
         $gvnodeattributes["label"] = $othercm->name;
+        $gvnodeattributes["tooltip"] = $othercm->name;
         
         // Remember in which section this cm is
         if(array_key_exists ($othercm->sectionnum , $gvsubgr) == false)
