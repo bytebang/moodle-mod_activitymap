@@ -45,6 +45,7 @@ $string['lightgray'] = 'Lightgray';
 $string['lightpink'] = 'Lightpink';
 $string['lightyellow'] = 'Lightyellow';
 $string['palegreen'] = 'Palegreen';
+$string['random'] = 'Random';
 $string['sectionbackgroundcolor'] = 'Section background color';
 
 $string['box'] = 'Box';

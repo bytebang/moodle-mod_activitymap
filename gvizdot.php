@@ -472,7 +472,16 @@ if ($advMap->content == "allSectionsGrouped")
             else
             {
                 print("  style=filled;" . PHP_EOL);
-                print("  color=".$advMap->sectionbackgroundcolor.";" . PHP_EOL);
+
+                if($advMap->sectionbackgroundcolor == "random")
+                {
+                    print("  color=\"#" . substr(str_shuffle('CCDDEEFF'), 0, 6) . "\";" . PHP_EOL);
+                }
+                else
+                {
+                    print("  color=".$advMap->sectionbackgroundcolor.";" . PHP_EOL);
+                }
+                
             }
             
             foreach($nodeids as $node) 
