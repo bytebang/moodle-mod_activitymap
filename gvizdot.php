@@ -382,11 +382,11 @@ if ($advMap->content == "allSectionsGrouped")
             // Print description if we should
             if($secInfo->summary)
             {
-                print("  label=< <B>" . $secInfo->name . " </B> <BR/>" . PHP_EOL . convertToGraphvizTextitem($secInfo->summary) . " >" . PHP_EOL);
+                print("  label=< <FONT POINT-SIZE=\"20\"><B>" . $secInfo->name . " </B></FONT> <BR/><BR/>" . PHP_EOL . convertToGraphvizTextitem($secInfo->summary) . " >" . PHP_EOL);
             }
             else
             {
-                print("  label=< <B>" . $secInfo->name . " </B> >" . PHP_EOL);
+                print("  label=< <FONT POINT-SIZE=\"20\"><B>" . $secInfo->name . " </B></FONT> >" . PHP_EOL);
             }
             
             // Hide nodes on hidden sections
@@ -399,7 +399,7 @@ if ($advMap->content == "allSectionsGrouped")
                 print("  style=filled;" . PHP_EOL);
                 print("  color=".$advMap->sectionbackgroundcolor.";" . PHP_EOL);
             }
-                    
+            
             foreach($nodeids as $node) 
             {   
                 print("  " . $node . ";" . PHP_EOL);
