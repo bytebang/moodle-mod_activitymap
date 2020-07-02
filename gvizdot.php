@@ -433,6 +433,7 @@ foreach ($gvedges as $edge)
     {
        print(" ". $attribute . "=\"" . $value . "\"");
     }
+    
     print(" ];".PHP_EOL);
 
 }
@@ -451,6 +452,8 @@ if ($advMap->content == "allSectionsGrouped")
         {
             print("subgraph cluster_section" . $subgraph . "{" . PHP_EOL);
 
+            print("  tooltip=<" . $secInfo->name . ">;" . PHP_EOL);
+            
             // Print description if we should
             if($secInfo->summary)
             {

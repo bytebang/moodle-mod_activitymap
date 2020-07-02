@@ -72,7 +72,7 @@ Yes - Create a label and place an `<iframe>` tag that references the actionmap. 
 Here an example `https://my.moodle.com/moodle/mod/actionmap/view.php?id=47&plain=1`
 
 #### Which activity restricions are beeing processed ?
-We only process the _Required completion_ restricion. Other restrictions are neither processed nor visualized.
+We only process the _Activity completion_ and the _Date_ restricion. Other restrictions are neither processed nor visualized.
 
 
 ## Authors
