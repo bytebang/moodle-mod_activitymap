@@ -71,6 +71,11 @@ $string['condition_AND_tooltip'] = 'All incoming activities have to be completed
 $string['condition_OR_label'] = '>=1';
 $string['condition_OR_tooltip'] = 'At least one incoming activitiy has to be completed';
 
+$string['this_is'] = 'this is';
+$string['days_from_now'] = 'days from now';
+$string['before'] = 'before';
+$string['after'] = 'after';
+
 $string['modulename'] = 'Actionmap';
 $string['modulename_help'] = 'The actionmap module enables a teacher to place activities on an image like a map. This can be used for adaptive gamified learning experiences.';
 $string['modulename_link'] = 'mod/actionmap/view';
