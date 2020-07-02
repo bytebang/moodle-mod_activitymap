@@ -107,7 +107,6 @@ function endsWith($haystack, $needle)
 */
 function convertToGraphvizTextitem($content)
 {
-
     // Define all the allowed tags
     $allowed_tags = array(
             '<BR/>'     => '::DO_A_LINE_BREAK::',
@@ -116,7 +115,7 @@ function convertToGraphvizTextitem($content)
             '<I>'       => '::ITALIC_START::',
             '</I>'      => '::ITALIC_END::',
             '<B>'       => '::BOLD_START::',
-            '</B>'      => '::BOLD_END::',
+            '</B> '     => '::BOLD_END::',
             '<O>'       => '::O_START::',
             '</O>'      => '::O_END::',
             '<U>'       => '::UNDERLINE_START::',
@@ -124,9 +123,9 @@ function convertToGraphvizTextitem($content)
             '<S>'       => '::STRIKETHROUGH_START::',
             '</S>'      => '::STRIKETHROUGH_END::',
             '<SUB>'     => '::SUBSCRIPT_START::',
-            '</SUB>'    => '::SUBSCRIPT_END::',
+            '</SUB> '    => '::SUBSCRIPT_END::',
             '<SUP>'     => '::SUPERSCRIPT_START::',
-            '</SUP>'    => '::SUPERSCRIPT_END::'
+            '</SUP> '    => '::SUPERSCRIPT_END::'
             ); 
     
     $ret = $content;
@@ -136,7 +135,27 @@ function convertToGraphvizTextitem($content)
     $ret = str_replace("</p>", "::DO_A_LINE_BREAK::", $ret);
     $ret = str_replace("<br/>", "::DO_A_LINE_BREAK::", $ret);
     $ret = str_replace("<br>", "::DO_A_LINE_BREAK::", $ret);
+    
+    $ret = str_replace("<strong>", "::BOLD_START::", $ret);
+    $ret = str_replace("</strong>", "::BOLD_END::", $ret);
+    
+    $ret = str_replace("<em>", "::ITALIC_START::", $ret);
+    $ret = str_replace("</em>", "::ITALIC_END::", $ret);
 
+    $ret = str_replace("<u>", "::UNDERLINE_START::", $ret);
+    $ret = str_replace("</u>", "::UNDERLINE_END::", $ret);
+        
+    $ret = str_replace("<del>", "::STRIKETHROUGH_START::", $ret);
+    $ret = str_replace("</del>", "::STRIKETHROUGH_END::", $ret);
+
+    $ret = str_replace("<sub>", "::SUBSCRIPT_START::", $ret);
+    $ret = str_replace("</sub>", "::SUBSCRIPT_END::", $ret);
+        
+    $ret = str_replace("<sup>", "::SUPERSCRIPT_START::", $ret);
+    $ret = str_replace("</sup>", "::SUPERSCRIPT_END::", $ret);
+
+    
+    
     // Strip all remeaning html tags
     $ret = strip_tags($ret);
     
