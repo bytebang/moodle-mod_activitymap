@@ -354,12 +354,6 @@ foreach ($modinfo->cms as $id => $othercm) {
         }
         array_push($gvsubgr[$othercm->sectionnum], "cm_" . $othercm->id);
 
-        // Print description if we should
-        if($othercm->showdescription)
-        {
-            $gvnodeattributes["label"] = "<table border=\"0\" cellborder=\"0\" cellspacing=\"1\"> <tr><td align=\"center\">" . $gvnodeattributes["label"] . "</td></tr><hr/><tr><td balign=\"left\">" . convertToGraphvizTextitem($othercm->content) . "</td></tr></table>";
-        }
-
         // Display available activities in black, others in grey 
         if ($othercm->uservisible == 1)
         {
@@ -370,11 +364,11 @@ foreach ($modinfo->cms as $id => $othercm) {
             $cdata = $completion->get_data($othercm, false, $USER->id);
             if ($cdata->completionstate == COMPLETION_COMPLETE || $cdata->completionstate == COMPLETION_COMPLETE_PASS) 
             {
-                $gvnodeattributes["fontcolor"] = "limegreen";
+                $gvnodeattributes["label"] = $gvnodeattributes["label"] . "<FONT COLOR=\"limegreen\" POINT-SIZE=\"30\">&nbsp; &#10004;</FONT> ";
             }
             else if($cdata->completionstate == COMPLETION_COMPLETE_FAIL)
             {
-                $gvnodeattributes["fontcolor"] = "crimson";
+                $gvnodeattributes["label"] = $gvnodeattributes["label"] . "<FONT COLOR=\"crimson\" POINT-SIZE=\"30\">&nbsp; &#10060;</FONT> ";
             }
             
         }
@@ -383,6 +377,13 @@ foreach ($modinfo->cms as $id => $othercm) {
             $gvnodeattributes["fontcolor"] = "grey";
         }
 
+        // Print description if we should
+        if($othercm->showdescription)
+        {
+            $gvnodeattributes["label"] = "<table border=\"0\" cellborder=\"0\" cellspacing=\"1\"> <tr><td align=\"center\">" . $gvnodeattributes["label"] . "</td></tr><hr/><tr><td balign=\"left\">" . convertToGraphvizTextitem($othercm->content) . "</td></tr></table>";
+        }
+        
+        
         // Check if the availability depends on the completen of other modules, and if they have to be explored
         if ($othercm->availability) 
         {

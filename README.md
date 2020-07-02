@@ -26,9 +26,12 @@ We have tried to display the same things in the graph, as you would display in y
 The font color of the nodes is representing the completion state:
 
 * grey: This activity is not available for the user because the preconditions have not been fulfilled. 
-* green: The activity has been (sucessfully) completed.
-* red: The activity has been completed, but the student failed.
 * black: This activity can be processed.
+
+additionally there can be two symbols:
+
+* green checkmark: The activity has been (sucessfully) completed.
+* red croxx: The activity has been completed, but the student failed.
 
 ### Module Settings
 
