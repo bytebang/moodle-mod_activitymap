@@ -262,6 +262,54 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
                         array_push($edges, ["cm_".$condition->cm, "cm_" . $basecm, array()]); 
                     }
                 }
+                else if($condition->type == "date")
+                {
+                    // Create nodes for timestamps
+                    $tstmpnode = "timestamp_" . $basecm . "_" . $level . "_" . $condition->t; 
+                    $tstmpstyle = array();
+                    $tstmpstyle["shape"] = "octagon";
+                   
+                    // Give the user a hint how long it is to wait
+                    $daydiff = (int) (($condition->t - time()) / (60*60*24));
+                    $tstmpstyle["tooltip"] = "this is " . $daydiff . " days from now";
+                    
+                    if($condition->d == "<")
+                    {
+                        $tstmpstyle["label"] = "&#8986; before " . str_replace(",", "<BR/>", userdate($condition->t));
+                        if(time() < $condition->t)
+                        {
+                            $tstmpstyle["fontcolor"] = "black";
+                        }
+                        else
+                        {
+                            $tstmpstyle["fontcolor"] = "grey";
+                        } 
+                        
+                    }
+                    else if ($condition->d == ">=")
+                    {
+                        $tstmpstyle["label"] = "&#8986; after " .  str_replace(",", "<BR/>", userdate($condition->t));
+                        if(time() >= $condition->t )
+                        {
+                            $tstmpstyle["fontcolor"] = "black";
+                        }
+                        else
+                        {
+                            $tstmpstyle["fontcolor"] = "grey";
+                        } 
+                    }
+
+
+                    
+                    // Insert the node into the nodes list
+                    $nodes[$tstmpnode] = $tstmpstyle;
+                    
+                    // And the dependency into the dependency list
+                    array_push($edges, [$tstmpnode, $basecm, array()]); 
+                    
+                    // joinnodes belong to the same subgraph as the node where they originate from
+                    array_push($subgraph, $tstmpnode); 
+                }
             }
         }
     }
