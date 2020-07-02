@@ -364,11 +364,11 @@ foreach ($modinfo->cms as $id => $othercm) {
             $cdata = $completion->get_data($othercm, false, $USER->id);
             if ($cdata->completionstate == COMPLETION_COMPLETE || $cdata->completionstate == COMPLETION_COMPLETE_PASS) 
             {
-                $gvnodeattributes["label"] = $gvnodeattributes["label"] . "<FONT COLOR=\"limegreen\" POINT-SIZE=\"30\">&nbsp; &#10004;</FONT> ";
+                $gvnodeattributes["label"] = $gvnodeattributes["label"] . "<FONT COLOR=\"limegreen\" POINT-SIZE=\"25\">&nbsp; &#10004;</FONT> ";
             }
             else if($cdata->completionstate == COMPLETION_COMPLETE_FAIL)
             {
-                $gvnodeattributes["label"] = $gvnodeattributes["label"] . "<FONT COLOR=\"crimson\" POINT-SIZE=\"30\">&nbsp; &#10060;</FONT> ";
+                $gvnodeattributes["label"] = $gvnodeattributes["label"] . "<FONT COLOR=\"crimson\" POINT-SIZE=\"25\">&nbsp; &#10060;</FONT> ";
             }
             
         }
