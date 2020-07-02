@@ -19,10 +19,16 @@ We have good news for you - you do not need to draw or create a graph by your ow
 
 As you surely know, actions like Assignments, Pages, URLs, ...  can have (nested) restrictions under which circumstances the activity is enabled. If the restricion is of the type _Required completion Status_ then we draw a directed edge to the current action from the action which is required to be completed. 
 
-If there are no restrictions, then we only draw the activity boxes - without edged between them.
+If there are no restrictions, then we only draw the activity boxes - without edges between them.
 
-We have tried to display the same things in the graph, as you would display in your course. If you add a description to an activity or an a section (and the description is shown on the course page) then it will also be shown in the graph. for security reasins we only display the plain text - without any html tahs that you may have used to spice up the format.
+We have tried to display the same things in the graph, as you would display in your course. If you add a description to an activity or an a section (and the description is shown on the course page) then it will also be shown in the graph. for security reasons we only display the plain text with a few HTML attributes (`<strong>`, `<em>`, `<u>`, `<del>`, `<sub>`, `<sup>`). All other elements are stripped.
 
+The font color of the nodes is representing the completion state:
+
+* grey: This activity is not available for the user because the preconditions have not been fulfilled. 
+* green: The activity has been (sucessfully) completed.
+* red: The activity has been completed, but the student failed.
+* black: This activity can be processed.
 
 ### Module Settings
 

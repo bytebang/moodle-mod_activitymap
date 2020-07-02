@@ -28,6 +28,7 @@ require('../../config.php');
 
 use availability_completion\condition;
 require_once($CFG->libdir . '/completionlib.php');
+
 $debug = optional_param('debug', false, PARAM_BOOL);
 
 $id       = optional_param('id', 0, PARAM_INT);        // Course module ID
@@ -44,6 +45,7 @@ require_capability('mod/actionmap:view', $context);
 $PAGE->set_url('/mod/actionmap/gvizdot.php', array('id' => $cm->id));
 $modinfo = get_fast_modinfo($courseid);
 
+$completion = new completion_info($course);
 
 //------------------------------------------------------------------------------
 //              LINKS AND DOCUMENTATION
@@ -314,12 +316,24 @@ foreach ($modinfo->cms as $id => $othercm) {
         {
             $gvnodeattributes["fontcolor"] = "black";
             $gvnodeattributes["URL"] = $othercm->url;
+            
+            // Print completed activities in green
+            $cdata = $completion->get_data($othercm, false, $USER->id);
+            if ($cdata->completionstate == COMPLETION_COMPLETE || $cdata->completionstate == COMPLETION_COMPLETE_PASS) 
+            {
+                $gvnodeattributes["fontcolor"] = "limegreen";
+            }
+            else if($cdata->completionstate == COMPLETION_COMPLETE_FAIL)
+            {
+                $gvnodeattributes["fontcolor"] = "crimson";
+            }
+            
         }
         else
         {
             $gvnodeattributes["fontcolor"] = "grey";
         }
-        
+
         // Check if the availability depends on the completen of other modules, and if they have to be explored
         if ($othercm->availability) 
         {
