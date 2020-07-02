@@ -65,6 +65,18 @@ class mod_actionmap_mod_form extends moodleform_mod {
 
         $mform->addElement('select', 'graphdirection', get_string('graphdirection', 'actionmap'), $GraphDirections);
         
+        //Splines setting
+        $EdgeStyle = array(
+            "spline" => get_string('spline', 'actionmap'),
+            "ortho" => get_string('ortho', 'actionmap'),
+            "curved" => get_string('curved', 'actionmap'),
+            "polyline" => get_string('polyline', 'actionmap'),
+            "line" => get_string('line', 'actionmap'),
+            "none" => get_string('none', 'actionmap'),
+        );
+
+        $mform->addElement('select', 'edgestyle', get_string('edgestyle', 'actionmap'), $EdgeStyle);
+
         //BackgroundColors
         $BackgroundColors = array(
             "aliceblue" => get_string('aliceblue', 'actionmap'),

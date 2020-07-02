@@ -13,9 +13,10 @@
         <FIELD NAME="intro" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="tandard field to hold the activity's description (see FEATURE_MOD_INTRO)"/>
         <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" SEQUENCE="false" COMMENT="the format of the text in the intro field"/>
         <FIELD NAME="graphdirection" TYPE="char" LENGTH="2" NOTNULL="false" DEFAULT="UD" SEQUENCE="false" COMMENT="LR / UD"/>
-        <FIELD NAME="content" TYPE="char" LENGTH="30" NOTNULL="false" DEFAULT="allSectionsGrouped" COMMENT="renderCurrent Section or complete Course"/>
+        <FIELD NAME="content" TYPE="char" LENGTH="30" NOTNULL="false" DEFAULT="allSectionsGrouped" SEQUENCE="false" COMMENT="renderCurrent Section or complete Course"/>
         <FIELD NAME="nodeseperation" TYPE="number" LENGTH="10" NOTNULL="false" DEFAULT="1.5" SEQUENCE="false" DECIMALS="1" COMMENT="the Node Seperation Parameter for Graphviz"/>
         <FIELD NAME="sectionbackgroundcolor" TYPE="char" LENGTH="30" NOTNULL="false" DEFAULT="aliceblue" SEQUENCE="false" COMMENT="backgroundcolor for sections"/>
+        <FIELD NAME="edgestyle" TYPE="char" LENGTH="30" NOTNULL="false" DEFAULT="spline" SEQUENCE="false" COMMENT="edge style for the graph"/>
         <FIELD NAME="elementshape" TYPE="char" LENGTH="20" NOTNULL="false" DEFAULT="box" SEQUENCE="false"/>
       </FIELDS>
       <KEYS>

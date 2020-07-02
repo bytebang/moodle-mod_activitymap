@@ -30,6 +30,13 @@ $string['RL'] = 'Right -> Left';
 $string['TB'] = 'Top -> Bottom';
 $string['BT'] = 'Bottom -> Top';
 
+$string['edgestyle'] = 'Edge style';
+$string['spline'] = 'Spline';
+$string['ortho'] = 'Orthogonal';
+$string['curved'] = 'Curved';
+$string['polyline'] = 'Polyline';
+$string['line'] = 'Line';
+$string['none'] = 'None';
 
 $string['aliceblue'] = 'Aliceblue';
 $string['ghostwhite'] = 'Ghostwhite';
