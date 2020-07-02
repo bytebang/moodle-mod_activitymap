@@ -175,7 +175,7 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
         // If there is more than one condition then we want to
         if(count($cond->c) > 1)
         {
-            //print("basecm: " . $basecm . PHP_EOL);
+            // print("basecm: " . $basecm . PHP_EOL);
             // Bei OR einen Knoten einfügen
             
             $joinstyle = array();
@@ -250,16 +250,14 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
 //------------------------------------------------------------------------------
 echo ("digraph course_".$courseid.PHP_EOL);
 print("{".PHP_EOL);
-//print("graph [fontname = \"helvetica\" nodesep=\"1.5\" ];".PHP_EOL);
 print("graph [fontname = \"helvetica\" nodesep=\"".$advMap->nodeseperation."\" ];".PHP_EOL);
 print("node [fontname = \"helvetica\"];".PHP_EOL);
 print("edge [fontname = \"helvetica\"];".PHP_EOL);
 //Value for the  graphdirection from the Actionmap Database record is used
-print("rankdir=".$advMap->graphdirection."; // Top to Bottom".PHP_EOL);
+print("rankdir=".$advMap->graphdirection.";".PHP_EOL);
 
 
 // Process the conditions
-
 $gvnodes = array(); //<! Nodes which should be rendered
 $gvedges = array(); //<! Graphviz links between the course modules    
 $gvsubgr = array(); //<! List of Subgraphs with the course modules in it
@@ -268,6 +266,12 @@ foreach ($modinfo->cms as $id => $othercm) {
     // Add each course-module if it has completion turned on and is not
     // the one currently being edited.
     if ($othercm->completion && (empty($cm) || $cm->id != $id) && !$othercm->deletioninprogress && $othercm->visible) {
+
+        // If mode is to display only the current section content, then we dont need to process the others
+        if($advMap->content == "currentSection" && $cm->section != $othercm->section)
+        {
+            continue;
+        } 
 
         $gvnodeattributes = array(); //<! Graphviz node attributes         
         $gvnodeattributes["shape"] = $advMap->elementshape;
@@ -279,7 +283,7 @@ foreach ($modinfo->cms as $id => $othercm) {
             $gvsubgr[$othercm->sectionnum] = array();
         }
         array_push($gvsubgr[$othercm->sectionnum], "cm_" . $othercm->id);
-        
+
         // Print description if we should
         if($othercm->showdescription)
         {
@@ -297,7 +301,7 @@ foreach ($modinfo->cms as $id => $othercm) {
             $gvnodeattributes["fontcolor"] = "grey";
         }
         
-        // Check if the availability depends on the completen of other modules
+        // Check if the availability depends on the completen of other modules, and if they have to be explored
         if ($othercm->availability) 
         {
             // User cannot access the activity, but on the course page they will
@@ -319,7 +323,7 @@ print(PHP_EOL . "# All activities" . PHP_EOL);
 foreach ($gvnodes as $node => $attributes) 
 {
         // Graphviz Knoten mit den Attributen aus $gvnodeattributes rendern
-		print($node . " [");
+		print(" " . $node . " [");
         foreach ($attributes as $attrib => $value) 
         {
            print(" ". $attrib . "=\"" . $value . "\"");
@@ -334,14 +338,15 @@ print(PHP_EOL . "# Things that need to be completed" . PHP_EOL);
 foreach ($gvedges as $edge) 
 {
     print(" " . $edge[0] . " -> " . $edge[1] . " [");
-        foreach ($edge[2] as $attribute => $value) {
-           print(" ". $attribute . "=\"" . $value . "\"");
-        }
-        print(" ];".PHP_EOL);
+    foreach ($edge[2] as $attribute => $value) 
+    {
+       print(" ". $attribute . "=\"" . $value . "\"");
+    }
+    print(" ];".PHP_EOL);
 
 }
-
-
+        
+        
 // Aufteilen in Subcluster (=Themen)
 if ($advMap->content == "allSectionsGrouped")
 {
@@ -349,7 +354,7 @@ if ($advMap->content == "allSectionsGrouped")
     foreach($gvsubgr as $subgraph => $nodeids) 
     {
         $secInfo = $modinfo->get_section_info($subgraph);
-        
+
         // If the section has a name, then we are grouping
         if($secInfo->name)
         {
@@ -385,4 +390,6 @@ if ($advMap->content == "allSectionsGrouped")
     }
 }
 print("}");
+
+
 

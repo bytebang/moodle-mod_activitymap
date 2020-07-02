@@ -40,8 +40,14 @@ The actions can appear in different shapes. Here you can define which shape shou
 #### Node seperation
 This setting defines the minimum space between two adjacent nodes. If you think that the nodes are too close to each other then try to play with this setting ba increasing it.
 
-Content 
-: Defines what content of the course should be queried to calculate the graph. `All sections` draws a graph where all actions of all sections are rendered into a single graph. `All sections grouped` draws also a graph with all activities - but it groups them togehter into their sections. The background color can be modified by the _Section background color_ setting. The `Current section` option draws a graph which shows only the activities within the section where the actionmap is placed. This is still an experimental feature !
+#### Content 
+
+This setting defines what content of the course should be queried to calculate the graph. There are three different settings available:
+
+* `All sections` draws a graph where all actions of all sections are rendered into a single graph. 
+* `All sections grouped` draws also a graph with all activities - but it groups them togehter into their sections. The background color can be modified by the _Section background color_ setting.
+* `Current section` draws a graph which shows only the activities within the section where the actionmap is placed and its direct dependencies. If there are references from outside the current section, then the nodes will have caption like "cm_XX". This works best if the activities in the current sections do not have any dependencies onto activities outside of the section.
+
 
 ### Frequently Asked Questions
 
