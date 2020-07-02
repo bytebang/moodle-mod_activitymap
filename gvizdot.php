@@ -271,7 +271,7 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
 //------------------------------------------------------------------------------
 echo ("digraph course_".$courseid.PHP_EOL);
 print("{".PHP_EOL);
-print("graph [fontname = \"helvetica\" tooltip=\"" . $course->fullname . "\" ranksep=\"". ($advMap->nodeseperation) ."\" nodesep=\"" . ($advMap->nodeseperation*3) . "\" ];".PHP_EOL);
+print("graph [fontname = \"helvetica\" tooltip=\"" . $course->fullname . "\" ranksep=\"". ($advMap->nodeseperation) ."\" nodesep=\"" . ($advMap->nodeseperation) . "\" ];".PHP_EOL);
 //print("graph [fontname = \"helvetica\" tooltip=\"" . $course->fullname . "\" ranksep=\"".$advMap->nodeseperation."\" nodesep=\"".$advMap->nodeseperation."\" ];".PHP_EOL);
 //print("graph [fontname = \"helvetica\" tooltip=\"" . $course->fullname . "\" ranksep=\"2\" nodesep=\"5\" ];".PHP_EOL);
 
