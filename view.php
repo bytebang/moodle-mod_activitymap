@@ -87,7 +87,6 @@ $module = $DB->get_record('actionmap', array('id'=>$cm->instance), '*', MUST_EXI
                   zoomEnabled: true,
                   controlIconsEnabled: true,
                   fit: true,
-                  contain: true,
                   center: true,
                   minZoom: 0.1
                 });

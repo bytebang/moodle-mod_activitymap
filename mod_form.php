@@ -108,7 +108,7 @@ class mod_actionmap_mod_form extends moodleform_mod {
 
         //Node Seperation
         $mform->addElement('float', 'nodeseperation', get_string('nodeseperation', 'actionmap'));
-        $mform->setDefault('nodeseperation', 1.5);
+        $mform->setDefault('nodeseperation', 1.0);
 
         //contentSetting
         $contentSetting = array(

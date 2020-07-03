@@ -48,19 +48,6 @@ $modinfo = get_fast_modinfo($courseid);
 $completion = new completion_info($course);
 
 //------------------------------------------------------------------------------
-//              LINKS AND DOCUMENTATION
-//------------------------------------------------------------------------------
-
-// https://docs.moodle.org/dev/Conditional_activities_API -> Deprecated
-
-// Test für Conditions: https://github.com/moodle/moodle/blob/6153be6850869cdc3a6ae925dcf6e688ac481333/availability/condition/completion/tests/condition_test.php
-// Zugriffsbaum für Conditions: https://github.com/moodle/moodle/blob/6153be6850869cdc3a6ae925dcf6e688ac481333/availability/classes/tree.php
-// Coole doku für die Klassen: https://wimski.org/api/3.8/d8/d46/classcore__availability_1_1info.html
-
-// Interessante Tabellen: mdl_{course, couse_modules, course_sections, assign}
-
-
-//------------------------------------------------------------------------------
 //              DEBUGGING STUFF
 //------------------------------------------------------------------------------
 
@@ -134,9 +121,12 @@ function convertToGraphvizTextitem($content)
     //return $ret;
     // Now do the replacements of your choice
     
+    
+    $ret = str_replace("<br></div>", "::DO_A_LINE_BREAK::", $ret);
     $ret = str_replace("</p>", "::DO_A_LINE_BREAK::", $ret);
     $ret = str_replace("<br/>", "::DO_A_LINE_BREAK::", $ret);
     $ret = str_replace("<br>", "::DO_A_LINE_BREAK::", $ret);
+    $ret = str_replace("</div>", "::DO_A_LINE_BREAK::", $ret);
     
     $ret = str_replace("<strong>", "::BOLD_START::", $ret);
     $ret = str_replace("</strong>", "::BOLD_END::", $ret);
@@ -211,8 +201,8 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
             if($cond->op == "|")
             {
                 $joinnode = "condition_" . $level . "_OR_" . $basecm; 
-                $joinstyle["label"] = get_string('condition_OR_label', 'actionmap');
-                $joinstyle["tooltip"] = get_string('condition_OR_tooltip', 'actionmap'); 
+                $joinstyle["label"] = htmlentities(get_string('condition_OR_label', 'actionmap'));
+                $joinstyle["tooltip"] = htmlentities(get_string('condition_OR_tooltip', 'actionmap')); 
             }
             
             // Add the joinnode to the list of nodes
@@ -318,7 +308,7 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
 //------------------------------------------------------------------------------
 echo ("digraph course_".$courseid.PHP_EOL);
 print("{".PHP_EOL);
-print("graph [fontname = \"helvetica\" tooltip=\"" . $course->fullname . "\" ranksep=\"". ($advMap->nodeseperation) ."\" nodesep=\"" . ($advMap->nodeseperation) . "\" splines=\"" . ($advMap->edgestyle)."\" ];".PHP_EOL);
+print("graph [fontname = \"helvetica\" tooltip=\"" . $course->fullname . "\" ranksep=\"". ($advMap->nodeseperation*0.5) ."\" nodesep=\"" . ($advMap->nodeseperation*0.25) . "\" splines=\"" . ($advMap->edgestyle)."\" ];".PHP_EOL);
 
 print("node [fontname = \"helvetica\"];".PHP_EOL);
 print("edge [fontname = \"helvetica\"];".PHP_EOL);
@@ -364,11 +354,11 @@ foreach ($modinfo->cms as $id => $othercm) {
             $cdata = $completion->get_data($othercm, false, $USER->id);
             if ($cdata->completionstate == COMPLETION_COMPLETE || $cdata->completionstate == COMPLETION_COMPLETE_PASS) 
             {
-                $gvnodeattributes["label"] = $gvnodeattributes["label"] . "<FONT COLOR=\"limegreen\" POINT-SIZE=\"25\">&nbsp; &#10004;</FONT> ";
+                $gvnodeattributes["label"] = $gvnodeattributes["label"] . "<FONT COLOR=\"limegreen\" POINT-SIZE=\"20\">&nbsp; &#10004;</FONT> ";
             }
             else if($cdata->completionstate == COMPLETION_COMPLETE_FAIL)
             {
-                $gvnodeattributes["label"] = $gvnodeattributes["label"] . "<FONT COLOR=\"crimson\" POINT-SIZE=\"25\">&nbsp; &#10060;</FONT> ";
+                $gvnodeattributes["label"] = $gvnodeattributes["label"] . "<FONT COLOR=\"crimson\" POINT-SIZE=\"20\">&nbsp; &#10060;</FONT> ";
             }
             
         }
