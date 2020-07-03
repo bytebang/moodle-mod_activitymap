@@ -67,10 +67,12 @@ $string['currentSection'] = 'Current section';
 
 $string['content'] = 'Content';
 
-$string['condition_AND_label'] = '&';
+$string['condition_AND_label'] = ' & ';
 $string['condition_AND_tooltip'] = 'All incoming activities have to be completed';
 $string['condition_OR_label'] = '>=1';
 $string['condition_OR_tooltip'] = 'At least one incoming activitiy has to be completed';
+
+$string['action_from_other_section'] = 'This action is from another section';
 
 $string['this_is'] = 'this is';
 $string['days_from_now'] = 'days from now';

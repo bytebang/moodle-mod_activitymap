@@ -58,7 +58,7 @@ This setting defines what content of the course should be queried to calculate t
 
 * `All sections` draws a graph where all actions of all sections are rendered into a single graph. 
 * `All sections grouped` draws also a graph with all activities - but it groups them togehter into their sections. The background color can be modified by the _Section background color_ setting.
-* `Current section` draws a graph which shows only the activities within the section where the actionmap is placed and its direct dependencies. If there are references from outside the current section, then the nodes will have caption like "cm_XX". This works best if the activities in the current sections do not have any dependencies onto activities outside of the section.
+* `Current section` draws a graph which shows only the activities within the section where the actionmap is placed and its direct dependencies. If there are references from outside the current section, then these nodes will be elipse-shaped with a grey font have a dotted border. The color of this outside nodes does have nothing to do with their completion status.
 
 
 ### Frequently Asked Questions

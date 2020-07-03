@@ -212,9 +212,8 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
             // Add the joinnode to the list of nodes
             $joinstyle["shape"] = "circle";
             $joinstyle["style"] = "filled";
-            $joinstyle["color"] = "lightgrey";
-            $joinstyle["fixedsize"] = "true";
-            $joinstyle["width"] = "0.5";
+            $joinstyle["fillcolor"] = "lightgrey";
+
             $nodes[$joinnode] = $joinstyle;
             
             // Link the joinnode to the basenode
@@ -292,6 +291,7 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
                             $tstmpstyle["fontcolor"] = "grey";
                         } 
                     }
+                    
                     
                     // Insert the node into the nodes list
                     $nodes[$tstmpnode] = $tstmpstyle;
@@ -395,6 +395,7 @@ foreach ($modinfo->cms as $id => $othercm) {
     }
 }
 
+
 // Process the nodes
 print(PHP_EOL . "# All activities" . PHP_EOL);
 foreach ($gvnodes as $node => $attributes) 
@@ -418,11 +419,21 @@ foreach ($gvnodes as $node => $attributes)
 }
 
 
-
 // Process the conditions
 print(PHP_EOL . "# Things that need to be completed" . PHP_EOL);
+$nodesWithoutInfo = array();
 foreach ($gvedges as $edge) 
 {
+
+    // Look if we have a edge without a node that has beed processed.
+    // this is sometime the case when we display only the current section
+    // so lets remember this one and add a node later
+    if(array_key_exists($edge[0], $gvnodes) == false)
+    {
+        array_push($nodesWithoutInfo, $edge[0]);
+    }
+    
+    // And finally paint the edge
     print(" " . $edge[0] . " -> " . $edge[1] . " [");
     foreach ($edge[2] as $attribute => $value) 
     {
@@ -432,7 +443,28 @@ foreach ($gvedges as $edge)
     print(" ];".PHP_EOL);
 
 }
-        
+
+
+// Add the missing nodes (in order to avoid nodes with just a 
+// non-meaningful name like cm_54
+print(PHP_EOL . "# Dependent nodes which are not part of the current selection" . PHP_EOL);
+foreach ($nodesWithoutInfo as $node) 
+{
+    // Try to read info from this node
+    if(startswith($node, "cm_")) // cm indicates a course module
+    {
+        $nodeid = substr($node, 3, strlen($node));
+        // Lets find out the name of the course module
+        print($node . " [style=\"dotted\" fontcolor=\"slategrey\" label=<<I>" . $modinfo->cms[$nodeid]->name . "</I>> tooltip=\"" . get_string('action_from_other_section', 'actionmap') . "\"]" . PHP_EOL);
+
+    }
+    else
+    {    
+        // actually we should not end up here
+        print($node . " [style=\"dotted\" fontcolor=\"red\" label=\"" . $node . "\" tooltip=\"" . get_string('action_from_other_section', 'actionmap') . "\" ]" . PHP_EOL);
+    }
+}
+      
         
 // Aufteilen in Subcluster (=Themen)
 if ($advMap->content == "allSectionsGrouped")

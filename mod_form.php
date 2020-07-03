@@ -94,7 +94,6 @@ class mod_actionmap_mod_form extends moodleform_mod {
         //Element Shapes
         $ElementShapes = array(
             "box" => get_string('box', 'actionmap'),
-            "hexagon" => get_string('hexagon', 'actionmap'),
             "ellipse" => get_string('ellipse', 'actionmap'),
             "diamond" => get_string('diamond', 'actionmap'),
             "parallelogram" => get_string('parallelogram', 'actionmap'),
