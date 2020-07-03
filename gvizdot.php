@@ -118,16 +118,20 @@ function convertToGraphvizTextitem($content)
             ); 
     
     $ret = $content;
-    //return $ret;
+    
+
+    // first: Remove all attributes of the html tags (=fragile !)
+    $ret = preg_replace('/<(\w+)[^>]*>/', '<$1>', $ret);
+
     // Now do the replacements of your choice
-    
-    
     $ret = str_replace("<br></div>", "::DO_A_LINE_BREAK::", $ret);
     $ret = str_replace("</p>", "::DO_A_LINE_BREAK::", $ret);
     $ret = str_replace("<br/>", "::DO_A_LINE_BREAK::", $ret);
     $ret = str_replace("<br>", "::DO_A_LINE_BREAK::", $ret);
     $ret = str_replace("</div>", "::DO_A_LINE_BREAK::", $ret);
-    
+
+    $ret = str_replace("<b>", "::BOLD_START::", $ret);
+    $ret = str_replace("</b>", "::BOLD_END::", $ret);    
     $ret = str_replace("<strong>", "::BOLD_START::", $ret);
     $ret = str_replace("</strong>", "::BOLD_END::", $ret);
     
@@ -149,9 +153,11 @@ function convertToGraphvizTextitem($content)
     $ret = str_replace("<li>", "&#8226; ", $ret);
     $ret = str_replace("</li>", "::DO_A_LINE_BREAK::", $ret);    
     
+
     // Strip all remeaning html tags
     $ret = strip_tags($ret);
     
+
     // and replace the paceholders with the one which are understood by GV
     $ret = str_replace(array_values($allowed_tags), array_keys($allowed_tags), $ret);
     
