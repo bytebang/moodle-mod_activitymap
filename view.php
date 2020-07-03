@@ -77,8 +77,17 @@ $module = $DB->get_record('actionmap', array('id'=>$cm->instance), '*', MUST_EXI
             // We have received something
             //alert(xmlhttp.responseText);   
             var viz = new Viz();
-        
-            viz.renderSVGElement(xmlhttp.responseText)
+<?php
+// Within plain it is enough to render an image
+if($plainrendering == true)
+{
+    echo "            viz.renderImageElement(xmlhttp.responseText)".PHP_EOL;
+}
+else
+{
+    echo "            viz.renderSVGElement(xmlhttp.responseText)".PHP_EOL;
+}
+?>
             .then(function(element) {
                 document.getElementById("actionmap").appendChild(element);
                 
