@@ -117,14 +117,12 @@ function convertToGraphvizTextitem($content)
             '</SUP>&nbsp;'    => '::SUPERSCRIPT_END::'
             ); 
     
-    $ret = $content;
-    
-
     // first: Remove all attributes of the html tags (=fragile !)
-    $ret = preg_replace('/<(\w+)[^>]*>/', '<$1>', $ret);
+    $ret = preg_replace('/<(\w+)[^>]*>/', '<$1>', $content);
 
     // Now do the replacements of your choice
-    $ret = str_replace("<br></div>", "::DO_A_LINE_BREAK::", $ret);
+    $ret = str_replace("<br></div>", "::DO_A_LINE_BREAK::", $ret); 
+    $ret = str_replace("<br></p>", "::DO_A_LINE_BREAK::", $ret);
     $ret = str_replace("</p>", "::DO_A_LINE_BREAK::", $ret);
     $ret = str_replace("<br/>", "::DO_A_LINE_BREAK::", $ret);
     $ret = str_replace("<br>", "::DO_A_LINE_BREAK::", $ret);
