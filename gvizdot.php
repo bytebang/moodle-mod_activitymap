@@ -480,6 +480,7 @@ if ($advMap->content == "allSectionsGrouped")
             print("subgraph cluster_section" . $subgraph . "{" . PHP_EOL);
 
             print("  tooltip=<" . $secInfo->name . ">;" . PHP_EOL);
+            print("  margin=\"1,1\";".PHP_EOL);
             
             // Print description if we should
             if($secInfo->summary)
@@ -488,7 +489,7 @@ if ($advMap->content == "allSectionsGrouped")
             }
             else
             {
-                print("  label=< <FONT POINT-SIZE=\"20\"><B>" . $secInfo->name . " </B></FONT> >" . PHP_EOL);
+                print("  label=< <FONT POINT-SIZE=\"20\"><B><U>" . $secInfo->name . "</U></B></FONT> >" . PHP_EOL);
             }
             
             // Hide nodes on hidden sections
@@ -502,7 +503,11 @@ if ($advMap->content == "allSectionsGrouped")
 
                 if($advMap->sectionbackgroundcolor == "random")
                 {
-                    print("  color=\"#" . substr(str_shuffle('CCDDEEFF'), 0, 6) . "\";" . PHP_EOL);
+                    // Pseudo random color: same sectionname should give the same color
+                    $color = strtoupper(md5($secInfo->name));
+                    $color = preg_replace("/[^C-F]/", '', $color);
+                    $color = substr($color . "ABCDEF", 0, 6);
+                    print("  color=\"#" . $color . "\";" . PHP_EOL);
                 }
                 else
                 {
