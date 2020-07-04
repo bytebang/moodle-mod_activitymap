@@ -478,9 +478,7 @@ if ($advMap->content == "allSectionsGrouped")
         if($secInfo->name)
         {
             print("subgraph cluster_section" . $subgraph . "{" . PHP_EOL);
-
             print("  tooltip=<" . $secInfo->name . ">;" . PHP_EOL);
-            print("  margin=\"1,1\";".PHP_EOL);
             
             // Print description if we should
             if($secInfo->summary)

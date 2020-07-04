@@ -41,7 +41,7 @@ The default settings allow the user to create an overview about the whole course
 The main-direction of the graph can be either `Top -> Down` or `Left -> Right` (or the other way around) and influences the visual appearence of the graph. If `Top -> Down` is selected then the graph is laid out from top to bottom - meaning that the directed edges  tend to go from top to bottom. 
 
 #### Section background color
-It is possible to group the action nodes by their section they appear in. This option defines the background color of this grouping. If you choose `Random`, then every block will have its distinct color.
+It is possible to group the action nodes by their section they appear in. This option defines the background color of this grouping. If you choose `Random`, then every block will have its distinct color - but blocks with the same name will have the same color.
 
 #### Element shape
 The actions can appear in different shapes. Here you can define which shape should be used.
