@@ -503,7 +503,7 @@ if ($advMap->content == "allSectionsGrouped")
                 {
                     // Pseudo random color: same sectionname should give the same color
                     $color = strtoupper(md5($secInfo->name));
-                    $color = preg_replace("/[^C-F]/", '', $color);
+                    $color = preg_replace("/[^B-F]/", '', $color);
                     $color = substr($color . "ABCDEF", 0, 6);
                     print("  color=\"#" . $color . "\";" . PHP_EOL);
                 }
