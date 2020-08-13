@@ -23,6 +23,8 @@ If there are no restrictions, then we only draw the activity boxes - without any
 
 We have tried to display the same things in the graph, as you would display in your course. If you add a description to an activity or an a section (and the description is shown on the course page) then it will also be shown in the graph. for security reasons we only display the plain text with a few HTML attributes (`<strong>`, `<em>`, `<u>`, `<del>`, `<sub>`, `<sup>`). All other elements are stripped.
 
+![Formatting Demo](pix/formatting_demo.png)
+
 The font color of the nodes is representing the completion state:
 
 * grey: This activity is not available for the user because the preconditions have not been fulfilled. 
