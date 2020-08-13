@@ -44,7 +44,7 @@ The main-direction of the graph can be either `Top -> Down` or `Left -> Right` (
 #### Section background color
 It is possible to group the action nodes by their section they appear in. This option defines the background color for this grouping. If you choose `Random`, then every block will have a distinct color - but blocks with the same name will have the same color.
 
-|               |                                           |
+| Name          | Color                                     |
 | ------------- | ----------------------------------------- |
 | Aliceblue     | ![Aliceblue](pix/aliceblue.png)           |
 | Ghostwhite    | ![Ghostwhite](pix/ghostwhite.png)         |
@@ -57,7 +57,7 @@ It is possible to group the action nodes by their section they appear in. This o
 #### Element shape
 The actions can appear in different shapes. Here you can define which shape should be used.
 
-|               |                                           |
+| Name          | Shape                                     |
 | ------------- | ----------------------------------------- |
 | Box           | ![Box](pix/box.gif)                       |
 | Ellipse       | ![Ellipse](pix/ellipse.gif)               |
