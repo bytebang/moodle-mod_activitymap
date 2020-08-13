@@ -79,6 +79,7 @@ class mod_actionmap_mod_form extends moodleform_mod {
 
         //BackgroundColors
         $BackgroundColors = array(
+            "random" => get_string('random', 'actionmap'),
             "aliceblue" => get_string('aliceblue', 'actionmap'),
             "ghostwhite" => get_string('ghostwhite', 'actionmap'),
             "beige" => get_string('beige', 'actionmap'),
@@ -86,7 +87,6 @@ class mod_actionmap_mod_form extends moodleform_mod {
             "lightpink" => get_string('lightpink', 'actionmap'),
             "lightyellow" => get_string('lightyellow', 'actionmap'),
             "palegreen" => get_string('palegreen', 'actionmap'),
-            "random" => get_string('random', 'actionmap'),
         );
 
         $mform->addElement('select', 'sectionbackgroundcolor', get_string('sectionbackgroundcolor', 'actionmap'), $BackgroundColors);
