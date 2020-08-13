@@ -19,7 +19,7 @@ We have good news for you - you do not need to draw or create a graph by your ow
 
 As you surely know, actions like Assignments, Pages, URLs, ...  can have (nested) restrictions under which circumstances the activity is enabled. If the restricion is of the type _Required completion Status_ then we draw a directed edge to the current action from the action which is required to be completed. 
 
-If there are no restrictions, then we only draw the activity boxes - without edges between them.
+If there are no restrictions, then we only draw the activity boxes - without any edges between them.
 
 We have tried to display the same things in the graph, as you would display in your course. If you add a description to an activity or an a section (and the description is shown on the course page) then it will also be shown in the graph. for security reasons we only display the plain text with a few HTML attributes (`<strong>`, `<em>`, `<u>`, `<del>`, `<sub>`, `<sup>`). All other elements are stripped.
 
@@ -28,29 +28,52 @@ The font color of the nodes is representing the completion state:
 * grey: This activity is not available for the user because the preconditions have not been fulfilled. 
 * black: This activity can be processed.
 
-additionally there can be two symbols:
+additionally there can be two symbols beside a node:
 
 * green checkmark: The activity has been (sucessfully) completed.
-* red croxx: The activity has been completed, but the student failed.
+* red cross: The activity has been completed, but the student failed.
+
 
 ### Module Settings
 
-The default settings allow the user to create an overview about the whole course dependencies, grouped by the sections where the actions are appearing in. If you want to change this behaviour or the appearence of the graph then you have the following options
+The default settings allow the user to create an overview about the whole course dependencies, grouped by the sections where the actions are appearing in. If you want to change this behaviour or the appearence of the graph then you have the following options:
 
 #### Graph direction
-The main-direction of the graph can be either `Top -> Down` or `Left -> Right` (or the other way around) and influences the visual appearence of the graph. If `Top -> Down` is selected then the graph is laid out from top to bottom - meaning that the directed edges  tend to go from top to bottom. 
+The main-direction of the graph can be either `Top -> Down` or `Left -> Right` (or the other way around) and influences the visual appearence of the graph. If `Top -> Down` is selected then the graph is laid out from top to bottom - meaning that the directed edges tend to go from top to bottom. 
 
 #### Section background color
-It is possible to group the action nodes by their section they appear in. This option defines the background color of this grouping. If you choose `Random`, then every block will have its distinct color - but blocks with the same name will have the same color.
+It is possible to group the action nodes by their section they appear in. This option defines the background color for this grouping. If you choose `Random`, then every block will have a distinct color - but blocks with the same name will have the same color.
+
+|               |                                           |
+| ------------- | ----------------------------------------- |
+| Aliceblue     | ![Aliceblue](pix/aliceblue.png)           |
+| Ghostwhite    | ![Ghostwhite](pix/ghostwhite.png)         |
+| Beige         | ![Beige](pix/beige.png)                   |
+| Lightgrey     | ![Lightgrey](pix/lightgrey.png)           |
+| Lightpink     | ![Lightpink](pix/lightpink.png)           |
+| Lightyellow   | ![Lightyellow](pix/lightyellow.png)       |
+| Palegreen     | ![Palegreen](pix/palegreen.png)           |
 
 #### Element shape
 The actions can appear in different shapes. Here you can define which shape should be used.
+
+|               |                                           |
+| ------------- | ----------------------------------------- |
+| Box           | ![Box](pix/box.gif)                       |
+| Ellipse       | ![Ellipse](pix/ellipse.gif)               |
+| Diamond       | ![Diamond](pix/diamond.gif)               |
+| Parallelogram | ![Parallelogram](pix/parallelogram.gif)   |
+| Star          | ![Star](pix/star.gif)                     |
+| Note          | ![Note](pix/note.gif)                     |
+| Tab           | ![Tab](pix/tab.gif)                       |
+| Folder        | ![Folder](pix/folder.gif)                 |
+
 
 #### Edge type
 The arrows between the actions (=edges) can appear in different shapes. Here you can define which shape should be used.
 
 #### Node seperation
-This setting defines the minimum space between two adjacent nodes. If you think that the nodes are too close to each other then try to play with this setting ba increasing it.
+This setting defines the minimum space between two adjacent nodes. If you think that the nodes are too close to each other then try to play with this setting by increasing it to introduce some space.
 
 #### Content 
 
@@ -67,9 +90,9 @@ This setting defines what content of the course should be queried to calculate t
 Yes. Just place the additional information for the activity in the _Description_ field of the activity and check the _Display description on course page_ option.
   
 #### Can I provide more information about a section in the graph ?
-Yes. Just place the additional information for the section in the _Description_ field of the activity and check the _Display description on course page_ option.
+Yes. Just place the additional information for the section in the _Description_ field of the activity and check the _Display description on course page_ option. If you want to emphasize on something then you can also use 
 
-#### How can i exclude things from the graph ?
+#### How can I exclude things from the graph ?
 We only display actions which have some sort of completion tracking. So if you want to exclude something from the graph set the _Completion tracking_ option to the value _Do not indicate activity completion_.
 
 #### Is it possible to show the graph directly in the course page ?
@@ -77,18 +100,62 @@ Yes - Create a label and place an `<iframe>` tag that references the actionmap. 
 
 Here an example `https://my.moodle.com/moodle/mod/actionmap/view.php?id=47&plain=1`
 
+#### Is it possible to assign different node shapes for different activities ?
+No. All notes will always have the same style.  
+
 #### Which activity restricions are beeing processed ?
 We only process the _Activity completion_ and the _Date_ restricion. Other restrictions are neither processed nor visualized.
+
+#### There are some nodes with a different style. What do they mean ?
+
+Lets have a look at the following example:
+
+| The moodle course structure          |  Content of actionmap                            |
+| ------------------------------------ | ------------------------------------------------ |
+| ![Course](pix/course_activities.png) | ![Dependencies](pix/visualized_dependencies.png) |
+
+The actionmap should only display the content of the current section.
+
+The plugin creates 3 types of nodes:
+
+Activity nodes 
+: The box nodes {`A`, `B`, `C`, `D`, `E`, `F`, `G`} are derived from the actions. These nodes are only rendered if they are visible for the students, and the description is only rendered if the description should be desiplayed on the course page. The node `A` and the node `E` do not have any incoming dependencies (edges) and can be taken at any time. 
+
+Condition nodes
+: These are the round nodes in the graph. If all conditions have to be met then a `&` node will be generated, if one condition is enough then a `>=1` node is generated. For example: Activity `D` can be taken if either `C` OR `D` is marked as completed. And the activity `F` can be taken if `D` AND `X` are marked as completed.
+
+
+Invisible nodes
+: The node `X` is a so called _invisible node_. Remember: This graph shows only the content of the Section _Topic 1_. `X` is required to work on action `F` - and since it is located out of display scope (it is not in Topic 1) it is rendered as dotted elipse. 
+
+Date nodes
+: The hexagonal shape at the right of the graph represents a date node. These nodes are representing a point in time which is linked as condition for a action. In the upper example the action `G` can only be taken if `F` is marked as complete AND if the current time is before Thuesday the 1st Dec. 2020. This also means that `F` can not be taken after that point in time. 
 
 
 ## Authors
 
-* Günther Hutter (guenther.hutter@htl-leoben.at)
-* Andreas Pötscher (andreas.poetscher@htl-leoben.at)
+* [Günther Hutter](https://github.com/bytebang) (guenther.hutter@htl-leoben.at)
+* [Andreas Pötscher](https://github.com/AndreasPoetscher) (andreas.poetscher@htl-leoben.at)
+
+We are two teachers (and former software developers) which have developed this plugin in order to organize our LAB sessions at the department for IT & Smart Production at the [HTL Leoben](https://www.htl-leoben.at). We are using it for our own lessions and currently it fits our needs perfectly.
+
+## Development
+
+We use this [GitHub Repository](https://github.com/bytebang/moodle-mod_actionmap) as SCM location for the main development branch. If you have any [issues or questions](https://github.com/bytebang/moodle-mod_actionmap/issues) let us know about them, by using the github integrated bugtracker. 
+
+
+If you want to participate in the development then just fork the code, implement your (well documented) enahncements and send us a pull request. If you are not a developer, but still want to participate then you have the following options 
+
+* do some translations
+* do some testing
+* help others to use this plugin
+* send us suggestions how to improve
+* send us beautiful screenshots for the gallery
+
 
 ## Credits
 
-We want to thank Robert Schrenk for providing us the base knowledge to create this beautiful plugin.
+We want to thank [Robert Schrenk](https://github.com/rschrenk/) from the [ZML](https://www.lernmanagement.at/) for providing us the base knowledge how to create moodle plugins, for some testing and for the integration into the austrian e-learning platform [eduvidual.at](https://www.eduvidual.at/).
 
 
 Furthermore we want to give credits to the [viz.js](https://github.com/mdaines/viz.js) framework which is used to render the graphs on the clientside by utilizing a webasembly version of the [Graphviz](https://www.graphviz.org/) graph visualization software and [svg-pan-zoom](https://github.com/ariutta/svg-pan-zoom) for a better user expierience with huge graphs.
