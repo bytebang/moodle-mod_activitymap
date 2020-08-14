@@ -1,6 +1,6 @@
 # moodle-mod_actionmap
 
-This module allows teachers to vizualize dependencies between actions in a interactive graph. 
+This module allows teachers to vizualize dependencies between moodle activities in a interactive graph. 
 
 ## Purpose
 An actionmap is an automatically generated graph which visualizes the dependencies between action that arise due to completion restrictions.
@@ -75,7 +75,7 @@ The actions can appear in different shapes. Here you can define which shape shou
 The arrows between the actions (=edges) can appear in different shapes. Here you can define which shape should be used.
 
 #### Node seperation
-This setting defines the minimum space between two adjacent nodes. If you think that the nodes are too close to each other then try to play with this setting by increasing it to introduce some space.
+This setting defines the minimum space between two adjacent nodes. If you think that the nodes are too close to each other then try to play with this setting by increasing it to get more space between the nodes.
 
 #### Content 
 
@@ -92,7 +92,7 @@ This setting defines what content of the course should be queried to calculate t
 Yes. Just place the additional information for the activity in the _Description_ field of the activity and check the _Display description on course page_ option.
   
 #### Can I provide more information about a section in the graph ?
-Yes. Just place the additional information for the section in the _Description_ field of the activity and check the _Display description on course page_ option. If you want to emphasize on something then you can also use 
+Yes. Just place the additional information for the section in the _Description_ field of the activity and check the _Display description on course page_ option. If you want to emphasize on something then you can also use.
 
 #### How can I exclude things from the graph ?
 We only display actions which have some sort of completion tracking. So if you want to exclude something from the graph set the _Completion tracking_ option to the value _Do not indicate activity completion_.
@@ -103,7 +103,7 @@ Yes - Create a label and place an `<iframe>` tag that references the actionmap. 
 Here an example `https://my.moodle.com/moodle/mod/actionmap/view.php?id=47&plain=1`
 
 #### Is it possible to assign different node shapes for different activities ?
-No. All notes will always have the same style.  
+No. All nodes will always have the same style.  
 
 #### Which activity restricions are beeing processed ?
 We only process the _Activity completion_ and the _Date_ restricion. Other restrictions are neither processed nor visualized.
@@ -121,7 +121,7 @@ The actionmap should only display the content of the current section.
 The plugin creates 3 types of nodes:
 
 Activity nodes 
-: The box nodes {`A`, `B`, `C`, `D`, `E`, `F`, `G`} are derived from the actions. These nodes are only rendered if they are visible for the students, and the description is only rendered if the description should be desiplayed on the course page. The node `A` and the node `E` do not have any incoming dependencies (edges) and can be taken at any time. 
+: The box nodes {`A`, `B`, `C`, `D`, `E`, `F`, `G`} are derived from the actions. These nodes are only rendered if they are visible for the students, and the description is only rendered if the description should be displayed on the course page. The node `A` and the node `E` do not have any incoming dependencies (edges) and can be taken at any time. 
 
 Condition nodes
 : These are the round nodes in the graph. If all conditions have to be met then a `&` node will be generated, if one condition is enough then a `>=1` node is generated. For example: Activity `D` can be taken if either `C` OR `D` is marked as completed. And the activity `F` can be taken if `D` AND `X` are marked as completed.
@@ -139,7 +139,7 @@ Date nodes
 * [Günther Hutter](https://github.com/bytebang) (guenther.hutter@htl-leoben.at)
 * [Andreas Pötscher](https://github.com/AndreasPoetscher) (andreas.poetscher@htl-leoben.at)
 
-We are two teachers (and former software developers) which have developed this plugin in order to organize our LAB sessions at the department for IT & Smart Production at the [HTL Leoben](https://www.htl-leoben.at). We are using it for our own lessions and currently it fits our needs perfectly.
+We are two teachers (and former software developers) which have developed this plugin in order to organize our LAB sessions at the department for IT & Smart Production at the [HTL Leoben](https://www.htl-leoben.at). We are using it for our own lessons and currently it fits our needs perfectly.
 
 ## Development
 
