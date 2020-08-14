@@ -18,16 +18,16 @@
 /**
  * Definition of log events.
  *
- * @package    mod_actionmap
- * @copyright  2020 Robert Schrenk
+ * @package    mod_activitymap
+ * @copyright  2020 Guenther Hutter, Andreas Poetscher
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 $logs = array(
-    array('module'=>'actionmap', 'action'=>'view', 'mtable'=>'actionmap', 'field'=>'name'),
-    array('module'=>'actionmap', 'action'=>'view all', 'mtable'=>'actionmap', 'field'=>'name'),
-    array('module'=>'actionmap', 'action'=>'update', 'mtable'=>'actionmap', 'field'=>'name'),
-    array('module'=>'actionmap', 'action'=>'add', 'mtable'=>'actionmap', 'field'=>'name'),
+    array('module'=>'activitymap', 'action'=>'view', 'mtable'=>'activitymap', 'field'=>'name'),
+    array('module'=>'activitymap', 'action'=>'view all', 'mtable'=>'activitymap', 'field'=>'name'),
+    array('module'=>'activitymap', 'action'=>'update', 'mtable'=>'activitymap', 'field'=>'name'),
+    array('module'=>'activitymap', 'action'=>'add', 'mtable'=>'activitymap', 'field'=>'name'),
 );

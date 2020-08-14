@@ -16,14 +16,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Actionmap english language pack
+ * Activitymap english language pack
  *
- * @package    mod_actionmap
- * @copyright  2020 Robert Schrenk
+ * @package    mod_activitymap
+ * @copyright  2020 Günther Hutter, Andreas Poetscher
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['actionmapsettings'] = 'Actionmap settings';
+$string['activitymapsettings'] = 'Activitymap settings';
 $string['graphdirection'] = 'Graph direction';
 $string['LR'] = 'Left -> Right';
 $string['RL'] = 'Right -> Left';
@@ -39,6 +39,7 @@ $string['line'] = 'Line';
 $string['none'] = 'None';
 
 $string['aliceblue'] = 'Aliceblue';
+$string['transparent'] = 'Transparent';
 $string['ghostwhite'] = 'Ghostwhite';
 $string['beige'] = 'Beige';
 $string['lightgray'] = 'Lightgray';
@@ -72,24 +73,24 @@ $string['condition_AND_tooltip'] = 'All incoming activities have to be completed
 $string['condition_OR_label'] = '>=1';
 $string['condition_OR_tooltip'] = 'At least one incoming activitiy has to be completed';
 
-$string['action_from_other_section'] = 'This action is from another section';
+$string['activity_from_other_section'] = 'This activity is from another section';
 
 $string['this_is'] = 'this is';
 $string['days_from_now'] = 'days from now';
 $string['before'] = 'before';
 $string['after'] = 'after';
 
-$string['modulename'] = 'Actionmap';
-$string['modulename_help'] = 'The actionmap module enables a teacher to place activities on an image like a map. This can be used for adaptive gamified learning experiences.';
-$string['modulename_link'] = 'mod/actionmap/view';
-$string['modulenameplural'] = 'Actionmaps';
-$string['page-mod-url-x'] = 'Any Actionmap module page';
-$string['pluginadministration'] = 'Actionmap module administration';
-$string['pluginname'] = 'Actionmap';
-$string['printintro'] = 'Display Actionmap description';
+$string['modulename'] = 'Activitymap';
+$string['modulename_help'] = 'The activitymap module enables a teacher to place activities on an image like a map. This can be used for adaptive gamified learning experiences.';
+$string['modulename_link'] = 'mod/activitymap/view';
+$string['modulenameplural'] = 'Activitymaps';
+$string['page-mod-url-x'] = 'Any Activitymap module page';
+$string['pluginadministration'] = 'Activitymap module administration';
+$string['pluginname'] = 'Activitymap';
+$string['printintro'] = 'Display Activitymap description';
 $string['printintroexplain'] = 'Display description below content? Some display types may not display description even if enabled.';
-$string['privacy:metadata'] = 'The Actionmap plugin does not store any personal data.';
+$string['privacy:metadata'] = 'The Activitymap plugin does not store any personal data.';
 
-$string['actionmap:addinstance'] = 'Add an actionmap';
-$string['actionmap:view'] = 'Open actionmap';
+$string['activitymap:addinstance'] = 'Add an activitymap';
+$string['activitymap:view'] = 'Open activitymap';
 

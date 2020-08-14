@@ -17,20 +17,20 @@
 
 
 /**
- * Actionmap module edit form
+ * Activitymap module edit form
  *
- * @package    mod_actionmap
- * @copyright  2020 Robert Schrenk
+ * @package    mod_activitymap
+ * @copyright  2020 Guenther Hutter, Andreas Poetscher
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die;
 
 require_once ($CFG->dirroot.'/course/moodleform_mod.php');
-require_once ($CFG->dirroot.'/mod/actionmap/lib.php');
+require_once ($CFG->dirroot.'/mod/activitymap/lib.php');
 
 
-class mod_actionmap_mod_form extends moodleform_mod {
+class mod_activitymap_mod_form extends moodleform_mod {
     function definition() {
         global $CFG, $DB, $PAGE;
         $mform = $this->_form;
@@ -49,74 +49,75 @@ class mod_actionmap_mod_form extends moodleform_mod {
         $element = $mform->getElement('introeditor');
 
         //poa
-        //getString takes the specified string from the lang file actionmap.php (last param)
-        $mform->addElement('header', 'actionmapsettings', get_string('actionmapsettings', 'actionmap'));
+        //getString takes the specified string from the lang file activitymap.php (last param)
+        $mform->addElement('header', 'activitymapsettings', get_string('activitymapsettings', 'activitymap'));
         
-        //A Testelement is added here. The next step is actionmap_update_instance() oder actionmap_add_instance method
+        //A Testelement is added here. The next step is activitymap_update_instance() oder activitymap_add_instance method
         //in lib.php. The modform object is passed to this functions.
         
         //Direction
         $GraphDirections = array(
-            "LR" => get_string('LR', 'actionmap'),
-            "RL" => get_string('RL', 'actionmap'),
-            "TB" => get_string('TB', 'actionmap'),
-            "BT" => get_string('BT', 'actionmap'),
+            "LR" => get_string('LR', 'activitymap'),
+            "RL" => get_string('RL', 'activitymap'),
+            "TB" => get_string('TB', 'activitymap'),
+            "BT" => get_string('BT', 'activitymap'),
         );
 
-        $mform->addElement('select', 'graphdirection', get_string('graphdirection', 'actionmap'), $GraphDirections);
+        $mform->addElement('select', 'graphdirection', get_string('graphdirection', 'activitymap'), $GraphDirections);
         
         //Splines setting
         $EdgeStyle = array(
-            "spline" => get_string('spline', 'actionmap'),
-            "ortho" => get_string('ortho', 'actionmap'),
-            "curved" => get_string('curved', 'actionmap'),
-            "polyline" => get_string('polyline', 'actionmap'),
-            "line" => get_string('line', 'actionmap'),
-            "none" => get_string('none', 'actionmap'),
+            "spline" => get_string('spline', 'activitymap'),
+            "ortho" => get_string('ortho', 'activitymap'),
+            "curved" => get_string('curved', 'activitymap'),
+            "polyline" => get_string('polyline', 'activitymap'),
+            "line" => get_string('line', 'activitymap'),
+            "none" => get_string('none', 'activitymap'),
         );
 
-        $mform->addElement('select', 'edgestyle', get_string('edgestyle', 'actionmap'), $EdgeStyle);
+        $mform->addElement('select', 'edgestyle', get_string('edgestyle', 'activitymap'), $EdgeStyle);
 
         //BackgroundColors
         $BackgroundColors = array(
-            "random" => get_string('random', 'actionmap'),
-            "aliceblue" => get_string('aliceblue', 'actionmap'),
-            "ghostwhite" => get_string('ghostwhite', 'actionmap'),
-            "beige" => get_string('beige', 'actionmap'),
-            "lightgray" => get_string('lightgray', 'actionmap'),
-            "lightpink" => get_string('lightpink', 'actionmap'),
-            "lightyellow" => get_string('lightyellow', 'actionmap'),
-            "palegreen" => get_string('palegreen', 'actionmap'),
+            "random" => get_string('random', 'activitymap'),
+            "aliceblue" => get_string('aliceblue', 'activitymap'),
+            "transparent" => get_string('transparent', 'activitymap'),
+            "ghostwhite" => get_string('ghostwhite', 'activitymap'),
+            "beige" => get_string('beige', 'activitymap'),
+            "lightgray" => get_string('lightgray', 'activitymap'),
+            "lightpink" => get_string('lightpink', 'activitymap'),
+            "lightyellow" => get_string('lightyellow', 'activitymap'),
+            "palegreen" => get_string('palegreen', 'activitymap'),
         );
 
-        $mform->addElement('select', 'sectionbackgroundcolor', get_string('sectionbackgroundcolor', 'actionmap'), $BackgroundColors);
+        $mform->addElement('select', 'sectionbackgroundcolor', get_string('sectionbackgroundcolor', 'activitymap'), $BackgroundColors);
         
         //Element Shapes
         $ElementShapes = array(
-            "box" => get_string('box', 'actionmap'),
-            "ellipse" => get_string('ellipse', 'actionmap'),
-            "diamond" => get_string('diamond', 'actionmap'),
-            "parallelogram" => get_string('parallelogram', 'actionmap'),
-            "star" => get_string('star', 'actionmap'),
-            "note" => get_string('note', 'actionmap'),
-            "tab" => get_string('tab', 'actionmap'),
-            "folder" => get_string('folder', 'actionmap'),  
+            "box" => get_string('box', 'activitymap'),
+            "ellipse" => get_string('ellipse', 'activitymap'),
+            "diamond" => get_string('diamond', 'activitymap'),
+            "parallelogram" => get_string('parallelogram', 'activitymap'),
+            "star" => get_string('star', 'activitymap'),
+            "note" => get_string('note', 'activitymap'),
+            "tab" => get_string('tab', 'activitymap'),
+            "folder" => get_string('folder', 'activitymap'),  
         );
 
-        $mform->addElement('select', 'elementshape', get_string('elementshape', 'actionmap'), $ElementShapes);
+        $mform->addElement('select', 'elementshape', get_string('elementshape', 'activitymap'), $ElementShapes);
 
         //Node Seperation
-        $mform->addElement('float', 'nodeseperation', get_string('nodeseperation', 'actionmap'));
+        $mform->addElement('float', 'nodeseperation', get_string('nodeseperation', 'activitymap'));
         $mform->setDefault('nodeseperation', 1.0);
 
         //contentSetting
         $contentSetting = array(
-            "allSectionsGrouped" => get_string('allSectionsGrouped', 'actionmap'),
-            "allSections" => get_string('allSections', 'actionmap'),
-            "currentSection" => get_string('currentSection', 'actionmap'),  
+            "allSectionsGrouped" => get_string('allSectionsGrouped', 'activitymap'),
+            "allSections" => get_string('allSections', 'activitymap'),
+            "currentSection" => get_string('currentSection', 'activitymap'),  
         );
 
-        $mform->addElement('select', 'content', get_string('content', 'actionmap'), $contentSetting);
+        $mform->addElement('select', 'content', get_string('content', 'activitymap'), $contentSetting);
 
         $this->standard_coursemodule_elements();
         $this->add_action_buttons();

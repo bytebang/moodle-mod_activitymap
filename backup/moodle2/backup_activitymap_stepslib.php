@@ -16,15 +16,15 @@
  // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
  
  /**
-  * Actionmap module view map
+  * Activitymap module view map
   *
-  * @package    mod_actionmap
-  * @copyright  2020 Günther Hutter, Robert Schrenk, Andreas Pötscher
+  * @package    mod_activitymap
+  * @copyright  2020 Guenther Hutter, Andreas Poetscher
   * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
   */
 
 
-class backup_actionmap_activity_structure_step extends backup_activity_structure_step {
+class backup_activitymap_activity_structure_step extends backup_activity_structure_step {
  
     protected function define_structure() {
  
@@ -32,7 +32,7 @@ class backup_actionmap_activity_structure_step extends backup_activity_structure
         $userinfo = $this->get_setting_value('userinfo');
  
         // Define each element separated
-        $actionmap = new backup_nested_element('actionmap', array('id'), array(
+        $activitymap = new backup_nested_element('activitymap', array('id'), array(
             'name', 'intro', 'introformat', 'graphdirection',
             'content', 'nodeseperation', 'sectionbackgroundcolor', 'edgestyle',
             'elementshape'));
@@ -41,14 +41,14 @@ class backup_actionmap_activity_structure_step extends backup_activity_structure
         // No Tree needed. We have only one db table
 
         // Define sources
-        $actionmap->set_source_table('actionmap', array('id' => backup::VAR_ACTIVITYID));
+        $activitymap->set_source_table('activitymap', array('id' => backup::VAR_ACTIVITYID));
   
         // Define id annotations
  
         // Define file annotations
-        $actionmap->annotate_files('mod_actionmap', 'intro', null, $contextid = null); // This file area does not have an itemid.
+        $activitymap->annotate_files('mod_activitymap', 'intro', null, $contextid = null); // This file area does not have an itemid.
 
         // Return the root element (actionmao), wrapped into standard activity structure
-        return $this->prepare_activity_structure($actionmap);
+        return $this->prepare_activity_structure($activitymap);
     }
 }

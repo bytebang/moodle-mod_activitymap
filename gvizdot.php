@@ -16,10 +16,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Actionmap module view map
+ * Activitymap module to graphviz compiler
  *
- * @package    mod_actionmap
- * @copyright  2020 Günther Hutter, Robert Schrenk, Andreas Pötscher
+ * @package    mod_activitymap
+ * @copyright  2020 Guenther Hutter, Andreas Poetscher
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -32,17 +32,17 @@ require_once($CFG->libdir . '/completionlib.php');
 $debug = optional_param('debug', false, PARAM_BOOL);
 
 $id       = optional_param('id', 0, PARAM_INT);        // Course module ID
-$cm = get_coursemodule_from_id('actionmap', $id, 0, false, MUST_EXIST);
+$cm = get_coursemodule_from_id('activitymap', $id, 0, false, MUST_EXIST);
 $course = $DB->get_record('course', array('id'=>$cm->course), '*', MUST_EXIST);
 $courseid = $cm->course;
 
-$advMap = $DB->get_record('actionmap', array('id'=>$cm->instance), '*', MUST_EXIST);
+$advMap = $DB->get_record('activitymap', array('id'=>$cm->instance), '*', MUST_EXIST);
 
 require_course_login($course, true, $cm);
 $context = context_module::instance($cm->id);
-require_capability('mod/actionmap:view', $context);
+require_capability('mod/activitymap:view', $context);
 
-$PAGE->set_url('/mod/actionmap/gvizdot.php', array('id' => $cm->id));
+$PAGE->set_url('/mod/activitymap/gvizdot.php', array('id' => $cm->id));
 $modinfo = get_fast_modinfo($courseid);
 
 $completion = new completion_info($course);
@@ -199,14 +199,14 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
             if($cond->op == "&")
             {
                 $joinnode = "condition_" . $level . "_AND_" . $basecm; 
-                $joinstyle["label"] = htmlentities(get_string('condition_AND_label', 'actionmap'));
-                $joinstyle["tooltip"] = htmlentities(get_string('condition_AND_tooltip', 'actionmap'));
+                $joinstyle["label"] = htmlentities(get_string('condition_AND_label', 'activitymap'));
+                $joinstyle["tooltip"] = htmlentities(get_string('condition_AND_tooltip', 'activitymap'));
             }
             if($cond->op == "|")
             {
                 $joinnode = "condition_" . $level . "_OR_" . $basecm; 
-                $joinstyle["label"] = htmlentities(get_string('condition_OR_label', 'actionmap'));
-                $joinstyle["tooltip"] = htmlentities(get_string('condition_OR_tooltip', 'actionmap')); 
+                $joinstyle["label"] = htmlentities(get_string('condition_OR_label', 'activitymap'));
+                $joinstyle["tooltip"] = htmlentities(get_string('condition_OR_tooltip', 'activitymap')); 
             }
             
             // Add the joinnode to the list of nodes
@@ -264,11 +264,11 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
                    
                     // Give the user a hint how long it is to wait
                     $daydiff = (int) (($condition->t - time()) / (60*60*24));
-                    $tstmpstyle["tooltip"] = htmlentities(get_string('this_is', 'actionmap')) . " " . $daydiff . " " . htmlentities(get_string('days_from_now', 'actionmap'));
+                    $tstmpstyle["tooltip"] = htmlentities(get_string('this_is', 'activitymap')) . " " . $daydiff . " " . htmlentities(get_string('days_from_now', 'activitymap'));
                     
                     if($condition->d == "<")
                     {
-                        $tstmpstyle["label"] = "&#8986; " . htmlentities(get_string('before', 'actionmap')) . " " . str_replace(",", "<BR/>", userdate($condition->t));
+                        $tstmpstyle["label"] = "&#8986; " . htmlentities(get_string('before', 'activitymap')) . " " . str_replace(",", "<BR/>", userdate($condition->t));
                         if(time() < $condition->t)
                         {
                             $tstmpstyle["fontcolor"] = "black";
@@ -281,7 +281,7 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
                     }
                     else if ($condition->d == ">=")
                     {
-                        $tstmpstyle["label"] = "&#8986; " . htmlentities(get_string('after', 'actionmap')) . " " .  str_replace(",", "<BR/>", userdate($condition->t));
+                        $tstmpstyle["label"] = "&#8986; " . htmlentities(get_string('after', 'activitymap')) . " " .  str_replace(",", "<BR/>", userdate($condition->t));
                         if(time() >= $condition->t )
                         {
                             $tstmpstyle["fontcolor"] = "black";
@@ -316,7 +316,7 @@ print("graph [fontname = \"helvetica\" tooltip=\"" . $course->fullname . "\" ran
 
 print("node [fontname = \"helvetica\"];".PHP_EOL);
 print("edge [fontname = \"helvetica\"];".PHP_EOL);
-//Value for the  graphdirection from the Actionmap Database record is used
+//Value for the  graphdirection from the Activitymap Database record is used
 print("rankdir=".$advMap->graphdirection.";".PHP_EOL);
 
 
@@ -455,13 +455,13 @@ foreach ($nodesWithoutInfo as $node)
     {
         $nodeid = substr($node, 3, strlen($node));
         // Lets find out the name of the course module
-        print($node . " [style=\"dotted\" fontcolor=\"slategrey\" label=<<I>" . $modinfo->cms[$nodeid]->name . "</I>> tooltip=\"" . get_string('action_from_other_section', 'actionmap') . "\"]" . PHP_EOL);
+        print($node . " [style=\"dotted\" fontcolor=\"slategrey\" label=<<I>" . $modinfo->cms[$nodeid]->name . "</I>> tooltip=\"" . get_string('activity_from_other_section', 'activitymap') . "\"]" . PHP_EOL);
 
     }
     else
     {    
         // actually we should not end up here
-        print($node . " [style=\"dotted\" fontcolor=\"red\" label=\"" . $node . "\" tooltip=\"" . get_string('action_from_other_section', 'actionmap') . "\" ]" . PHP_EOL);
+        print($node . " [style=\"dotted\" fontcolor=\"red\" label=\"" . $node . "\" tooltip=\"" . get_string('activity_from_other_section', 'activitymap') . "\" ]" . PHP_EOL);
     }
 }
       

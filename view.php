@@ -16,10 +16,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Actionmap module view map
+ * Activitymap module view map
  *
- * @package    mod_actionmap
- * @copyright  2020 Günther Hutter, Robert Schrenk, Andreas Pötscher
+ * @package    mod_activitymap
+ * @copyright  2020 Guenther Hutter, Andreas Poetscher
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -34,14 +34,14 @@ require_once($CFG->libdir . '/completionlib.php');
 
 $id = optional_param('id', 0, PARAM_INT);        // Course module ID
 $plainrendering = optional_param('plain', 0, PARAM_INT); 
-$cm = get_coursemodule_from_id('actionmap', $id, 0, false, MUST_EXIST);
+$cm = get_coursemodule_from_id('activitymap', $id, 0, false, MUST_EXIST);
 $course = $DB->get_record('course', array('id'=>$cm->course), '*', MUST_EXIST);
 $courseid = $cm->course;
 
 require_course_login($course, true, $cm);
 $context = context_module::instance($cm->id);
-require_capability('mod/actionmap:view', $context);
-$PAGE->set_url('/mod/actionmap/view.php', array('id' => $cm->id));
+require_capability('mod/activitymap:view', $context);
+$PAGE->set_url('/mod/activitymap/view.php', array('id' => $cm->id));
 
 /// Print the page header
 if($plainrendering == false)
@@ -49,10 +49,8 @@ if($plainrendering == false)
     echo $OUTPUT->header();
 }
 
-$module = $DB->get_record('actionmap', array('id'=>$cm->instance), '*', MUST_EXIST);
+$module = $DB->get_record('activitymap', array('id'=>$cm->instance), '*', MUST_EXIST);
 
-
-// So put it directly onto the page
 // Quick and dirty Ajax get (since i dont know how AMD works)
 // NOTE: THIS IS ABSOLUTELY UGLY AND HAS TO BE FIXED IN THE FURURE !!!
 ?>
@@ -60,7 +58,7 @@ $module = $DB->get_record('actionmap', array('id'=>$cm->instance), '*', MUST_EXI
 <script src="javascript/viz.js"></script>
 <script src="javascript/full.render.js"></script>
 <script src="javascript/svg-pan-zoom.js"></script>
-<div id="actionmap"></div>
+<div id="activitymap"></div>
 <script>
     if (window.XMLHttpRequest)
     {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -89,7 +87,7 @@ else
 }
 ?>
             .then(function(element) {
-                document.getElementById("actionmap").appendChild(element);
+                document.getElementById("activitymap").appendChild(element);
                 
                 // Enable to pan and zoom via 3rd party library 
                 panZoom = svgPanZoom(element, {

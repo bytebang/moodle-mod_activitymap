@@ -16,20 +16,20 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Actionmap module view map
+ * Activitymap module view map
  *
- * @package    mod_actionmap
- * @copyright  2020 Günther Hutter, Robert Schrenk, Andreas Pötscher
+ * @package    mod_activitymap
+ * @copyright  2020 Guenther Hutter, Andreas Poetscher
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
  
-require_once($CFG->dirroot . '/mod/actionmap/backup/moodle2/backup_actionmap_stepslib.php'); // Because it exists (must)
+require_once($CFG->dirroot . '/mod/activitymap/backup/moodle2/backup_activitymap_stepslib.php'); // Because it exists (must)
 
 /**
- * actionmap backup task that provides all the settings and steps to perform one
+ * activitymap backup task that provides all the settings and steps to perform one
  * complete backup of the activity
  */
-class backup_actionmap_activity_task extends backup_activity_task {
+class backup_activitymap_activity_task extends backup_activity_task {
  
     /**
      * Define (add) particular settings this activity can have
@@ -41,8 +41,8 @@ class backup_actionmap_activity_task extends backup_activity_task {
      * Define (add) particular steps this activity can have
      */
     protected function define_my_steps() {
-        $this->add_step(new backup_actionmap_activity_structure_step('actionmap_structure', 'actionmap.xml'));
-        // Actionmap only has one structure step
+        $this->add_step(new backup_activitymap_activity_structure_step('activitymap_structure', 'activitymap.xml'));
+        // Activitymap only has one structure step
     }
  
     /**

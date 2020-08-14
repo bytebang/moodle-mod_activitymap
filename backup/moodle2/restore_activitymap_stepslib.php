@@ -16,27 +16,27 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Actionmap module view map
+ * Activitymap module restore step
  *
- * @package    mod_actionmap
- * @copyright  2020 Günther Hutter, Robert Schrenk, Andreas Pötscher
+ * @package    mod_activitymap
+ * @copyright  2020 Guenther Hutter, Andreas Poetscher
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class restore_actionmap_activity_structure_step extends restore_activity_structure_step {
+class restore_activitymap_activity_structure_step extends restore_activity_structure_step {
  
     protected function define_structure() {
  
         $paths = array();
         $userinfo = $this->get_setting_value('userinfo');
  
-        $paths[] = new restore_path_element('actionmap', '/activity/actionmap');
+        $paths[] = new restore_path_element('activitymap', '/activity/activitymap');
         
         // Return the paths wrapped into standard activity structure
         return $this->prepare_activity_structure($paths);
     }
  
-    protected function process_actionmap($data) {
+    protected function process_activitymap($data) {
         global $DB;
  
         $data = (object)$data;
@@ -45,14 +45,14 @@ class restore_actionmap_activity_structure_step extends restore_activity_structu
  
         $data->timemodified = time();
  
-        // insert the actionmap record
-        $newitemid = $DB->insert_record('actionmap', $data);
+        // insert the activitymap record
+        $newitemid = $DB->insert_record('activitymap', $data);
         // immediately after inserting "activity" record, call this
         $this->apply_activity_instance($newitemid);
     }
  
     protected function after_execute() {
-        // Add actionmap related files, no need to match by itemname (just internally handled context)
-        $this->add_related_files('mod_actionmap', 'intro', null);
+        // Add activitymap related files, no need to match by itemname (just internally handled context)
+        $this->add_related_files('mod_activitymap', 'intro', null);
     }
 }

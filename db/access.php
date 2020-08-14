@@ -15,17 +15,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Capability definitions for actionmap
- *
- * @package    mod_actionmap
- * @copyright  2020 Robert Schrenk
+ * Capability definitions for activitymap
+ * @package    mod_activitymap
+ * @copyright  2020 Guenther Hutter, Andreas Poetscher
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 defined('MOODLE_INTERNAL') || die;
 
 $capabilities = array(
-    'mod/actionmap:view' => array(
+    'mod/activitymap:view' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_MODULE,
         'archetypes' => array(
@@ -33,7 +31,7 @@ $capabilities = array(
             'user' => CAP_ALLOW,
         )
     ),
-    'mod/actionmap:addinstance' => array(
+    'mod/activitymap:addinstance' => array(
         'riskbitmask' => RISK_XSS,
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,

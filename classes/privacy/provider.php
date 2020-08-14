@@ -15,18 +15,18 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Privacy Subsystem implementation for mod_actionmap
+ * Privacy Subsystem implementation for mod_activitymap
  *
- * @package    mod_actionmap
+ * @package    mod_activitymap
  * @copyright  2020 Robert Schrenk (Center for Learning Management)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-namespace mod_actionmap\privacy;
+namespace mod_activitymap\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * The mod_actionmap module does not store any data.
+ * The mod_activitymap module does not store any data.
  *
  * @copyright  2020 Robert Schrenk (Center for Learning Management)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
