@@ -7,19 +7,27 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1.0"
-   width="1127.0874pt"
-   height="1144.6281pt"
-   viewBox="0 0 1127.0874 1144.6281"
-   preserveAspectRatio="xMidYMid meet"
-   id="svg16"
+   width="21.752642mm"
+   height="13.625758mm"
+   viewBox="4179 3159.5 85.640323 53.644718"
+   version="1.1"
+   id="svg188"
    sodipodi:docname="icon.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   inkscape:export-filename="/home/gue/Desktop/ActivityMapLogo.svg.png"
-   inkscape:export-xdpi="4.5599999"
-   inkscape:export-ydpi="4.5599999">
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata194">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Actionmap</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
   <defs
-     id="defs20" />
+     id="defs192" />
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -31,161 +39,620 @@
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
      inkscape:window-height="996"
-     id="namedview18"
+     id="namedview190"
      showgrid="false"
-     inkscape:zoom="0.32"
-     inkscape:cx="-187.99212"
-     inkscape:cy="485.6232"
+     inkscape:zoom="3.4766084"
+     inkscape:cx="18.840783"
+     inkscape:cy="13.995621"
      inkscape:window-x="0"
      inkscape:window-y="28"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g4684"
+     inkscape:current-layer="svg188"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0" />
-  <metadata
-     id="metadata2">
-Created by potrace 1.15, written by Peter Selinger 2001-2017
-<rdf:RDF>
-  <cc:Work
-     rdf:about="">
-    <dc:format>image/svg+xml</dc:format>
-    <dc:type
-       rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-    <dc:title></dc:title>
-  </cc:Work>
-</rdf:RDF>
-</metadata>
+  <title
+     id="title2">Actionmap</title>
+  <style
+     type="text/css"
+     id="style4">
+path, polyline, polygon {stroke-linejoin:round;}
+path, polyline, polygon, line {stroke-linecap:round;}
+rect, circle, ellipse, polyline, polygon, line, path {shape-rendering:crispEdges;}
+*[layerid=&quot;0&quot;] {stroke:#FFFFFF; FILL:#FFFFFF;}*[layerid=&quot;1&quot;] {stroke:#FF0000; fill:#FF0000;}*[layerid=&quot;2&quot;] {stroke:#0000FF; fill:#0000FF;}*[layerid=&quot;3&quot;] {stroke:#FFCC00; fill:#FFCC00;}*[layerid=&quot;4&quot;] {stroke:#66CC33; fill:#66CC33;}*[layerid=&quot;5&quot;] {stroke:#808080; fill:#808080;}*[layerid=&quot;6&quot;] {stroke:#800000; fill:#800000;}*[layerid=&quot;7&quot;] {stroke:#800080; fill:#800080;}*[layerid=&quot;8&quot;] {stroke:#AA00FF; fill:#AA00FF;}*[layerid=&quot;9&quot;] {display:none}*[layerid=&quot;10&quot;] {stroke:#FF00FF; fill:#FF00FF;}*[layerid=&quot;11&quot;] {stroke:#C0C0C0; fill:#C0C0C0;}*[layerid=&quot;12&quot;] {stroke:#FFFFFF; fill:#FFFFFF;}*[layerid=&quot;13&quot;] {stroke:#33CC99; fill:#33CC99;}*[layerid=&quot;14&quot;] {stroke:#5555FF; fill:#5555FF;}*[layerid=&quot;15&quot;] {stroke:#F022F0; fill:#F022F0;}*[layerid=&quot;16&quot;] {stroke:#FFFFFF; FILL:#FFFFFF;}*[layerid=&quot;17&quot;] {stroke:#FFFFFF; FILL:#FFFFFF;}*[layerid=&quot;18&quot;] {stroke:#FFFFFF; FILL:#FFFFFF;}*[layerid=&quot;19&quot;] {stroke:#66CCFF; fill:#66CCFF;}*[layerid=&quot;20&quot;] {stroke:#FFFFFF; FILL:#FFFFFF;}*[layerid=&quot;21&quot;] {stroke:#999966; fill:#999966;}*[layerid=&quot;22&quot;] {stroke:#008000; fill:#008000;}*[layerid=&quot;23&quot;] {stroke:#00FF00; fill:#00FF00;}*[layerid=&quot;24&quot;] {stroke:#BC8E00; fill:#BC8E00;}*[fill=&quot;none&quot;] {fill: none;}
+*[stroke=&quot;none&quot;] {stroke: none;}
+g[c_partid=&quot;part_pad&quot;] &gt; * + circle {fill: #222222;}
+g[c_partid=&quot;part_via&quot;] &gt; * + circle {fill: #222222;}
+g[c_partid=&quot;part_pad&quot;] &gt; polyline:nth-of-type(2) {stroke: #222222;}g[c_partid=&quot;part_pad&quot;][c_shape=&quot;ELLIPSE&quot;]  polyline:nth-last-of-type(1) {stroke:#222222;}g[c_partid=&quot;part_pad&quot;][c_shape=&quot;RECT&quot;]  polyline:nth-last-of-type(1) {stroke:#222222;}g[c_partid=&quot;part_pad&quot;][c_shape=&quot;POLYGON&quot;]  polyline:nth-last-of-type(1) {stroke:#222222;}g[c_partid=&quot;part_pad&quot;] &gt; polygon[c_etype=&quot;pad_outer&quot;], #gCurParts g[c_partid=&quot;part_pad&quot;] &gt; polygon[c_etype=&quot;pad_outer&quot;] {stroke-linejoin: miter;stroke-miterlimit: 100;}</style>
   <g
-     transform="matrix(0.1,0,0,-0.1,-89.395793,1209.2128)"
-     id="g14"
-     style="fill:#000000;stroke:none">
+     id="g186"
+     transform="matrix(1.2499637,0,0,1.1462546,-1056.4641,-473.09545)">
     <g
-       id="g4627">
+       id="g30">
+      <polyline
+         c_shapetype="line"
+         layerid="2"
+         full_points="4181 3212.5 4190 3212.5"
+         c_etype="wire"
+         points="4190.5 3212.5 4203.75 3212.5"
+         id="polyline10"
+         style="fill:none;stroke:#0000ff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title8">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="2"
+         full_points="4240 3182.5 4241 3182.5 4250.5 3173"
+         c_etype="wire"
+         points="4240,3182.5 4243,3182.5 4250.5,3175 4250.5,3173"
+         id="polyline14"
+         style="fill:none;stroke:#0000ff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title12">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="2"
+         full_points="4190 3193.5 4229 3193.5 4229.5 3193"
+         c_etype="wire"
+         points="4196.5 3193.5 4196.5 3195 4229.5 3195 4229.5 3193"
+         id="polyline18"
+         style="fill:none;stroke:#0000ff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title16">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="2"
+         full_points="4250.5 3212.5 4249 3212.5 4229.5 3193"
+         c_etype="wire"
+         points="4250.5 3212.5 4249 3212.5 4229.5 3193"
+         id="polyline20"
+         style="fill:none;stroke:#0000ff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+      <polyline
+         c_shapetype="line"
+         layerid="2"
+         full_points="4229.5 3193 4240 3182.5"
+         c_etype="wire"
+         points="4229.5 3193 4240 3182.5"
+         id="polyline24"
+         style="fill:none;stroke:#0000ff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title22">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="2"
+         full_points="4229.5 3193 4229.5 3194.5 4211.5 3212.5 4190 3212.5"
+         c_etype="wire"
+         points="4229.5 3193 4229.5 3194.5 4211.5 3212.5 4196.5 3212.5"
+         id="polyline28"
+         style="fill:none;stroke:#0000ff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title26">S$27
+ width = 10.000 mil</title>
+      </polyline>
+    </g>
+    <g
+       before-id="layer_11"
+       id="g66">
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         full_points="4210.5 3173 4210.5 3174 4229.5 3193 4229.5 3211.5 4228.5 3212.5"
+         c_etype="wire"
+         points="4210.5,3173 4210.5,3173.5 4229.5,3192.5 4229.5,3193"
+         id="polyline34"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title32">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         full_points="4190 3212.5 4190 3193.5 4210.5 3173"
+         c_etype="wire"
+         points="4196.5 3193.5 4196.5 3191 4210.5 3173 4210.5 3173"
+         id="polyline38"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title36">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         c_etype="wire"
+         points="4196.5 3193.5 4189 3193.5"
+         id="polyline42"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title40">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         c_etype="wire"
+         points="4250.5 3212.5 4256.5 3212.5"
+         id="polyline44"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         c_etype="wire"
+         points="4229.5 3193 4229.5 3172.5"
+         id="polyline48"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title46">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         c_etype="wire"
+         points="4229.5 3172.5 4229.5 3172.5 4230.5 3172.5 4240 3182 4241.5 3182 4250.5 3173 4250.5 3212.5"
+         id="polyline52"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title50">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         full_points="4190 3193.5 4229.5 3193.5"
+         c_etype="wire"
+         points="4196.5 3193.5 4229.5 3193.5"
+         id="polyline56"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title54">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         full_points="4210.5 3173 4210.5 3174 4229.5 3193 4229.5 3211.5 4228.5 3212.5"
+         c_etype="wire"
+         points="4229.5 3193 4229.5 3193 4229.5 3211.5 4228.5 3212.5"
+         id="polyline60"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title58">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         full_points="4190 3212.5 4190 3193.5 4210.5 3173"
+         c_etype="wire"
+         points="4196.5 3212.5 4196.5 3193.5"
+         id="polyline64"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title62">S$27
+ width = 10.000 mil</title>
+      </polyline>
+    </g>
+    <g
+       before-id="layer_1"
+       id="g74">
+      <polyline
+         c_shapetype="line"
+         layerid="3"
+         c_etype="wire"
+         points="4209.5 3173 4209.5 3175.5 4225 3191 4248.5 3214.5 4251 3214.5 4252.5 3213 4252.5 3173"
+         id="polyline70"
+         style="fill:none;stroke:#ffcc00;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title68">S$70
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="3"
+         c_etype="wire"
+         points="4251 3174 4256.5 3174"
+         id="polyline72"
+         style="fill:none;stroke:#ffcc00;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+    </g>
+    <g
+       id="g184">
       <g
-         id="g4646">
-        <g
-           id="g4665">
-          <g
-             id="g4684"
-             transform="rotate(-18.737668,6634.0936,6360.8306)">
-            <ellipse
-               style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:864.01501465;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.29743593"
-               id="path29"
-               cx="8219.0576"
-               cy="-3848.1699"
-               transform="matrix(0.94699929,0.32123565,0.32123565,-0.94699929,0,0)"
-               rx="3621.0938"
-               ry="3691.4062" />
-            <path
-               d="m 6493,11337 c -23,-111 -90,-431 -148,-712 -58,-280 -153,-735 -210,-1010 -57,-275 -163,-783 -235,-1130 -155,-749 -167,-806 -172,-810 -1,-1 -329,211 -727,472 -647,424 -725,473 -739,460 -13,-14 35,-92 460,-739 261,-398 475,-724 474,-725 -1,-2 -226,-49 -1211,-253 -346,-72 -823,-171 -1060,-220 -236,-49 -605,-126 -820,-170 -214,-44 -475,-99 -578,-120 -103,-22 -190,-40 -192,-40 -3,0 -5,-16 -5,-35 0,-19 2,-35 5,-35 3,0 100,-20 217,-45 117,-24 386,-80 598,-124 600,-124 1138,-236 1450,-301 1089,-227 1542,-320 1553,-320 50,-1 42,-14 -437,-745 -421,-641 -476,-729 -463,-742 13,-13 101,42 742,462 400,262 728,475 729,473 1,-2 26,-118 55,-258 28,-140 99,-480 156,-755 57,-275 140,-673 184,-885 44,-212 116,-559 160,-772 45,-214 117,-562 161,-775 44,-214 83,-396 86,-405 4,-12 16,-18 38,-18 h 32 l 47,223 c 25,122 128,614 227,1092 273,1316 290,1397 415,1994 63,305 117,556 118,558 2,2 326,-209 721,-467 395,-259 722,-471 728,-473 5,-1 14,5 20,13 8,12 -92,171 -462,734 -259,395 -468,722 -463,726 4,4 175,41 378,83 204,42 609,126 900,186 292,61 814,169 1160,241 347,72 807,167 1023,212 l 393,82 -3,35 -3,34 -255,53 c -140,29 -538,112 -885,184 -751,156 -1504,312 -2200,457 -280,58 -512,107 -513,108 -2,2 211,331 473,730 426,649 476,729 462,742 -13,14 -92,-35 -738,-459 -583,-382 -725,-472 -731,-459 -4,9 -33,138 -63,286 -31,149 -103,495 -160,770 -57,275 -140,676 -185,890 -45,215 -128,615 -185,890 -57,275 -128,616 -157,757 l -53,258 h -35 -35 z m 37,-2560 -5,-2377 -409,409 -409,409 12,48 c 6,27 58,276 115,554 96,464 184,884 471,2265 57,275 129,624 160,775 57,276 64,306 68,299 1,-2 0,-1074 -3,-2382 z m 1561,-922 c -328,-326 -596,-593 -597,-592 -1,1 -18,83 -39,181 -30,146 -34,181 -23,187 7,5 290,191 628,413 338,223 617,405 620,405 3,1 -262,-267 -589,-594 z M 5600,7230 c 0,-5 -353,-81 -356,-77 -1,1 -189,288 -418,637 l -417,635 595,-595 c 328,-327 596,-597 596,-600 z m 2365,-174 c 429,-89 656,-136 1983,-411 1304,-271 1477,-307 1481,-311 2,-2 -1073,-4 -2390,-4 H 6645 l 415,415 c 265,265 420,413 430,411 8,-3 222,-48 475,-100 z m -1893,-1199 -413,-413 -392,82 c -566,118 -2273,472 -3102,644 -236,49 -439,91 -450,93 -11,3 1058,5 2375,6 l 2395,1 z m 1265,-889 c -47,-227 -133,-640 -191,-918 -58,-278 -175,-842 -261,-1255 -86,-412 -182,-878 -215,-1035 -32,-157 -61,-294 -63,-305 -3,-11 -5,1053 -6,2365 l -1,2385 412,-412 411,-411 z m 959,-140 c 225,-341 413,-628 418,-637 4,-9 -262,254 -593,584 -331,330 -596,601 -589,603 68,15 336,70 344,71 7,1 196,-279 420,-621 z m -2616,314 c 18,-89 31,-164 29,-166 -5,-5 -949,-624 -1134,-743 l -130,-85 595,596 c 459,460 596,592 601,578 3,-9 21,-90 39,-180 z"
-               id="path6"
-               inkscape:connector-curvature="0"
-               style="fill:#110000;fill-opacity:1;stroke:#500000;stroke-opacity:1" />
-            <text
-               xml:space="preserve"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:800px;line-height:1.25;font-family:'Blackadder ITC';-inkscape-font-specification:'Blackadder ITC, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#cf0000;fill-opacity:1;stroke:none;stroke-width:16.36500931"
-               x="6335.3418"
-               y="-11730.468"
-               id="text4532"
-               transform="scale(1,-1)"><tspan
-                 sodipodi:role="line"
-                 id="tspan4530"
-                 x="6335.3418"
-                 y="-11730.468"
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:800px;font-family:'Blackadder ITC';-inkscape-font-specification:'Blackadder ITC, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#cf0000;fill-opacity:1;stroke-width:16.36500931">A</tspan></text>
-            <text
-               xml:space="preserve"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:654.60040283px;line-height:1.25;font-family:'Blackadder ITC';-inkscape-font-specification:'Blackadder ITC';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:16.36500931"
-               x="8998.916"
-               y="-8574.5361"
-               id="text4532-9"
-               transform="scale(1,-1)"><tspan
-                 sodipodi:role="line"
-                 id="tspan4530-1"
-                 x="8998.916"
-                 y="-8574.5361"
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Blackadder ITC';-inkscape-font-specification:'Blackadder ITC';stroke-width:16.36500931">C</tspan></text>
-            <text
-               xml:space="preserve"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:800px;line-height:1.25;font-family:'Blackadder ITC';-inkscape-font-specification:'Blackadder ITC, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:16.36500931"
-               x="11905.166"
-               y="-6008.1299"
-               id="text4532-3"
-               transform="scale(1,-1)"><tspan
-                 sodipodi:role="line"
-                 id="tspan4530-9"
-                 x="11905.166"
-                 y="-6008.1299"
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:800px;font-family:'Blackadder ITC';-inkscape-font-specification:'Blackadder ITC, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:16.36500931">T</tspan></text>
-            <text
-               xml:space="preserve"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:654.60040283px;line-height:1.25;font-family:'Blackadder ITC';-inkscape-font-specification:'Blackadder ITC';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:16.36500931"
-               x="9092.666"
-               y="-3664.3799"
-               id="text4532-1"
-               transform="scale(1,-1)"><tspan
-                 sodipodi:role="line"
-                 id="tspan4530-3"
-                 x="9092.666"
-                 y="-3664.3799"
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Blackadder ITC';-inkscape-font-specification:'Blackadder ITC';stroke-width:16.36500931">I</tspan></text>
-            <text
-               xml:space="preserve"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:800px;line-height:1.25;font-family:'Blackadder ITC';-inkscape-font-specification:'Blackadder ITC, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:16.36500931"
-               x="6330.9897"
-               y="-406.56726"
-               id="text4532-1-3"
-               transform="scale(1,-1)"><tspan
-                 sodipodi:role="line"
-                 id="tspan4530-3-5"
-                 x="6330.9897"
-                 y="-406.56726"
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:800px;font-family:'Blackadder ITC';-inkscape-font-specification:'Blackadder ITC, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:16.36500931">V</tspan></text>
-            <text
-               xml:space="preserve"
-               style="font-style:normal;font-weight:normal;font-size:654.60040283px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:16.36500931"
-               x="3799.74"
-               y="-3512.0361"
-               id="text4532-1-7"
-               transform="scale(1,-1)"><tspan
-                 sodipodi:role="line"
-                 id="tspan4530-3-8"
-                 x="3799.74"
-                 y="-3512.0361"
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Blackadder ITC';-inkscape-font-specification:'Blackadder ITC';stroke-width:16.36500931">I</tspan></text>
-            <text
-               xml:space="preserve"
-               style="font-style:normal;font-weight:normal;font-size:654.60040283px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:16.36500931"
-               x="670.83362"
-               y="-6078.4424"
-               id="text4532-1-36"
-               transform="scale(1,-1)"><tspan
-                 sodipodi:role="line"
-                 id="tspan4530-3-2"
-                 x="670.83362"
-                 y="-6078.4424"
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:800px;font-family:'Blackadder ITC';-inkscape-font-specification:'Blackadder ITC, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:16.36500931">T</tspan></text>
-            <text
-               xml:space="preserve"
-               style="font-style:normal;font-weight:normal;font-size:654.60040283px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:16.36500931"
-               x="3752.865"
-               y="-8609.6924"
-               id="text4532-1-8"
-               transform="scale(1,-1)"><tspan
-                 sodipodi:role="line"
-                 id="tspan4530-3-6"
-                 x="3752.865"
-                 y="-8609.6924"
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Blackadder ITC';-inkscape-font-specification:'Blackadder ITC';stroke-width:16.36500931">Y</tspan></text>
-            <path
-               style="fill:#cf0000;fill-opacity:1;stroke:#000000;stroke-width:7.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-               d="M 6600.0001,6204.9998 6604.9998,11540 7490,7155.9998 l -889.9999,-951"
-               id="path4686"
-               inkscape:connector-curvature="0" />
-          </g>
-        </g>
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4196.5,3212.5"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g86"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4199.5,3209.5 4199.5,3215.5 4193.5,3215.5 4193.5,3209.5 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon76"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4199.5,3209.5 4199.5,3215.5 4193.5,3215.5 4193.5,3209.5 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon78"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4199.5,3209.5 4199.5,3215.5 4193.5,3215.5 4193.5,3209.5 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon80"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4196.5"
+           cy="3212.5"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle82"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title84">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4210.5,3173"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g98"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4213.5,3170 4213.5,3176 4207.5,3176 4207.5,3170 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon88"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4213.5,3170 4213.5,3176 4207.5,3176 4207.5,3170 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon90"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4213.5,3170 4213.5,3176 4207.5,3176 4207.5,3170 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon92"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4210.5"
+           cy="3173"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle94"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title96">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4228.5,3212.5"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g110"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4231.5,3209.5 4231.5,3215.5 4225.5,3215.5 4225.5,3209.5 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon100"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4231.5,3209.5 4231.5,3215.5 4225.5,3215.5 4225.5,3209.5 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon102"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4231.5,3209.5 4231.5,3215.5 4225.5,3215.5 4225.5,3209.5 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon104"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4228.5"
+           cy="3212.5"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle106"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title108">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4240,3182.5"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g122"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4243,3179.5 4243,3185.5 4237,3185.5 4237,3179.5 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon112"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4243,3179.5 4243,3185.5 4237,3185.5 4237,3179.5 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon114"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4243,3179.5 4243,3185.5 4237,3185.5 4237,3179.5 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon116"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4240"
+           cy="3182.5"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle118"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title120">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4229.5,3193"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g134"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4232.5,3190 4232.5,3196 4226.5,3196 4226.5,3190 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon124"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4232.5,3190 4232.5,3196 4226.5,3196 4226.5,3190 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon126"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4232.5,3190 4232.5,3196 4226.5,3196 4226.5,3190 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon128"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4229.5"
+           cy="3193"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle130"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title132">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4196.5,3193.5"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g146"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4199.5,3190.5 4199.5,3196.5 4193.5,3196.5 4193.5,3190.5 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon136"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4199.5,3190.5 4199.5,3196.5 4193.5,3196.5 4193.5,3190.5 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon138"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4199.5,3190.5 4199.5,3196.5 4193.5,3196.5 4193.5,3190.5 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon140"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4196.5"
+           cy="3193.5"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle142"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title144">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4229.5,3172.5"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g158"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4232.5,3169.5 4232.5,3175.5 4226.5,3175.5 4226.5,3169.5 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon148"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4232.5,3169.5 4232.5,3175.5 4226.5,3175.5 4226.5,3169.5 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon150"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4232.5,3169.5 4232.5,3175.5 4226.5,3175.5 4226.5,3169.5 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon152"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4229.5"
+           cy="3172.5"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle154"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title156">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4250.5,3173"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g170"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4253.5,3170 4253.5,3176 4247.5,3176 4247.5,3170 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon160"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4253.5,3170 4253.5,3176 4247.5,3176 4247.5,3170 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon162"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4253.5,3170 4253.5,3176 4247.5,3176 4247.5,3170 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon164"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4250.5"
+           cy="3173"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle166"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title168">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4250.5,3212.5"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g182"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4253.5,3209.5 4253.5,3215.5 4247.5,3215.5 4247.5,3209.5 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon172"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4253.5,3209.5 4253.5,3215.5 4247.5,3215.5 4247.5,3209.5 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon174"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4253.5,3209.5 4253.5,3215.5 4247.5,3215.5 4247.5,3209.5 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon176"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4250.5"
+           cy="3212.5"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle178"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title180">S$27</title>
       </g>
     </g>
   </g>
