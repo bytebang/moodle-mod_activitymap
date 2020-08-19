@@ -100,7 +100,14 @@ We only display activities which have some sort of completion tracking. So if yo
 #### Is it possible to show the graph directly in the course page ?
 Yes - Create a label and place an `<iframe>` tag that references the activitymap. By appending the parameter `plain=1` you will get the pure graph - without the moodle headers and footers.
 
-Here an example `https://my.moodle.com/moodle/mod/activitymap/view.php?id=47&plain=1`
+Here an example how to display only the static image `https://my.moodle.com/moodle/mod/activitymap/view.php?id=47&plain=1`
+
+And here how to use it within an iframe (within a label - in order to display the current section)
+
+~~~~~
+<iframe src="../mod/activitymap/view.php?id=399&plain=1" seamless="" width="600" height="1000"></iframe>
+~~~~~
+
 
 #### Is it possible to assign different node shapes for different activities ?
 No. All nodes will always have the same style.  
