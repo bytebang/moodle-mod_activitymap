@@ -33,7 +33,8 @@ use availability_completion\condition;
 require_once($CFG->libdir . '/completionlib.php');
 
 $id = optional_param('id', 0, PARAM_INT);        // Course module ID
-$plainrendering = optional_param('plain', 0, PARAM_INT); 
+$plainrendering = optional_param('plain', 0, PARAM_INT); // Display borderless as image
+$lightweightrendering = optional_param('lightweight', 0, PARAM_INT); // Display borderless as svg
 $cm = get_coursemodule_from_id('activitymap', $id, 0, false, MUST_EXIST);
 $course = $DB->get_record('course', array('id'=>$cm->course), '*', MUST_EXIST);
 $courseid = $cm->course;
@@ -44,7 +45,7 @@ require_capability('mod/activitymap:view', $context);
 $PAGE->set_url('/mod/activitymap/view.php', array('id' => $cm->id));
 
 /// Print the page header
-if($plainrendering == false)
+if($plainrendering == false && $lightweightrendering == false)
 {
     echo $OUTPUT->header();
 }
@@ -119,7 +120,7 @@ else
 
 // --------------------------------
 // Print the footer
-if($plainrendering == false)
+if($plainrendering == false && $lightweightrendering == false)
 {
     echo $OUTPUT->footer();
 }

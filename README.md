@@ -98,16 +98,23 @@ Yes. Just place the additional information for the section in the _Description_ 
 We only display activities which have some sort of completion tracking. So if you want to exclude something from the graph set the _Completion tracking_ option to the value _Do not indicate activity completion_.
 
 #### Is it possible to show the graph directly in the course page ?
-Yes - Create a label and place an `<iframe>` tag that references the activitymap. By appending the parameter `plain=1` you will get the pure graph - without the moodle headers and footers.
+Yes - Create a label and place an `<iframe>` tag that references the activitymap. By appending the parameter `plain=1` you will get the pure graph - without the moodle headers and footers. Be sure to set the completion of these labels containing the iframe to _Do not indicate activity completion_. Otherwise this will result in an undefined behavior.
 
-Here an example how to display only the static image `https://my.moodle.com/moodle/mod/activitymap/view.php?id=47&plain=1`
+Here an example how to display only the static image of the graph `https://my.moodle.com/moodle/mod/activitymap/view.php?id=47&plain=1`
+The usecase behind this is, to be ble to get a printable version of the graph.
 
-And here how to use it within an iframe (within a label - in order to display the current section)
+Of course you can use it within an iframe within a label - in order to display the current section. This snipplet gives you only a static image (with no zooming and links to activities). 
 
 ~~~~~
 <iframe src="../mod/activitymap/view.php?id=399&plain=1" seamless="" width="600" height="1000"></iframe>
 ~~~~~
 
+
+If you want to have a clickable graph then you can use the `lightweight=1` parameter. This generates a clickable graph with links, but without the moodle headers and footers.
+
+~~~~~
+<iframe src="../mod/activitymap/view.php?id=399&leightweight=1" seamless="" width="600" height="1000"></iframe>
+~~~~~
 
 #### Is it possible to assign different node shapes for different activities ?
 No. All nodes will always have the same style.  
