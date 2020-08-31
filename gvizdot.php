@@ -454,8 +454,19 @@ foreach ($nodesWithoutInfo as $node)
     if(startswith($node, "cm_")) // cm indicates a course module
     {
         $nodeid = substr($node, 3, strlen($node));
-        // Lets find out the name of the course module
+       
+        if($nodeid == 0)
+        {
+            // This should never happen, but sometime it does ...
+            // e.g. if some dependencies are unmaintained.
+            print($node . " [style=\"dotted\" fontcolor=\"red\" label=\"" . $node . "\" tooltip=\"" . get_string('not_existing_activity', 'activitymap') . "\" ]" . PHP_EOL);
+        }
+        else
+        {
+                // Lets find out the name of the course module
         print($node . " [style=\"dotted\" fontcolor=\"slategrey\" label=<<I>" . $modinfo->cms[$nodeid]->name . "</I>> tooltip=\"" . get_string('activity_from_other_section', 'activitymap') . "\"]" . PHP_EOL);
+
+        }
 
     }
     else

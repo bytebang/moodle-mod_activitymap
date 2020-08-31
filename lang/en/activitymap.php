@@ -74,6 +74,7 @@ $string['condition_OR_label'] = '>=1';
 $string['condition_OR_tooltip'] = 'At least one incoming activitiy has to be completed';
 
 $string['activity_from_other_section'] = 'This activity is from another section';
+$string['not_existing_activity'] = 'Not existing activity';
 
 $string['this_is'] = 'this is';
 $string['days_from_now'] = 'days from now';
