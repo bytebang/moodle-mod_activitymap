@@ -187,7 +187,6 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
     //print_r($cond); print(PHP_EOL);
     if(array_key_exists("op", $cond))
     {
-    
         // If there is more than one condition then we want to
         if(count($cond->c) > 1)
         {
@@ -230,8 +229,7 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
             // And set the join node as the current base node
             $basecm = $joinnode;
         }
-        
-        
+
         // Generate the Links
         foreach ($cond->c as $condition) 
         {
@@ -295,7 +293,14 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
                     
                     // Insert the node into the nodes list
                     $nodes[$tstmpnode] = $tstmpstyle;
-                    
+                             
+                    // If there is no condition node (because the date is the only restriction), 
+                    // then we link directly to the base node
+                    if(count($cond->c) == 1 && startsWith($basecm, "cm_") == 0 && startsWith($basecm, "condition_") == 0)
+                    {
+                        $basecm = "cm_" . $basecm; 
+                    }
+        
                     // And the dependency into the dependency list
                     array_push($edges, [$tstmpnode, $basecm, array()]); 
                     
