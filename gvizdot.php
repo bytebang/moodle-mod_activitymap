@@ -317,7 +317,7 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
 //------------------------------------------------------------------------------
 echo ("digraph course_".$courseid.PHP_EOL);
 print("{".PHP_EOL);
-print("graph [fontname = \"helvetica\" tooltip=\"" . $course->fullname . "\" ranksep=\"". ($advMap->nodeseperation*0.5) ."\" nodesep=\"" . ($advMap->nodeseperation*0.25) . "\" splines=\"" . ($advMap->edgestyle)."\" ];".PHP_EOL);
+print("graph [fontname = \"helvetica\" tooltip=\"" . htmlentities($course->fullname) . "\" ranksep=\"". ($advMap->nodeseperation*0.5) ."\" nodesep=\"" . ($advMap->nodeseperation*0.25) . "\" splines=\"" . ($advMap->edgestyle)."\" ];".PHP_EOL);
 
 print("node [fontname = \"helvetica\"];".PHP_EOL);
 print("edge [fontname = \"helvetica\"];".PHP_EOL);
@@ -343,11 +343,11 @@ foreach ($modinfo->cms as $id => $othercm) {
 
         $gvnodeattributes = array(); //<! Graphviz node attributes         
         $gvnodeattributes["shape"] = $advMap->elementshape;
-        $gvnodeattributes["label"] = "<b>" . $othercm->name . "</b>";
-        $gvnodeattributes["tooltip"] = $othercm->name;
+        $gvnodeattributes["label"] = "<b>" . htmlentities($othercm->name) . "</b>";
+        $gvnodeattributes["tooltip"] = htmlentities($othercm->name);
         
         // Remember in which section this cm is
-        if(array_key_exists ($othercm->sectionnum , $gvsubgr) == false)
+        if(array_key_exists($othercm->sectionnum , $gvsubgr) == false)
         {
             $gvsubgr[$othercm->sectionnum] = array();
         }
@@ -469,7 +469,7 @@ foreach ($nodesWithoutInfo as $node)
         else
         {
                 // Lets find out the name of the course module
-        print($node . " [style=\"dotted\" fontcolor=\"slategrey\" label=<<I>" . $modinfo->cms[$nodeid]->name . "</I>> tooltip=\"" . get_string('activity_from_other_section', 'activitymap') . "\"]" . PHP_EOL);
+        print($node . " [style=\"dotted\" fontcolor=\"slategrey\" label=<<I>" . htmlentities($modinfo->cms[$nodeid]->name) . "</I>> tooltip=\"" . get_string('activity_from_other_section', 'activitymap') . "\"]" . PHP_EOL);
 
         }
 
@@ -494,16 +494,16 @@ if ($advMap->content == "allSectionsGrouped")
         if($secInfo->name)
         {
             print("subgraph cluster_section" . $subgraph . "{" . PHP_EOL);
-            print("  tooltip=<" . $secInfo->name . ">;" . PHP_EOL);
+            print("  tooltip=<" . htmlentities($secInfo->name) . ">;" . PHP_EOL);
             
             // Print description if we should
             if($secInfo->summary)
             {
-                print("  label=< <FONT POINT-SIZE=\"20\"><B><U>" . $secInfo->name . "</U></B></FONT> <BR/><BR/>" . PHP_EOL . convertToGraphvizTextitem($secInfo->summary) . " >" . PHP_EOL);
+                print("  label=< <FONT POINT-SIZE=\"20\"><B><U>" . htmlentities($secInfo->name) . "</U></B></FONT> <BR/><BR/>" . PHP_EOL . convertToGraphvizTextitem($secInfo->summary) . " >" . PHP_EOL);
             }
             else
             {
-                print("  label=< <FONT POINT-SIZE=\"20\"><B><U>" . $secInfo->name . "</U></B></FONT> >" . PHP_EOL);
+                print("  label=< <FONT POINT-SIZE=\"20\"><B><U>" . htmlentities($secInfo->name) . "</U></B></FONT> >" . PHP_EOL);
             }
             
             // Hide nodes on hidden sections
