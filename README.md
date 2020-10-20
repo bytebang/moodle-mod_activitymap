@@ -113,7 +113,7 @@ Of course you can use it within an iframe within a label - in order to display t
 If you want to have a clickable graph then you can use the `lightweight=1` parameter. This generates a clickable graph with links, but without the moodle headers and footers.
 
 ~~~~~
-<iframe src="../mod/activitymap/view.php?id=399&leightweight=1" seamless="" width="600" height="1000"></iframe>
+<iframe src="../mod/activitymap/view.php?id=399&lightweight=1" seamless="" width="600" height="1000"></iframe>
 ~~~~~
 
 #### Is it possible to assign different node shapes for different activities ?
