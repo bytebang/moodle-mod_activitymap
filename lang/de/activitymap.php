@@ -75,6 +75,7 @@ $string['condition_OR_tooltip'] = 'Zumindest eine Vorgängeraktivität müssen e
 
 $string['activity_from_other_section'] = 'Diese aktivität stammt aus einem anderen Abschnitt';
 $string['not_existing_activity'] = 'Nicht existierende Aktivität';
+$string['unknown_existing_activity'] = 'Unbekannte existierende Aktivität';
 
 $string['this_is'] = 'Das sind';
 $string['days_from_now'] = 'Tage ab heute';

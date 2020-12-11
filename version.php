@@ -24,9 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2020080140;
+$plugin->version   = 2020121100;
 $plugin->requires  = 2014051200;
 $plugin->component = 'mod_activitymap';
 $plugin->supported = [37, 39]; // Moodle 3.7.x, 3.8.x and 3.9.x are supported.
 $plugin->maturity  = MATURITY_RC;
-$plugin->release   = 'v0.98';
+$plugin->release   = 'v0.99';

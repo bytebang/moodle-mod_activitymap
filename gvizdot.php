@@ -465,7 +465,12 @@ foreach ($nodesWithoutInfo as $node)
             // This should never happen, but sometime it does ...
             // e.g. if some dependencies are unmaintained.
             print($node . " [style=\"dotted\" fontcolor=\"red\" label=\"" . $node . "\" tooltip=\"" . get_string('not_existing_activity', 'activitymap') . "\" ]" . PHP_EOL);
-        }
+	}
+	elseif($modinfo->cms[$nodeid]->name == "")
+	{
+	    // Should also not happen, but .. guess what .. sometime it does
+            print($node . " [style=\"dotted\" fontcolor=\"red\" label=\"" . $node . "\" tooltip=\"" . get_string('unknown_existing_activity', 'activitymap') . "\" ]" . PHP_EOL);
+	}
         else
         {
                 // Lets find out the name of the course module
