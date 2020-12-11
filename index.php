@@ -15,18 +15,20 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Activitymap module version information
+ * Activitymap module 
  *
  * @package    mod_activitymap
  * @copyright  2020 Guenther Hutter, Andreas Poetscher
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+require_once("../../config.php");
+require_once("lib.php");
 
-$plugin->version   = 2020121100;
-$plugin->requires  = 2014051200;
-$plugin->component = 'mod_activitymap';
-$plugin->supported = [37, 39]; // Moodle 3.7.x, 3.8.x and 3.9.x are supported.
-$plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = 'v1.00';
+$id = required_param('id',PARAM_INT);   // course
+
+$PAGE->set_url('/mod/activitymap/index.php', array('id'=>$id));
+
+redirect("$CFG->wwwroot/course/view.php?id=$id");
+
+
