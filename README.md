@@ -97,6 +97,9 @@ Yes. Just place the additional information for the section in the _Description_ 
 #### How can I exclude things from the graph ?
 We only display activities which have some sort of completion tracking. So if you want to exclude something from the graph set the _Completion tracking_ option to the value _Do not indicate activity completion_.
 
+#### Why does 'hide from students' not hide the nodes within the graph ?
+Hidden activities can also serve as a condition to complete another activity. So it makes sense that even hidden activities are rendered. But in order to hide information from the students, hidden activities are rendered only as a small dot, and they do not provide additional information about the hidden activity.
+
 #### Is it possible to show the graph directly in the course page ?
 Yes - Create a label and place an `<iframe>` tag that references the activitymap. By appending the parameter `plain=1` you will get the pure graph - without the moodle headers and footers. Be sure to set the completion of these labels containing the iframe to _Do not indicate activity completion_. Otherwise this will result in an undefined behavior.
 
@@ -132,10 +135,10 @@ Lets have a look at the following example:
 
 The activitymap should only display the content of the current section.
 
-The plugin creates 3 types of nodes:
+The plugin creates multiple types of nodes:
 
 Activity nodes 
-: The box nodes {`A`, `B`, `C`, `D`, `E`, `F`, `G`} are derived from the activities. These nodes are only rendered if they are visible for the students, and the description is only rendered if the description should be displayed on the course page. The node `A` and the node `E` do not have any incoming dependencies (edges) and can be taken at any time. 
+: The box nodes {`A`, `B`, `C`, `D`, `E`, `F`, `G`} are derived from the activities. These nodes are basically nodes with any type of activity completion. The description is only rendered if the description should be displayed on the course page. The node `A` and the node `E` do not have any incoming dependencies (edges) and can be taken at any time. 
 
 Condition nodes
 : These are the round nodes in the graph. If all conditions have to be met then a `&` node will be generated, if one condition is enough then a `>=1` node is generated. For example: Activity `D` can be taken if either `C` OR `D` is marked as completed. And the activity `F` can be taken if `D` AND `X` are marked as completed.

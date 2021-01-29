@@ -76,6 +76,7 @@ $string['condition_OR_tooltip'] = 'At least one incoming activitiy has to be com
 $string['activity_from_other_section'] = 'This activity is from another section';
 $string['not_existing_activity'] = 'Not existing activity';
 $string['unknown_existing_activity'] = 'Unknown existing activity';
+$string['hidden_activity'] = 'Hidden activity';
 
 $string['this_is'] = 'this is';
 $string['days_from_now'] = 'days from now';

@@ -365,19 +365,30 @@ foreach ($modinfo->cms as $id => $cm) {
     
     // Add each course-module if it has completion turned on and is not
     // the one currently being edited.
-    if ($cm->completion && (empty($mapid) || $mapid->id != $id) && !$cm->deletioninprogress && $cm->visible) {
+    if ($cm->completion && (empty($mapid) || $mapid->id != $id) && !$cm->deletioninprogress && $cm->visibleoncoursepage == 1) {
 
         // If mode is to display only the current section content, then we dont need to process the others
         if($activitymap->content == "currentSection" && $mapid->section != $cm->section)
         {
             continue;
         } 
-
         $gvnodeattributes = array(); //<! Graphviz node attributes         
         $gvnodeattributes["shape"] = $activitymap->elementshape;
         $gvnodeattributes["label"] = "<b>" . htmlentities($cm->name) . "</b>";
         $gvnodeattributes["tooltip"] = htmlentities($cm->name);
-        
+
+
+        // Issue #10: Activities hidden by restriction condition should not be displayed
+        if($cm->visible == false)
+        {
+            $gvnodeattributes["shape"] = "point";
+            $gvnodeattributes["label"] = "";
+            $gvnodeattributes["tooltip"] = get_string('hidden_activity', 'activitymap');
+            $gvnodeattributes["peripheries"] = "0";
+            $gvnodeattributes["height"] = "0.1";
+            $gvnodeattributes["width"] = "0.1";
+        }
+                
         // Remember in which section this cm is
         if(array_key_exists($cm->sectionnum , $gvsubgr) == false)
         {
@@ -470,7 +481,6 @@ foreach ($gvedges as $edge)
     {
         // Search for the previous completabe module and replace the source node with the correct name
         $edge[0] = findPreviousCompletionModule($edge[1], $modinfo);
-        //$edge[0] = "unknown_predecessor_for_".$edge[1];
     }
 
     // Look if we have a edge without a node that has beed processed.
@@ -508,16 +518,26 @@ foreach ($nodesWithoutInfo as $node)
             // This should never happen, but sometime it does ...
             // e.g. if some dependencies are unmaintained.
             print($node . " [style=\"dotted\" fontcolor=\"red\" label=\"" . $node . "\" tooltip=\"" . get_string('not_existing_activity', 'activitymap') . "\" ]" . PHP_EOL);
-	}
-	elseif($modinfo->cms[$nodeid]->name == "")
-	{
-	    // Should also not happen, but .. guess what .. sometime it does
+	    }
+	    elseif($modinfo->cms[$nodeid]->name == "")
+	    {
+	        // Should also not happen, but .. guess what .. sometime it does
             print($node . " [style=\"dotted\" fontcolor=\"red\" label=\"" . $node . "\" tooltip=\"" . get_string('unknown_existing_activity', 'activitymap') . "\" ]" . PHP_EOL);
-	}
+	    }
         else
         {
+        
+            if($modinfo->cms[$nodeid]->visible == true)
+            {
                 // Lets find out the name of the course module
-        print($node . " [style=\"dotted\" fontcolor=\"slategrey\" label=<<I>" . htmlentities($modinfo->cms[$nodeid]->name) . "</I>> tooltip=\"" . get_string('activity_from_other_section', 'activitymap') . "\"]" . PHP_EOL);
+                print($node . " [style=\"dotted\" fontcolor=\"slategrey\" label=<<I>" . htmlentities($modinfo->cms[$nodeid]->name) . "</I>> tooltip=\"" . get_string('activity_from_other_section', 'activitymap') . "\"]" . PHP_EOL);
+            }
+            else
+            {
+                // We have a coursemodule from another section which is hidden
+                // Should also not happen, but .. guess what .. sometime it does
+            print($node . " [style=\"dotted\" fontcolor=\"slategrey\" label=\"" . get_string('hidden_activity', 'activitymap') . "\" tooltip=\"" . get_string('activity_from_other_section', 'activitymap') . "\" ]" . PHP_EOL);
+            }
 
         }
 
