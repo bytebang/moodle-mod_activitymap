@@ -31,18 +31,18 @@ require_once($CFG->libdir . '/completionlib.php');
 
 $debug = optional_param('debug', false, PARAM_BOOL);
 
-$id       = optional_param('id', 0, PARAM_INT);        // Course module ID
-$cm = get_coursemodule_from_id('activitymap', $id, 0, false, MUST_EXIST);
-$course = $DB->get_record('course', array('id'=>$cm->course), '*', MUST_EXIST);
-$courseid = $cm->course;
+$cmid       = optional_param('id', 0, PARAM_INT);        // Course module ID
+$mapid = get_coursemodule_from_id('activitymap', $cmid, 0, false, MUST_EXIST);
+$course = $DB->get_record('course', array('id'=>$mapid->course), '*', MUST_EXIST);
+$courseid = $mapid->course;
 
-$advMap = $DB->get_record('activitymap', array('id'=>$cm->instance), '*', MUST_EXIST);
+$activitymap = $DB->get_record('activitymap', array('id'=>$mapid->instance), '*', MUST_EXIST);
 
-require_course_login($course, true, $cm);
-$context = context_module::instance($cm->id);
+require_course_login($course, true, $mapid);
+$context = context_module::instance($mapid->id);
 require_capability('mod/activitymap:view', $context);
 
-$PAGE->set_url('/mod/activitymap/gvizdot.php', array('id' => $cm->id));
+$PAGE->set_url('/mod/activitymap/gvizdot.php', array('id' => $mapid->id));
 $modinfo = get_fast_modinfo($courseid);
 
 $completion = new completion_info($course);
@@ -324,7 +324,7 @@ function findPreviousCompletionModule($ccm, $modinfo)
 {
     $predecessor = null;
 
-    foreach($modinfo->cms as $id => $othercm)
+    foreach($modinfo->cms as $id => $cm)
     {
         // if the searched course module equals the current one, then we have found a solution
         if($ccm == "cm_".$id && $predecessor != null)
@@ -333,7 +333,7 @@ function findPreviousCompletionModule($ccm, $modinfo)
         }
         
         // remember the curent one if it is completable
-        if($othercm->completion)
+        if($cm->completion)
         {
             $predecessor = $id;
         }
@@ -348,12 +348,12 @@ function findPreviousCompletionModule($ccm, $modinfo)
 //------------------------------------------------------------------------------
 echo ("digraph course_".$courseid.PHP_EOL);
 print("{".PHP_EOL);
-print("graph [fontname = \"helvetica\" tooltip=\"" . htmlentities($course->fullname) . "\" ranksep=\"". ($advMap->nodeseperation*0.5) ."\" nodesep=\"" . ($advMap->nodeseperation*0.25) . "\" splines=\"" . ($advMap->edgestyle)."\" ];".PHP_EOL);
+print("graph [fontname = \"helvetica\" tooltip=\"" . htmlentities($course->fullname) . "\" ranksep=\"". ($activitymap->nodeseperation*0.5) ."\" nodesep=\"" . ($activitymap->nodeseperation*0.25) . "\" splines=\"" . ($activitymap->edgestyle)."\" ];".PHP_EOL);
 
 print("node [fontname = \"helvetica\"];".PHP_EOL);
 print("edge [fontname = \"helvetica\"];".PHP_EOL);
 //Value for the  graphdirection from the Activitymap Database record is used
-print("rankdir=".$advMap->graphdirection.";".PHP_EOL);
+print("rankdir=".$activitymap->graphdirection.";".PHP_EOL);
 
 
 // Process the conditions
@@ -361,37 +361,38 @@ $gvnodes = array(); //<! Nodes which should be rendered
 $gvedges = array(); //<! Graphviz links between the course modules    
 $gvsubgr = array(); //<! List of Subgraphs with the course modules in it
 
-foreach ($modinfo->cms as $id => $othercm) {
+foreach ($modinfo->cms as $id => $cm) {
+    
     // Add each course-module if it has completion turned on and is not
     // the one currently being edited.
-    if ($othercm->completion && (empty($cm) || $cm->id != $id) && !$othercm->deletioninprogress && $othercm->visible) {
+    if ($cm->completion && (empty($mapid) || $mapid->id != $id) && !$cm->deletioninprogress && $cm->visible) {
 
         // If mode is to display only the current section content, then we dont need to process the others
-        if($advMap->content == "currentSection" && $cm->section != $othercm->section)
+        if($activitymap->content == "currentSection" && $mapid->section != $cm->section)
         {
             continue;
         } 
 
         $gvnodeattributes = array(); //<! Graphviz node attributes         
-        $gvnodeattributes["shape"] = $advMap->elementshape;
-        $gvnodeattributes["label"] = "<b>" . htmlentities($othercm->name) . "</b>";
-        $gvnodeattributes["tooltip"] = htmlentities($othercm->name);
+        $gvnodeattributes["shape"] = $activitymap->elementshape;
+        $gvnodeattributes["label"] = "<b>" . htmlentities($cm->name) . "</b>";
+        $gvnodeattributes["tooltip"] = htmlentities($cm->name);
         
         // Remember in which section this cm is
-        if(array_key_exists($othercm->sectionnum , $gvsubgr) == false)
+        if(array_key_exists($cm->sectionnum , $gvsubgr) == false)
         {
-            $gvsubgr[$othercm->sectionnum] = array();
+            $gvsubgr[$cm->sectionnum] = array();
         }
-        array_push($gvsubgr[$othercm->sectionnum], "cm_" . $othercm->id);
+        array_push($gvsubgr[$cm->sectionnum], "cm_" . $cm->id);
 
         // Display available activities in black, others in grey 
-        if ($othercm->uservisible == 1)
+        if ($cm->uservisible == 1)
         {
             $gvnodeattributes["fontcolor"] = "black";
-            $gvnodeattributes["URL"] = $othercm->url;
+            $gvnodeattributes["URL"] = $cm->url;
             
             // Print completed activities in green
-            $cdata = $completion->get_data($othercm, false, $USER->id);
+            $cdata = $completion->get_data($cm, false, $USER->id);
             if ($cdata->completionstate == COMPLETION_COMPLETE || $cdata->completionstate == COMPLETION_COMPLETE_PASS) 
             {
                 $gvnodeattributes["label"] = $gvnodeattributes["label"] . "<FONT COLOR=\"limegreen\" POINT-SIZE=\"20\">&nbsp; &#10004;</FONT> ";
@@ -408,25 +409,25 @@ foreach ($modinfo->cms as $id => $othercm) {
         }
 
         // Print description if we should
-        if($othercm->showdescription)
+        if($cm->showdescription)
         {
-            $gvnodeattributes["label"] = "<table border=\"0\" cellborder=\"0\" cellspacing=\"1\"> <tr><td align=\"center\">" . $gvnodeattributes["label"] . "</td></tr><hr/><tr><td balign=\"left\">" . convertToGraphvizTextitem($othercm->content) . "</td></tr></table>";
+            $gvnodeattributes["label"] = "<table border=\"0\" cellborder=\"0\" cellspacing=\"1\"> <tr><td align=\"center\">" . $gvnodeattributes["label"] . "</td></tr><hr/><tr><td balign=\"left\">" . convertToGraphvizTextitem($cm->content) . "</td></tr></table>";
         }
         
         
         // Check if the availability depends on the completen of other modules, and if they have to be explored
-        if ($othercm->availability) 
+        if ($cm->availability) 
         {
             // User cannot access the activity, but on the course page they will
             // see a link to it, greyed-out, with information (HTML format) from
             
-            $availabilityinfo = json_decode($othercm->availability, false);
-            generateConditionLinks($othercm->id, $availabilityinfo, $gvedges, $gvnodes, $gvsubgr[$othercm->sectionnum], 0);
+            $availabilityinfo = json_decode($cm->availability, false);
+            generateConditionLinks($cm->id, $availabilityinfo, $gvedges, $gvnodes, $gvsubgr[$cm->sectionnum], 0);
 
         } 
         
         // Add node to the list of nodes which should be processed
-        $gvnodes["cm_".$othercm->id] = $gvnodeattributes;
+        $gvnodes["cm_".$cm->id] = $gvnodeattributes;
 
     }
 }
@@ -530,7 +531,7 @@ foreach ($nodesWithoutInfo as $node)
       
         
 // Aufteilen in Subcluster (=Themen)
-if ($advMap->content == "allSectionsGrouped")
+if ($activitymap->content == "allSectionsGrouped")
 {
     print(PHP_EOL . "# Activites according to sections" . PHP_EOL);
     foreach($gvsubgr as $subgraph => $nodeids) 
@@ -562,7 +563,7 @@ if ($advMap->content == "allSectionsGrouped")
             {
                 print("  style=filled;" . PHP_EOL);
 
-                if($advMap->sectionbackgroundcolor == "random")
+                if($activitymap->sectionbackgroundcolor == "random")
                 {
                     // Pseudo random color: same sectionname should give the same color
                     $color = strtoupper(md5($secInfo->name));
@@ -572,7 +573,7 @@ if ($advMap->content == "allSectionsGrouped")
                 }
                 else
                 {
-                    print("  color=".$advMap->sectionbackgroundcolor.";" . PHP_EOL);
+                    print("  color=".$activitymap->sectionbackgroundcolor.";" . PHP_EOL);
                 }
                 
             }
