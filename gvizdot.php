@@ -312,6 +312,37 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
     }
 }
 
+
+//------------------------------------------------------------------------------
+/**
+    Finds the previous node which can be completed.
+    @param ccm The current course module, where we are trying to find its prececessor
+    @param modinfo The full course information which should be traversed. (We could read it here as well, but for performance and memory reasons we would like to gat it handed over as parameter)
+    @returns the name of the predecessor or (if not found) then it returns the string "unknown_predecessor_for_" followed by the value of ccm
+*/
+function findPreviousCompletionModule($ccm, $modinfo)
+{
+    $predecessor = null;
+
+    foreach($modinfo->cms as $id => $othercm)
+    {
+        // if the searched course module equals the current one, then we have found a solution
+        if($ccm == "cm_".$id && $predecessor != null)
+        {
+            return "cm_".$predecessor;
+        }
+        
+        // remember the curent one if it is completable
+        if($othercm->completion)
+        {
+            $predecessor = $id;
+        }
+    }
+    
+    return "unknown_predecessor_for_" . $ccm;
+}
+
+
 //------------------------------------------------------------------------------
 //              ACTUAL CODE STARTS HERE
 //------------------------------------------------------------------------------
@@ -426,14 +457,25 @@ foreach ($gvnodes as $node => $attributes)
 
 // Process the conditions
 print(PHP_EOL . "# Things that need to be completed" . PHP_EOL);
+
+// Process the edges
 $nodesWithoutInfo = array();
 foreach ($gvedges as $edge) 
 {
 
+    // Replace the "previous conditions" in the list of edges which are now named "cm_-1" with their correct counterparts
+    // See Issue #11
+    if($edge[0] == "cm_-1")
+    {
+        // Search for the previous completabe module and replace the source node with the correct name
+        $edge[0] = findPreviousCompletionModule($edge[1], $modinfo);
+        //$edge[0] = "unknown_predecessor_for_".$edge[1];
+    }
+
     // Look if we have a edge without a node that has beed processed.
     // this is sometime the case when we display only the current section
     // so lets remember this one and add a node later
-    if(array_key_exists($edge[0], $gvnodes) == false)
+    if(array_key_exists($edge[0], $gvnodes) == false or startswith($edge[0],"unknown"))
     {
         array_push($nodesWithoutInfo, $edge[0]);
     }
