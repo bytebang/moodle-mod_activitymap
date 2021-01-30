@@ -35,12 +35,13 @@ $cmid       = optional_param('id', 0, PARAM_INT);        // Course module ID
 $mapid = get_coursemodule_from_id('activitymap', $cmid, 0, false, MUST_EXIST);
 $course = $DB->get_record('course', array('id'=>$mapid->course), '*', MUST_EXIST);
 $courseid = $mapid->course;
+$coursecontext = context_course::instance($courseid);
+require_course_login($course, true, $mapid);
+
 
 $activitymap = $DB->get_record('activitymap', array('id'=>$mapid->instance), '*', MUST_EXIST);
-
-require_course_login($course, true, $mapid);
-$context = context_module::instance($mapid->id);
-require_capability('mod/activitymap:view', $context);
+$mapcontext = context_module::instance($mapid->id);
+require_capability('mod/activitymap:view', $mapcontext);
 
 $PAGE->set_url('/mod/activitymap/gvizdot.php', array('id' => $mapid->id));
 $modinfo = get_fast_modinfo($courseid);
@@ -402,6 +403,16 @@ foreach ($modinfo->cms as $id => $cm) {
             $gvnodeattributes["fontcolor"] = "black";
             $gvnodeattributes["URL"] = $cm->url;
             
+            // If we are allowed to edit activities, then provide a link here, then we can directly jump to the activity-editor module
+            if (has_capability('moodle/course:manageactivities', $coursecontext)) 
+            {
+                // Link to the edit page of the activity
+                $editUrl = new moodle_url('/course/modedit.php', ['update' => $cm->id]);
+                
+                // Add a edit symbol in front of tne label
+                $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD HREF=\"". $editUrl->__toString() ."\"><FONT POINT-SIZE=\"20\">&#x270D;</FONT></TD><TD>" . $gvnodeattributes["label"] . "</TD></TR></TABLE>";
+            }
+        
             // Print completed activities in green
             $cdata = $completion->get_data($cm, false, $USER->id);
             if ($cdata->completionstate == COMPLETION_COMPLETE || $cdata->completionstate == COMPLETION_COMPLETE_PASS) 
@@ -424,7 +435,6 @@ foreach ($modinfo->cms as $id => $cm) {
         {
             $gvnodeattributes["label"] = "<table border=\"0\" cellborder=\"0\" cellspacing=\"1\"> <tr><td align=\"center\">" . $gvnodeattributes["label"] . "</td></tr><hr/><tr><td balign=\"left\">" . convertToGraphvizTextitem($cm->content) . "</td></tr></table>";
         }
-        
         
         // Check if the availability depends on the completen of other modules, and if they have to be explored
         if ($cm->availability) 
