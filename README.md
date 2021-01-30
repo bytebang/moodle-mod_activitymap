@@ -34,7 +34,7 @@ additionally there can be three symbols beside a node:
 
 * green checkmark: The activity has been (sucessfully) completed.
 * red cross: The activity has been completed, but the student failed.
-* edit symbol: Appears only if aou have the permission to edit this activity, and brings you directly to the edit page when clicked.
+* edit symbol: Appears only if you have the permission to edit this activity, and brings you directly to the edit page when clicked.
 
 
 ### Module Settings
