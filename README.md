@@ -30,10 +30,11 @@ The font color of the nodes is representing the completion state:
 * grey: This activity is not available for the user because the preconditions have not been fulfilled. 
 * black: This activity can be processed.
 
-additionally there can be two symbols beside a node:
+additionally there can be three symbols beside a node:
 
 * green checkmark: The activity has been (sucessfully) completed.
 * red cross: The activity has been completed, but the student failed.
+* edit symbol: Appears only if aou have the permission to edit this activity, and brings you directly to the edit page when clicked.
 
 
 ### Module Settings
