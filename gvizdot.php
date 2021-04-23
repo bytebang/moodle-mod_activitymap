@@ -377,7 +377,12 @@ foreach ($modinfo->cms as $id => $cm) {
         $gvnodeattributes["shape"] = $activitymap->elementshape;
         $gvnodeattributes["label"] = "<b>" . htmlentities($cm->name) . "</b>";
         $gvnodeattributes["tooltip"] = htmlentities($cm->name);
-
+      
+        // Get the icon url of the activity and append it (See #14)
+        // If this mechanism is changed, then it also has to be changed in the view.php
+        $cmIconUrl = new moodle_url('/mod/' . $cm->modname . '/pix/icon.png');
+        $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD><IMG SRC=\"$cmIconUrl\"/></TD><TD>&nbsp; " . $gvnodeattributes["label"] . "</TD></TR></TABLE>";
+        
 
         // Issue #10: Activities hidden by restriction condition should not be displayed
         if($cm->visible == false)
@@ -410,7 +415,7 @@ foreach ($modinfo->cms as $id => $cm) {
                 $editUrl = new moodle_url('/course/modedit.php', ['update' => $cm->id]);
                 
                 // Add a edit symbol in front of tne label
-                $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD HREF=\"". $editUrl->__toString() ."\"><FONT POINT-SIZE=\"20\">&#x270D;</FONT></TD><TD>" . $gvnodeattributes["label"] . "</TD></TR></TABLE>";
+                $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD>" . $gvnodeattributes["label"] . "</TD><TD HREF=\"". $editUrl->__toString() ."\"><FONT POINT-SIZE=\"20\">&nbsp; &#x270D;</FONT></TD></TR></TABLE>";
             }
         
             // Print completed activities in green
@@ -423,7 +428,6 @@ foreach ($modinfo->cms as $id => $cm) {
             {
                 $gvnodeattributes["label"] = $gvnodeattributes["label"] . "<FONT COLOR=\"crimson\" POINT-SIZE=\"20\">&nbsp; &#10060;</FONT> ";
             }
-            
         }
         else
         {
@@ -453,8 +457,11 @@ foreach ($modinfo->cms as $id => $cm) {
     }
 }
 
+// Simplify the graph by merging nodes with similar inputs and outputs together 
+        
 
-// Process the nodes
+
+// Output the nodes
 print(PHP_EOL . "# All activities" . PHP_EOL);
 foreach ($gvnodes as $node => $attributes) 
 {
@@ -477,7 +484,7 @@ foreach ($gvnodes as $node => $attributes)
 }
 
 
-// Process the conditions
+// Output the conditions
 print(PHP_EOL . "# Things that need to be completed" . PHP_EOL);
 
 // Process the edges
@@ -558,9 +565,9 @@ foreach ($nodesWithoutInfo as $node)
         print($node . " [style=\"dotted\" fontcolor=\"red\" label=\"" . $node . "\" tooltip=\"" . get_string('activity_from_other_section', 'activitymap') . "\" ]" . PHP_EOL);
     }
 }
-      
-        
-// Aufteilen in Subcluster (=Themen)
+     
+  
+// Build subclusters (=Topics)
 if ($activitymap->content == "allSectionsGrouped")
 {
     print(PHP_EOL . "# Activites according to sections" . PHP_EOL);

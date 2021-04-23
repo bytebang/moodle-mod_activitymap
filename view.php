@@ -25,19 +25,17 @@
 
 
 require('../../config.php');
-
-
-
 use availability_completion\condition;
-
 require_once($CFG->libdir . '/completionlib.php');
 
+// Parameters
 $id = optional_param('id', 0, PARAM_INT);        // Course module ID
 $plainrendering = optional_param('plain', 0, PARAM_INT); // Display borderless as image
 $lightweightrendering = optional_param('lightweight', 0, PARAM_INT); // Display borderless as svg
 $cm = get_coursemodule_from_id('activitymap', $id, 0, false, MUST_EXIST);
 $course = $DB->get_record('course', array('id'=>$cm->course), '*', MUST_EXIST);
 $courseid = $cm->course;
+
 
 require_course_login($course, true, $cm);
 $context = context_module::instance($cm->id);
@@ -51,6 +49,16 @@ if($plainrendering == false && $lightweightrendering == false)
 }
 
 $module = $DB->get_record('activitymap', array('id'=>$cm->instance), '*', MUST_EXIST);
+
+
+// Find the images of the activities and store them for later
+$modinfo = get_fast_modinfo($courseid);
+$moduleimageurls = array();
+foreach ($modinfo->cms as $otherid => $othercm) {
+    $cmIconUrl = new moodle_url('/mod/' . $othercm->modname . '/pix/icon.png');
+    array_push($moduleimageurls, strval($cmIconUrl));
+}
+$moduleimageurls = array_unique($moduleimageurls, SORT_STRING);
 
 // Quick and dirty Ajax get (since i dont know how AMD works)
 // NOTE: THIS IS ABSOLUTELY UGLY AND HAS TO BE FIXED IN THE FURURE !!!
@@ -80,14 +88,24 @@ $module = $DB->get_record('activitymap', array('id'=>$cm->instance), '*', MUST_E
 // Within plain it is enough to render an image
 if($plainrendering == true)
 {
-    echo "            viz.renderImageElement(xmlhttp.responseText)".PHP_EOL;
+    print("            viz.renderImageElement(xmlhttp.responseText");
 }
 else
 {
-    echo "            viz.renderSVGElement(xmlhttp.responseText)".PHP_EOL;
+    print("            viz.renderSVGElement(xmlhttp.responseText");
 }
+
+print(",{ images: [".PHP_EOL);
+
+// Inject the images from the course into Emscripten's in-memory filesystem 
+foreach($moduleimageurls as $img)
+{
+    print("{ path: '$img', width: '30px', height: '30px' },".PHP_EOL);
+}
+print("]})".PHP_EOL);
 ?>
-            .then(function(element) {
+          
+          .then(function(element) {
                 document.getElementById("activitymap").appendChild(element);
                 
                 // Enable to pan and zoom via 3rd party library 
@@ -106,13 +124,13 @@ else
                 // Possibly display the error
                 console.error(error);
             });
-            
-
         }
     }
+    
     <?php
     print("xmlhttp.open('GET', 'gvizdot.php?id={$id}', false);");
     ?>
+    
     xmlhttp.send(); 
 </script>
 
