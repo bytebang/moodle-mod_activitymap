@@ -19,7 +19,7 @@
  * Activitymap module to graphviz compiler
  *
  * @package    mod_activitymap
- * @copyright  2020 Guenther Hutter, Andreas Poetscher
+ * @copyright  2021 Guenther Hutter, Andreas Poetscher
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -47,6 +47,9 @@ $PAGE->set_url('/mod/activitymap/gvizdot.php', array('id' => $mapid->id));
 $modinfo = get_fast_modinfo($courseid);
 
 $completion = new completion_info($course);
+
+$feature_show_cmIcons = true;
+$feature_mergeSameConditionNodes = true;
 
 //------------------------------------------------------------------------------
 //              DEBUGGING STUFF
@@ -343,7 +346,114 @@ function findPreviousCompletionModule($ccm, $modinfo)
     return "unknown_predecessor_for_" . $ccm;
 }
 
+//------------------------------------------------------------------------------
+/**
+    Finds nodes which are connected with the target node
+    
+    @targetnode the node where the other node should related to
+    @relation String "INCOMING" oder "OUTGOING" to tell the funciton if it 
+              should return the nodes which are connected via the incoming 
+              our outgoing nodes
+    @edgeliste the list of nodes where should be searched within
+*/
+function findLinkedNodes($targetnode, $relation, $edgelist)
+{
+    $ret = array();
 
+    foreach ($edgelist as $edge) 
+    {
+        if($relation == "INCOMING" && $targetnode == $edge[TO])
+        {
+            array_push($ret, $edge[FROM]);
+        }
+    
+        if($relation == "OUTGOING" && $targetnode == $edge[FROM])
+        {
+            array_push($ret, $edge[TO]);
+        }
+    }
+    
+    return array_unique($ret);
+}
+
+//------------------------------------------------------------------------------
+/**
+    Merges condition nodes. It tries to find nodes with similar inputs, and if
+    it finds some then an it prevents the rendering of the second (similar) node.
+    
+    I know that this approach is not very performant - approx O(n²), so 
+    if somebody finds a better solution file a pull request.
+    
+    @param conditionNodes Nodes which should be simplified. Usually all AND or al OR nodes
+    @param edges all edges which should be traversed 
+    @param nodes all noes which should be traversed
+    @returns nothing
+
+*/
+function mergeConditionNodes($conditionNodes, &$edges, &$nodes)
+{
+    // if you find a better solution file a pull request 
+    
+    $processedConditionNodes = array(); // conditions that we have already examined
+    for($i = 0; $i < sizeof($conditionNodes); $i++) 
+    {
+        $a = $conditionNodes[$i];
+        
+        // for each condition find other conditions that have the same inputs
+        $incomingNodes_a = findLinkedNodes($a, "INCOMING", $edges);
+        array_push($processedConditionNodes, $a);
+        
+        // search all other nodes
+        for($j = $i+1; $j < sizeof($conditionNodes); $j++) 
+        {
+            $b = $conditionNodes[$j];
+            // we dont have to look at the processed nodes again
+            if(in_array($b, $processedConditionNodes, true))
+            {
+                continue;
+            }           
+            
+            // clarification: Now we have foud two nodes which have potentially 
+            // the same inputs lets compare them
+            $incomingNodes_b = findLinkedNodes($b, "INCOMING", $edges);
+            
+           
+            // Compare if all nodes from a are in b and vice versa
+            // otherwise conditions a&b  is treated as different to b&a    
+            if(array_diff($incomingNodes_a, $incomingNodes_b) == array_diff($incomingNodes_b, $incomingNodes_a))
+            //if($incomingNodes_a == $incomingNodes_b)
+            {
+                // YES - we found a pair of nodes which have exactly the same inputs
+
+                // Make the incoming and outgoing links for $b invisible
+                for($k = 0; $k < sizeof($edges); $k++) 
+                {
+                    if($edges[$k][FROM] == $b || $edges[$k][TO] == $b)
+                    {
+                        $edges[$k][STYLE]["color"] = "red";
+                        $edges[$k][STYLE]["DO_NOT_RENDER"] = true;
+                    }
+                }                
+                
+                // reattach outgoing nodes
+                $outgoingNodes_b = findLinkedNodes($b, "OUTGOING", $edges);
+                foreach($outgoingNodes_b as $outb)
+                {
+                    $theNewLink = [$a, $outb, array("arrowhead" => "open")];
+                    //$theNewLink[STYLE]["color"] = "green";
+                    array_push($edges, $theNewLink); 
+                }
+                
+                // Make $b invisible
+                $nodes[$b]["color"] = "red";
+                $nodes[$b]["DO_NOT_RENDER"] = true;                
+                
+                // Remember that we have processed this node
+                array_push($processedConditionNodes, $b);
+            }
+        }
+    }
+}
 //------------------------------------------------------------------------------
 //              ACTUAL CODE STARTS HERE
 //------------------------------------------------------------------------------
@@ -358,8 +468,13 @@ print("rankdir=".$activitymap->graphdirection.";".PHP_EOL);
 
 
 // Process the conditions
-$gvnodes = array(); //<! Nodes which should be rendered
-$gvedges = array(); //<! Graphviz links between the course modules    
+$gvnodes = array(); //<! Nodes which should be rendered key=name_of_the_node, value=styleattributes 
+
+// Improove readability
+const FROM = 0;
+const TO = 1;
+const STYLE = 2;
+$gvedges = array(); //<! Graphviz links between the course modules   [0]=from, [1]=to, [2]=styleattributes 
 $gvsubgr = array(); //<! List of Subgraphs with the course modules in it
 
 foreach ($modinfo->cms as $id => $cm) {
@@ -380,9 +495,11 @@ foreach ($modinfo->cms as $id => $cm) {
       
         // Get the icon url of the activity and append it (See #14)
         // If this mechanism is changed, then it also has to be changed in the view.php
-        $cmIconUrl = new moodle_url('/mod/' . $cm->modname . '/pix/icon.png');
-        $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD><IMG SRC=\"$cmIconUrl\"/></TD><TD>&nbsp; " . $gvnodeattributes["label"] . "</TD></TR></TABLE>";
-        
+        if($feature_show_cmIcons == true)
+        {
+            $cmIconUrl = new moodle_url('/mod/' . $cm->modname . '/pix/icon.png');
+            $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD><IMG SRC=\"$cmIconUrl\"/></TD><TD>&nbsp; " . $gvnodeattributes["label"] . "</TD></TR></TABLE>";
+        }
 
         // Issue #10: Activities hidden by restriction condition should not be displayed
         if($cm->visible == false)
@@ -415,7 +532,7 @@ foreach ($modinfo->cms as $id => $cm) {
                 $editUrl = new moodle_url('/course/modedit.php', ['update' => $cm->id]);
                 
                 // Add a edit symbol in front of tne label
-                $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD>" . $gvnodeattributes["label"] . "</TD><TD HREF=\"". $editUrl->__toString() ."\"><FONT POINT-SIZE=\"20\">&nbsp; &#x270D;</FONT></TD></TR></TABLE>";
+                $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD>" . $gvnodeattributes["label"] . "</TD><TD HREF=\"". $editUrl->__toString() ."\"><FONT POINT-SIZE=\"20\">&nbsp; &#x2699;</FONT></TD></TR></TABLE>";
             }
         
             // Print completed activities in green
@@ -457,14 +574,58 @@ foreach ($modinfo->cms as $id => $cm) {
     }
 }
 
-// Simplify the graph by merging nodes with similar inputs and outputs together 
+//------------------------------------------------------------------------------
+//              Postprocessing
+//------------------------------------------------------------------------------
+// Simplify the graph by merging nodes with similar inputs together 
+
+if($feature_mergeSameConditionNodes == true)
+{
+    // Find the condition nodes
+    $andConditions = array();
+    $orConditions = array();
+    foreach ($gvnodes as $node => $attributes) 
+    {
+        if(startsWith($node, "condition_") == 0)
+        {
+            continue;
+        }
+     
+        if(strpos($node, "_AND_") > 0)
+        {
+            array_push($andConditions, $node);
+        }
         
+        if(strpos($node, "_OR_") > 0)
+        {
+            array_push($orConditions, $node);
+        }
+    }
+    
+    // OK, now find nodes with the same inputs. Because we can merge
+    // these ones together into one node with the same inputs but more outputs.
+    
+    // This functionality has been refactored into a function - otherwise it meight
+    // become unmaintainable in the future
+    mergeConditionNodes($andConditions, $gvedges, $gvnodes);
+    mergeConditionNodes($orConditions, $gvedges, $gvnodes);
+}
+  
 
 
-// Output the nodes
+//------------------------------------------------------------------------------
+//              Generating output
+//------------------------------------------------------------------------------
 print(PHP_EOL . "# All activities" . PHP_EOL);
 foreach ($gvnodes as $node => $attributes) 
 {
+
+        // This is a non-dot conformant extension which prevents the output of an edge.
+        if(array_key_exists("DO_NOT_RENDER",$attributes))
+        {
+            continue;
+        }
+        
         // Graphviz Knoten mit den Attributen aus $gvnodeattributes rendern
 		print(" " . $node . " [");
         foreach ($attributes as $attrib => $value) 
@@ -494,23 +655,29 @@ foreach ($gvedges as $edge)
 
     // Replace the "previous conditions" in the list of edges which are now named "cm_-1" with their correct counterparts
     // See Issue #11
-    if($edge[0] == "cm_-1")
+    if($edge[FROM] == "cm_-1")
     {
         // Search for the previous completabe module and replace the source node with the correct name
-        $edge[0] = findPreviousCompletionModule($edge[1], $modinfo);
+        $edge[FROM] = findPreviousCompletionModule($edge[TO], $modinfo);
     }
 
     // Look if we have a edge without a node that has beed processed.
     // this is sometime the case when we display only the current section
     // so lets remember this one and add a node later
-    if(array_key_exists($edge[0], $gvnodes) == false or startswith($edge[0],"unknown"))
+    if(array_key_exists($edge[FROM], $gvnodes) == false or startswith($edge[FROM], "unknown"))
     {
-        array_push($nodesWithoutInfo, $edge[0]);
+        array_push($nodesWithoutInfo, $edge[FROM]);
+    }
+    
+    // This prevents the output of an edge.
+    if(array_key_exists("DO_NOT_RENDER", $edge[STYLE]))
+    {
+        continue;
     }
     
     // And finally paint the edge
-    print(" " . $edge[0] . " -> " . $edge[1] . " [");
-    foreach ($edge[2] as $attribute => $value) 
+    print(" " . $edge[FROM] . " -> " . $edge[TO] . " [");
+    foreach ($edge[STYLE] as $attribute => $value) 
     {
        print(" ". $attribute . "=\"" . $value . "\"");
     }
@@ -617,6 +784,11 @@ if ($activitymap->content == "allSectionsGrouped")
             
             foreach($nodeids as $node) 
             {   
+                // This prevents the output of intentionally hidden nodes in the subgraph
+                if(array_key_exists("DO_NOT_RENDER", $gvnodes[$node]))
+                {
+                    continue;
+                }
                 print("  " . $node . ";" . PHP_EOL);
             }
             print(PHP_EOL . "}" . PHP_EOL);

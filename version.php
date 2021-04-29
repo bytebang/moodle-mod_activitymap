@@ -18,15 +18,15 @@
  * Activitymap module version information
  *
  * @package    mod_activitymap
- * @copyright  2020 Guenther Hutter, Andreas Poetscher
+ * @copyright  2021 Guenther Hutter, Andreas Poetscher
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2021012900;
+$plugin->version   = 2021042700;
 $plugin->requires  = 2014051200;
 $plugin->component = 'mod_activitymap';
 $plugin->supported = [37, 39]; // Moodle 3.7.x, 3.8.x and 3.9.x are supported.
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = 'v1.01';
+$plugin->release   = 'v1.02';

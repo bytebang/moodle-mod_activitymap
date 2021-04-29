@@ -139,13 +139,16 @@ The activitymap should only display the content of the current section.
 The plugin creates multiple types of nodes:
 
 Activity nodes 
-: The box nodes {`A`, `B`, `C`, `D`, `E`, `F`, `G`} are derived from the activities. These nodes are basically nodes with any type of activity completion. The description is only rendered if the description should be displayed on the course page. The node `A` and the node `E` do not have any incoming dependencies (edges) and can be taken at any time. 
+: The box nodes {`A`, `B`, `C`, `D`, `E`, `F`, `G`, `Q`, `X`} are derived from the activities. These nodes are basically nodes with any type of activity completion. The description is only rendered if the description should be displayed on the course page. The node `A` and the node `E` do not have any incoming dependencies (edges) and can be taken at any time. 
+
+Hidden nodes
+: The node `R` is an activity node which is hidden from the students. Hidden nodes are (in contrast to nodes without activity completion) still rendered within the graph, but there are no details shown.
 
 Condition nodes
 : These are the round nodes in the graph. If all conditions have to be met then a `&` node will be generated, if one condition is enough then a `>=1` node is generated. For example: Activity `D` can be taken if either `C` OR `D` is marked as completed. And the activity `F` can be taken if `D` AND `X` are marked as completed.
 
-Invisible nodes
-: The node `X` is a so called _invisible node_. Remember: This graph shows only the content of the Section _Topic 1_. `X` is required to work on activity `F` - and since it is located out of display scope (it is not in Topic 1) it is rendered as dotted elipse. 
+Unreachable nodes
+: The node `X` is a so called _unreachable node_. Remember: This graph shows only the content of the Section _Topic 1_. `X` is required to work on activity `F` - and since it is located out of display scope (it is not in Topic 1) it is rendered as dotted elipse. 
 
 Date nodes
 : The hexagonal shape at the right of the graph represents a date node. These nodes are representing a point in time which is linked as condition for a activity. In the upper example the activity `G` can only be taken if `F` is marked as complete AND if the current time is before Thuesday the 1st Dec. 2020. This also means that `F` can not be taken after that point in time. 
