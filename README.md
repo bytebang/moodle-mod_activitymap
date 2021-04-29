@@ -144,7 +144,6 @@ Activity nodes
 Condition nodes
 : These are the round nodes in the graph. If all conditions have to be met then a `&` node will be generated, if one condition is enough then a `>=1` node is generated. For example: Activity `D` can be taken if either `C` OR `D` is marked as completed. And the activity `F` can be taken if `D` AND `X` are marked as completed.
 
-
 Invisible nodes
 : The node `X` is a so called _invisible node_. Remember: This graph shows only the content of the Section _Topic 1_. `X` is required to work on activity `F` - and since it is located out of display scope (it is not in Topic 1) it is rendered as dotted elipse. 
 
@@ -179,6 +178,10 @@ We want to thank [Robert Schrenk](https://github.com/rschrenk/) from the [ZML](h
 
 
 Furthermore we want to give credits to the [viz.js](https://github.com/mdaines/viz.js) framework which is used to render the graphs on the clientside by utilizing a webasembly version of the [Graphviz](https://www.graphviz.org/) graph visualization software and [svg-pan-zoom](https://github.com/ariutta/svg-pan-zoom) for a better user expierience with huge graphs.
+
+## Publications
+
+* [Grazer Linuxtage 2021 - Gamification mit Moodle](https://media.ccc.de/v/glt21-222-gamification-mit-moodle) (video, german, 0:40 min.) 
 
 ## License
 
