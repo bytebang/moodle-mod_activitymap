@@ -29,4 +29,4 @@ $plugin->requires  = 2014051200;
 $plugin->component = 'mod_activitymap';
 $plugin->supported = [37, 310]; // Moodle 3.7.x - 3.10.x are supported.
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = 'v1.02';
+$plugin->release   = 'v1.2';
