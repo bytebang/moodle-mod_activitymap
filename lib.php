@@ -145,39 +145,6 @@ function activitymap_delete_instance($id) {
 }
 
 /**
- * Given a course_module object, this function returns any
- * "extra" information that may be needed when printing
- * this activity in a course listing.
- *
- * See {@link get_array_of_activities()} in course/lib.php
- *
- * @param object $coursemodule
- * @return cached_cm_info info
- */
-function activitymap_get_coursemodule_info($coursemodule) {
-    global $CFG, $DB;
-
-    if (!$activitymap = $DB->get_record('activitymap', array('id'=>$coursemodule->instance),
-            'id, name, intro, introformat')) {
-        return NULL;
-    }
-
-    $info = new cached_cm_info();
-    $info->name = $activitymap->name;
-
-
-    $fullurl = "$CFG->wwwroot/mod/activitymap/view.php?id=$coursemodule->id&amp;redirect=1";
-    $info->onclick = "window.open('$fullurl'); return false;";
-
-    if ($coursemodule->showdescription) {
-        // Convert intro to html. Do not filter cached version, filters run at display time.
-        $info->content = format_module_intro('activitymap', $activitymap, $coursemodule->id, false);
-    }
-
-    return $info;
-}
-
-/**
  * Return a list of page types
  * @param string $pagetype current page type
  * @param stdClass $parentcontext Block's parent context
@@ -293,4 +260,48 @@ function mod_activitymap_core_calendar_provide_event_action(calendar_event $even
         1,
         true
     );
+}
+
+
+/**
+ * Given a course_module object, this function returns any
+ * "extra" information that may be needed when printing
+ * this activity in a course listing.
+ *
+ * See {@link get_array_of_activities()} in course/lib.php
+ *
+ * @param object $coursemodule
+ * @return cached_cm_info info
+ */
+function activitymap_get_coursemodule_info($coursemodule) {
+    global $CFG, $DB;
+
+    //print_r($coursemodule);
+
+    if (!$activitymap = $DB->get_record('activitymap', array('id'=>$coursemodule->instance),
+            'id, name, intro, introformat')) {
+        return NULL;
+    }
+
+    $info = new cached_cm_info();
+    $info->name = $activitymap->name;
+
+
+    $fullurl = "$CFG->wwwroot/mod/activitymap/view.php?id=$coursemodule->id&amp;redirect=1";
+    $info->onclick = "window.open('$fullurl'); return false;";
+
+    if ($coursemodule->showdescription) 
+    {
+        // try the user entered text
+        $info->content = format_module_intro('activitymap', $activitymap, $coursemodule->id, false);
+    
+        // If the user doesnt enter any text to display, then we are inlinging the graph
+        if(empty($info->content))
+        {   
+            $info->content = "<iframe src='../mod/activitymap/view.php?id=$coursemodule->id&lightweight=1' 
+              onload='javascript:(function(o){o.style.height=(o.contentWindow.document.body.scrollHeight + 50) +\"px\";}(this));'
+              style='height:200px;width:100%;border:none;overflow:hidden;'></iframe>";
+        }
+    }
+    return $info;
 }

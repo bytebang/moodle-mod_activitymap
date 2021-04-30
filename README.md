@@ -102,7 +102,10 @@ We only display activities which have some sort of completion tracking. So if yo
 Hidden activities can also serve as a condition to complete another activity. So it makes sense that even hidden activities are rendered. But in order to hide information from the students, hidden activities are rendered only as a small dot, and they do not provide additional information about the hidden activity.
 
 #### Is it possible to show the graph directly in the course page ?
-Yes - Create a label and place an `<iframe>` tag that references the activitymap. By appending the parameter `plain=1` you will get the pure graph - without the moodle headers and footers. Be sure to set the completion of these labels containing the iframe to _Do not indicate activity completion_. Otherwise this will result in an undefined behavior.
+Yes. If the checkmark _Display description on course page_ is set, and you have NOT entered any description then the plugin assumes that you want to have the graph displayed directly on the course page. This works fine for small to medium sized graphs, but if you have (in terms of area) huge graphs with grouped activities then you meight expierience correct but strange looking results. 
+
+#### Can I embed such a graph within a label ?
+Yes - just place an `<iframe>` tag that references the activitymap. By appending the parameter `plain=1` you will get the pure graph - without the moodle headers and footers. Be sure to set the completion of these labels containing the iframe to _Do not indicate activity completion_. Otherwise this will result in an undefined behavior.
 
 Here an example how to display only the static image of the graph `https://my.moodle.com/moodle/mod/activitymap/view.php?id=47&plain=1`
 The usecase behind this is, to be ble to get a printable version of the graph.

@@ -524,6 +524,8 @@ foreach ($modinfo->cms as $id => $cm) {
         {
             $gvnodeattributes["fontcolor"] = "black";
             $gvnodeattributes["URL"] = $cm->url;
+            $gvnodeattributes["target"] = "_parent";
+
             
             // If we are allowed to edit activities, then provide a link here, then we can directly jump to the activity-editor module
             if (has_capability('moodle/course:manageactivities', $coursecontext)) 
@@ -532,7 +534,7 @@ foreach ($modinfo->cms as $id => $cm) {
                 $editUrl = new moodle_url('/course/modedit.php', ['update' => $cm->id]);
                 
                 // Add a edit symbol in front of tne label
-                $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD>" . $gvnodeattributes["label"] . "</TD><TD HREF=\"". $editUrl->__toString() ."\"><FONT POINT-SIZE=\"20\">&nbsp; &#x2699;</FONT></TD></TR></TABLE>";
+                $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD>" . $gvnodeattributes["label"] . "</TD><TD HREF=\"". $editUrl->__toString() ."\" target=\"_parent\"><FONT POINT-SIZE=\"20\">&nbsp; &#x2699;</FONT></TD></TR></TABLE>";
             }
         
             // Print completed activities in green
