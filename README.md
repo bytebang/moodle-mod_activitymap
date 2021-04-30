@@ -154,7 +154,7 @@ Unreachable nodes
 : The node `X` is a so called _unreachable node_. Remember: This graph shows only the content of the Section _Topic 1_. `X` is required to work on activity `F` - and since it is located out of display scope (it is not in Topic 1) it is rendered as dotted elipse. 
 
 Date nodes
-: The hexagonal shape at the right of the graph represents a date node. These nodes are representing a point in time which is linked as condition for a activity. In the upper example the activity `G` can only be taken if `F` is marked as complete AND if the current time is before Thuesday the 1st Dec. 2020. This also means that `F` can not be taken after that point in time. 
+: The hexagonal shape at the right of the graph represents a date node. These nodes are representing a point in time which is linked as condition for a activity. In the upper example the activity `G` can only be taken if `F` is marked as complete AND if the current time is before the date shown in the hexagon. This also means that `F` can not be taken after that point in time. 
 
 
 ## Authors
