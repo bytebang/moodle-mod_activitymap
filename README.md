@@ -180,7 +180,7 @@ If you want to participate in the development then just fork the code, implement
 
 ## Credits
 
-We want to thank [Robert Schrenk](https://github.com/rschrenk/) from the [ZML](https://www.lernmanagement.at/) for providing us the base knowledge how to create moodle plugins, for some testing and for the integration into the austrian e-learning platform [eduvidual.at](https://www.eduvidual.at/).
+We want to thank [Robert Schrenk](https://github.com/rschrenk/) from the [ZLM](https://www.lernmanagement.at/) for providing us the base knowledge how to create moodle plugins, for some testing and for the integration into the austrian e-learning platform [eduvidual.at](https://www.eduvidual.at/).
 
 
 Furthermore we want to give credits to the [viz.js](https://github.com/mdaines/viz.js) framework which is used to render the graphs on the clientside by utilizing a webasembly version of the [Graphviz](https://www.graphviz.org/) graph visualization software and [svg-pan-zoom](https://github.com/ariutta/svg-pan-zoom) for a better user expierience with huge graphs.
