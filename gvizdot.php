@@ -501,6 +501,17 @@ foreach ($modinfo->cms as $id => $cm) {
             $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD><IMG SRC=\"$cmIconUrl\"/></TD><TD>&nbsp; " . $gvnodeattributes["label"] . "</TD></TR></TABLE>";
         }
 
+        // Issue #16: Add tick/cross dependent on completion.
+        $cdata = $completion->get_data($cm, false, $USER->id);
+        if ($cdata->completionstate == COMPLETION_COMPLETE || $cdata->completionstate == COMPLETION_COMPLETE_PASS)
+        {
+            $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD>" . $gvnodeattributes["label"] . "</TD><TD><FONT COLOR=\"limegreen\" POINT-SIZE=\"20\">&nbsp; &#10004;</FONT></TD></TR></TABLE>";
+        }
+        else if($cdata->completionstate == COMPLETION_COMPLETE_FAIL)
+        {
+            $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD>" . $gvnodeattributes["label"] . "</TD><TD><FONT COLOR=\"crimson\" POINT-SIZE=\"20\">&nbsp; &#10060;</FONT></TD></TR></TABLE>";
+        }
+
         // Issue #10: Activities hidden by restriction condition should not be displayed
         if($cm->visible == false)
         {
@@ -535,17 +546,6 @@ foreach ($modinfo->cms as $id => $cm) {
                 
                 // Add a edit symbol in front of tne label
                 $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD>" . $gvnodeattributes["label"] . "</TD><TD HREF=\"". $editUrl->__toString() ."\" target=\"_parent\"><FONT POINT-SIZE=\"20\">&nbsp; &#x2699;</FONT></TD></TR></TABLE>";
-            }
-        
-            // Print completed activities in green
-            $cdata = $completion->get_data($cm, false, $USER->id);
-            if ($cdata->completionstate == COMPLETION_COMPLETE || $cdata->completionstate == COMPLETION_COMPLETE_PASS) 
-            {
-                $gvnodeattributes["label"] = $gvnodeattributes["label"] . "<FONT COLOR=\"limegreen\" POINT-SIZE=\"20\">&nbsp; &#10004;</FONT> ";
-            }
-            else if($cdata->completionstate == COMPLETION_COMPLETE_FAIL)
-            {
-                $gvnodeattributes["label"] = $gvnodeattributes["label"] . "<FONT COLOR=\"crimson\" POINT-SIZE=\"20\">&nbsp; &#10060;</FONT> ";
             }
         }
         else
