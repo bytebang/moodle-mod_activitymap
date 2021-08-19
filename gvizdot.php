@@ -75,6 +75,16 @@ function startsWith($haystack, $needle)
      return (substr($haystack, 0, $length) === $needle);
 }
 
+/**
+    since array_key_exists is deprecated on objects in PHP 7.4 this function 
+    remodels the functionality can be used as a drop-in replacement
+    for the functionality
+*/
+function array_contains_key($key_or_property, $array_or_class) 
+{ 
+    return is_object($array_or_class) ? property_exists($array_or_class, $key_or_property) : array_key_exists($key_or_property, $array_or_class); 
+}
+
 //------------------------------------------------------------------------------
 /**
     returns true if the string needle is at the end of the stirng haystack
@@ -189,7 +199,7 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
     $level = $level + 1;
     
     //print_r($cond); print(PHP_EOL);
-    if(array_key_exists("op", $cond))
+    if(array_contains_key("op", $cond))
     {
         // If there is more than one condition then we want to
         if(count($cond->c) > 1)
@@ -239,7 +249,7 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
         {
             // There may be a group of subconditions. 
             // This is indicated by the presence of an additional "op"
-            if(array_key_exists("op", $condition))       
+            if(array_contains_key("op", $condition))       
             {
                 // Recursive !
                 generateConditionLinks($basecm, $condition, $edges, $nodes, $subgraph, $level);
