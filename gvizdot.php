@@ -267,6 +267,70 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
                         array_push($edges, ["cm_".$condition->cm, "cm_" . $basecm, array()]); 
                     }
                 }
+                else if($condition->type == "grade")
+                {
+                
+                    // Create nodes for grades
+                    $gradenode = "grade_" . $basecm . "_" . $level . "_" . $condition->type; 
+                    $gradenodestyle = array();
+                    $gradenodestyle["shape"] = "octagon";
+                    
+                    // Compose a node with the settings inside
+                    $gradenodestyle["label"] = "";
+
+                    if(array_contains_key("min", $condition))
+                    {
+                        $gradenodestyle["label"] = $gradenodestyle["label"] . $condition->min . " <= ";
+                    }
+                    
+                    $gradenodestyle["label"] = $gradenodestyle["label"] . get_string('score', 'activitymap');
+                    
+                    if(array_contains_key("max", $condition))
+                    {
+                        $gradenodestyle["label"] = $gradenodestyle["label"] . " <= ". $condition->max;
+                    }
+
+                    $gradenodestyle["label"] = "&#129351;<BR/>" . htmlentities($gradenodestyle["label"]);
+                    
+                    // and a beautiful hint
+                    $gradenodestyle["tooltip"] = get_string('score_course', 'activitymap') . " ";
+                    if(array_contains_key("min", $condition) == true && array_contains_key("max", $condition) == true)
+                    {
+                        $gradenodestyle["tooltip"] = $gradenodestyle["tooltip"] . get_string('between', 'activitymap') . " " . $condition->min . " ". get_string('and', 'activitymap') . " " . $condition->max;
+                    }
+                    
+                    if(array_contains_key("min", $condition) == true && array_contains_key("max", $condition) == false)
+                    {
+                        $gradenodestyle["tooltip"] = $gradenodestyle["tooltip"] . get_string('higher', 'activitymap') . " " . $condition->min;
+                    }
+                    
+                    if(array_contains_key("min", $condition) == false && array_contains_key("max", $condition) == true)
+                    {
+                        $gradenodestyle["tooltip"] = $gradenodestyle["tooltip"] . get_string('lower', 'activitymap') . " " . $condition->max;
+                    }
+                    
+                    
+                    // Link the course module where we are dependent from to the condition node
+                    array_push($edges, ["cm_".$condition->id, $gradenode, array()]); 
+
+                    // Insert the node into the nodes list
+                    $nodes[$gradenode] = $gradenodestyle;
+                             
+                    // If there is no condition node (because the date is the only restriction), 
+                    // then we link directly to the base node
+                    if(count($cond->c) == 1 && startsWith($basecm, "cm_") == 0 && startsWith($basecm, "condition_") == 0)
+                    {
+                        $basecm = "cm_" . $basecm; 
+                    }
+        
+                    // And the dependency into the dependency list
+                    array_push($edges, [$gradenode, $basecm, array()]); 
+                    
+                    // joinnodes belong to the same subgraph as the node where they originate from
+                    array_push($subgraph, $gradenode); 
+                    
+                    
+                }
                 else if($condition->type == "date")
                 {
                     // Create nodes for timestamps

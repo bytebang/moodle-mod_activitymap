@@ -73,7 +73,7 @@ $string['condition_AND_tooltip'] = 'Alle Vorgängeraktivitäten müssen erfüllt
 $string['condition_OR_label'] = '>=1';
 $string['condition_OR_tooltip'] = 'Zumindest eine Vorgängeraktivität müssen erfüllt sein';
 
-$string['activity_from_other_section'] = 'Diese aktivität stammt aus einem anderen Abschnitt';
+$string['activity_from_other_section'] = 'Diese Aktivität stammt aus einem anderen Abschnitt';
 $string['not_existing_activity'] = 'Nicht existierende Aktivität';
 $string['unknown_existing_activity'] = 'Unbekannte existierende Aktivität';
 $string['hidden_activity'] = 'Versteckte Aktivität';
@@ -82,6 +82,14 @@ $string['this_is'] = 'Das sind';
 $string['days_from_now'] = 'Tage ab heute';
 $string['before'] = 'vor';
 $string['after'] = 'nach';
+
+$string['score'] = 'Punkte';
+$string['score_course'] = 'Die Punkte des Kurses müssen';
+$string['between'] = 'zwischen';
+$string['and'] = 'und';
+$string['higher'] = 'mehr als';
+$string['lower'] = 'weniger als';
+
 
 $string['modulename'] = 'Activitymap';
 $string['modulename_help'] = 'Eine Activitymap stellt Aktivitäten und deren Abhängigkeiten auf einer Karte dar. Es ist ein guter Ausgangspunkt für speilerisches lernen.';

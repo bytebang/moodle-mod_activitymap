@@ -83,6 +83,13 @@ $string['days_from_now'] = 'days from now';
 $string['before'] = 'before';
 $string['after'] = 'after';
 
+$string['score'] = 'score';
+$string['score_course'] = 'The score of the course must be';
+$string['between'] = 'between';
+$string['and'] = 'and';
+$string['higher'] = 'higher than';
+$string['lower'] = 'lower than';
+
 $string['modulename'] = 'Activitymap';
 $string['modulename_help'] = 'The activitymap module enables a teacher to place activities on an image like a map. This can be used for adaptive gamified learning experiences.';
 $string['modulename_link'] = 'mod/activitymap/view';
