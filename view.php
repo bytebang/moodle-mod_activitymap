@@ -72,7 +72,7 @@ function activitymap_readImageUrlsFromCourse($courseid)
     
     $moduleimageurls = array();
     foreach ($modinfo->cms as $otherid => $othercm) {
-        $cmIconUrl = new moodle_url('/mod/' . $othercm->modname . '/pix/icon.png');
+        $cmIconUrl = new moodle_url('/mod/' . $othercm->modname . '/pix/monologo.png');
         array_push($moduleimageurls, strval($cmIconUrl));
     }
 

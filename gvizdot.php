@@ -309,6 +309,8 @@ function generateConditionLinks($basecm, $cond, &$edges, &$nodes, &$subgraph, $l
                         $gradenodestyle["tooltip"] = $gradenodestyle["tooltip"] . get_string('lower', 'activitymap') . " " . $condition->max;
                     }
                     
+                    // DANGER: PERHAPS THE $condition->id REFERENCES A GRADEITEM_ID AND NOT A COURSE ID.
+                    //print_r($cond); print(PHP_EOL);
                     
                     // Link the course module where we are dependent from to the condition node
                     array_push($edges, ["cm_".$condition->id, $gradenode, array()]); 
@@ -571,7 +573,7 @@ foreach ($modinfo->cms as $id => $cm) {
         // If this mechanism is changed, then it also has to be changed in the view.php
         if($feature_show_cmIcons == true)
         {
-            $cmIconUrl = new moodle_url('/mod/' . $cm->modname . '/pix/icon.png');
+            $cmIconUrl = new moodle_url('/mod/' . $cm->modname . '/pix/monologo.png');
             $gvnodeattributes["label"] = "<TABLE BORDER=\"0\" CELLPADDING=\"0\" CELLSPACING=\"0\"><TR><TD><IMG SRC=\"$cmIconUrl\"/></TD><TD>&nbsp; " . $gvnodeattributes["label"] . "</TD></TR></TABLE>";
         }
 

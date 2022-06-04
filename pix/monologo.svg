@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="21.752642mm"
+   height="13.625758mm"
+   viewBox="4179 3159.5 85.640323 53.644718"
+   version="1.1"
+   id="svg188"
+   sodipodi:docname="icon.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata194">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Actionmap</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs192" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="996"
+     id="namedview190"
+     showgrid="false"
+     inkscape:zoom="3.4766084"
+     inkscape:cx="18.840783"
+     inkscape:cy="13.995621"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg188"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <title
+     id="title2">Actionmap</title>
+  <style
+     type="text/css"
+     id="style4">
+path, polyline, polygon {stroke-linejoin:round;}
+path, polyline, polygon, line {stroke-linecap:round;}
+rect, circle, ellipse, polyline, polygon, line, path {shape-rendering:crispEdges;}
+*[layerid=&quot;0&quot;] {stroke:#FFFFFF; FILL:#FFFFFF;}*[layerid=&quot;1&quot;] {stroke:#FF0000; fill:#FF0000;}*[layerid=&quot;2&quot;] {stroke:#0000FF; fill:#0000FF;}*[layerid=&quot;3&quot;] {stroke:#FFCC00; fill:#FFCC00;}*[layerid=&quot;4&quot;] {stroke:#66CC33; fill:#66CC33;}*[layerid=&quot;5&quot;] {stroke:#808080; fill:#808080;}*[layerid=&quot;6&quot;] {stroke:#800000; fill:#800000;}*[layerid=&quot;7&quot;] {stroke:#800080; fill:#800080;}*[layerid=&quot;8&quot;] {stroke:#AA00FF; fill:#AA00FF;}*[layerid=&quot;9&quot;] {display:none}*[layerid=&quot;10&quot;] {stroke:#FF00FF; fill:#FF00FF;}*[layerid=&quot;11&quot;] {stroke:#C0C0C0; fill:#C0C0C0;}*[layerid=&quot;12&quot;] {stroke:#FFFFFF; fill:#FFFFFF;}*[layerid=&quot;13&quot;] {stroke:#33CC99; fill:#33CC99;}*[layerid=&quot;14&quot;] {stroke:#5555FF; fill:#5555FF;}*[layerid=&quot;15&quot;] {stroke:#F022F0; fill:#F022F0;}*[layerid=&quot;16&quot;] {stroke:#FFFFFF; FILL:#FFFFFF;}*[layerid=&quot;17&quot;] {stroke:#FFFFFF; FILL:#FFFFFF;}*[layerid=&quot;18&quot;] {stroke:#FFFFFF; FILL:#FFFFFF;}*[layerid=&quot;19&quot;] {stroke:#66CCFF; fill:#66CCFF;}*[layerid=&quot;20&quot;] {stroke:#FFFFFF; FILL:#FFFFFF;}*[layerid=&quot;21&quot;] {stroke:#999966; fill:#999966;}*[layerid=&quot;22&quot;] {stroke:#008000; fill:#008000;}*[layerid=&quot;23&quot;] {stroke:#00FF00; fill:#00FF00;}*[layerid=&quot;24&quot;] {stroke:#BC8E00; fill:#BC8E00;}*[fill=&quot;none&quot;] {fill: none;}
+*[stroke=&quot;none&quot;] {stroke: none;}
+g[c_partid=&quot;part_pad&quot;] &gt; * + circle {fill: #222222;}
+g[c_partid=&quot;part_via&quot;] &gt; * + circle {fill: #222222;}
+g[c_partid=&quot;part_pad&quot;] &gt; polyline:nth-of-type(2) {stroke: #222222;}g[c_partid=&quot;part_pad&quot;][c_shape=&quot;ELLIPSE&quot;]  polyline:nth-last-of-type(1) {stroke:#222222;}g[c_partid=&quot;part_pad&quot;][c_shape=&quot;RECT&quot;]  polyline:nth-last-of-type(1) {stroke:#222222;}g[c_partid=&quot;part_pad&quot;][c_shape=&quot;POLYGON&quot;]  polyline:nth-last-of-type(1) {stroke:#222222;}g[c_partid=&quot;part_pad&quot;] &gt; polygon[c_etype=&quot;pad_outer&quot;], #gCurParts g[c_partid=&quot;part_pad&quot;] &gt; polygon[c_etype=&quot;pad_outer&quot;] {stroke-linejoin: miter;stroke-miterlimit: 100;}</style>
+  <g
+     id="g186"
+     transform="matrix(1.2499637,0,0,1.1462546,-1056.4641,-473.09545)">
+    <g
+       id="g30">
+      <polyline
+         c_shapetype="line"
+         layerid="2"
+         full_points="4181 3212.5 4190 3212.5"
+         c_etype="wire"
+         points="4190.5 3212.5 4203.75 3212.5"
+         id="polyline10"
+         style="fill:none;stroke:#0000ff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title8">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="2"
+         full_points="4240 3182.5 4241 3182.5 4250.5 3173"
+         c_etype="wire"
+         points="4240,3182.5 4243,3182.5 4250.5,3175 4250.5,3173"
+         id="polyline14"
+         style="fill:none;stroke:#0000ff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title12">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="2"
+         full_points="4190 3193.5 4229 3193.5 4229.5 3193"
+         c_etype="wire"
+         points="4196.5 3193.5 4196.5 3195 4229.5 3195 4229.5 3193"
+         id="polyline18"
+         style="fill:none;stroke:#0000ff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title16">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="2"
+         full_points="4250.5 3212.5 4249 3212.5 4229.5 3193"
+         c_etype="wire"
+         points="4250.5 3212.5 4249 3212.5 4229.5 3193"
+         id="polyline20"
+         style="fill:none;stroke:#0000ff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+      <polyline
+         c_shapetype="line"
+         layerid="2"
+         full_points="4229.5 3193 4240 3182.5"
+         c_etype="wire"
+         points="4229.5 3193 4240 3182.5"
+         id="polyline24"
+         style="fill:none;stroke:#0000ff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title22">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="2"
+         full_points="4229.5 3193 4229.5 3194.5 4211.5 3212.5 4190 3212.5"
+         c_etype="wire"
+         points="4229.5 3193 4229.5 3194.5 4211.5 3212.5 4196.5 3212.5"
+         id="polyline28"
+         style="fill:none;stroke:#0000ff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title26">S$27
+ width = 10.000 mil</title>
+      </polyline>
+    </g>
+    <g
+       before-id="layer_11"
+       id="g66">
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         full_points="4210.5 3173 4210.5 3174 4229.5 3193 4229.5 3211.5 4228.5 3212.5"
+         c_etype="wire"
+         points="4210.5,3173 4210.5,3173.5 4229.5,3192.5 4229.5,3193"
+         id="polyline34"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title32">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         full_points="4190 3212.5 4190 3193.5 4210.5 3173"
+         c_etype="wire"
+         points="4196.5 3193.5 4196.5 3191 4210.5 3173 4210.5 3173"
+         id="polyline38"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title36">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         c_etype="wire"
+         points="4196.5 3193.5 4189 3193.5"
+         id="polyline42"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title40">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         c_etype="wire"
+         points="4250.5 3212.5 4256.5 3212.5"
+         id="polyline44"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         c_etype="wire"
+         points="4229.5 3193 4229.5 3172.5"
+         id="polyline48"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title46">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         c_etype="wire"
+         points="4229.5 3172.5 4229.5 3172.5 4230.5 3172.5 4240 3182 4241.5 3182 4250.5 3173 4250.5 3212.5"
+         id="polyline52"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title50">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         full_points="4190 3193.5 4229.5 3193.5"
+         c_etype="wire"
+         points="4196.5 3193.5 4229.5 3193.5"
+         id="polyline56"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title54">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         full_points="4210.5 3173 4210.5 3174 4229.5 3193 4229.5 3211.5 4228.5 3212.5"
+         c_etype="wire"
+         points="4229.5 3193 4229.5 3193 4229.5 3211.5 4228.5 3212.5"
+         id="polyline60"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title58">S$27
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="1"
+         full_points="4190 3212.5 4190 3193.5 4210.5 3173"
+         c_etype="wire"
+         points="4196.5 3212.5 4196.5 3193.5"
+         id="polyline64"
+         style="fill:none;stroke:#ff0000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title62">S$27
+ width = 10.000 mil</title>
+      </polyline>
+    </g>
+    <g
+       before-id="layer_1"
+       id="g74">
+      <polyline
+         c_shapetype="line"
+         layerid="3"
+         c_etype="wire"
+         points="4209.5 3173 4209.5 3175.5 4225 3191 4248.5 3214.5 4251 3214.5 4252.5 3213 4252.5 3173"
+         id="polyline70"
+         style="fill:none;stroke:#ffcc00;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges">
+        <title
+           id="title68">S$70
+ width = 10.000 mil</title>
+      </polyline>
+      <polyline
+         c_shapetype="line"
+         layerid="3"
+         c_etype="wire"
+         points="4251 3174 4256.5 3174"
+         id="polyline72"
+         style="fill:none;stroke:#ffcc00;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+    </g>
+    <g
+       id="g184">
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4196.5,3212.5"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g86"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4199.5,3209.5 4199.5,3215.5 4193.5,3215.5 4193.5,3209.5 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon76"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4199.5,3209.5 4199.5,3215.5 4193.5,3215.5 4193.5,3209.5 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon78"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4199.5,3209.5 4199.5,3215.5 4193.5,3215.5 4193.5,3209.5 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon80"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4196.5"
+           cy="3212.5"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle82"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title84">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4210.5,3173"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g98"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4213.5,3170 4213.5,3176 4207.5,3176 4207.5,3170 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon88"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4213.5,3170 4213.5,3176 4207.5,3176 4207.5,3170 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon90"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4213.5,3170 4213.5,3176 4207.5,3176 4207.5,3170 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon92"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4210.5"
+           cy="3173"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle94"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title96">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4228.5,3212.5"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g110"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4231.5,3209.5 4231.5,3215.5 4225.5,3215.5 4225.5,3209.5 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon100"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4231.5,3209.5 4231.5,3215.5 4225.5,3215.5 4225.5,3209.5 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon102"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4231.5,3209.5 4231.5,3215.5 4225.5,3215.5 4225.5,3209.5 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon104"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4228.5"
+           cy="3212.5"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle106"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title108">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4240,3182.5"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g122"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4243,3179.5 4243,3185.5 4237,3185.5 4237,3179.5 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon112"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4243,3179.5 4243,3185.5 4237,3185.5 4237,3179.5 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon114"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4243,3179.5 4243,3185.5 4237,3185.5 4237,3179.5 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon116"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4240"
+           cy="3182.5"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle118"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title120">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4229.5,3193"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g134"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4232.5,3190 4232.5,3196 4226.5,3196 4226.5,3190 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon124"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4232.5,3190 4232.5,3196 4226.5,3196 4226.5,3190 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon126"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4232.5,3190 4232.5,3196 4226.5,3196 4226.5,3190 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon128"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4229.5"
+           cy="3193"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle130"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title132">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4196.5,3193.5"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g146"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4199.5,3190.5 4199.5,3196.5 4193.5,3196.5 4193.5,3190.5 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon136"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4199.5,3190.5 4199.5,3196.5 4193.5,3196.5 4193.5,3190.5 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon138"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4199.5,3190.5 4199.5,3196.5 4193.5,3196.5 4193.5,3190.5 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon140"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4196.5"
+           cy="3193.5"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle142"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title144">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4229.5,3172.5"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g158"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4232.5,3169.5 4232.5,3175.5 4226.5,3175.5 4226.5,3169.5 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon148"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4232.5,3169.5 4232.5,3175.5 4226.5,3175.5 4226.5,3169.5 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon150"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4232.5,3169.5 4232.5,3175.5 4226.5,3175.5 4226.5,3169.5 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon152"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4229.5"
+           cy="3172.5"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle154"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title156">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4250.5,3173"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g170"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4253.5,3170 4253.5,3176 4247.5,3176 4247.5,3170 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon160"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4253.5,3170 4253.5,3176 4247.5,3176 4247.5,3170 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon162"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4253.5,3170 4253.5,3176 4247.5,3176 4247.5,3170 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon164"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4250.5"
+           cy="3173"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle166"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title168">S$27</title>
+      </g>
+      <g
+         c_partid="part_pad"
+         c_type="pinpart"
+         layerid="11"
+         c_origin="4250.5,3212.5"
+         c_rotation="0"
+         c_width="6"
+         c_height="6"
+         c_shape="RECT"
+         c_shapetype="group"
+         c_etype="pinpart"
+         id="g182"
+         style="fill:#c0c0c0;stroke:#c0c0c0">
+        <polygon
+           points="4253.5,3209.5 4253.5,3215.5 4247.5,3215.5 4247.5,3209.5 "
+           c_etype="pad_outer"
+           layerid="8"
+           id="polygon172"
+           style="fill:#aa00ff;stroke:#aa00ff;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4253.5,3209.5 4253.5,3215.5 4247.5,3215.5 4247.5,3209.5 "
+           c_etype="pad_outer"
+           layerid="7"
+           id="polygon174"
+           style="fill:#800080;stroke:#800080;stroke-width:0.80000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:100;shape-rendering:crispEdges" />
+        <polygon
+           points="4253.5,3209.5 4253.5,3215.5 4247.5,3215.5 4247.5,3209.5 "
+           c_etype="pad_shell"
+           layerid="11"
+           id="polygon176"
+           style="fill:#c0c0c0;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;shape-rendering:crispEdges" />
+        <circle
+           cx="4250.5"
+           cy="3212.5"
+           r="1.8"
+           layerid="11"
+           c_etype="pad_hole"
+           id="circle178"
+           style="fill:#222222;stroke:none;shape-rendering:crispEdges" />
+        <title
+           layerid="11"
+           id="title180">S$27</title>
+      </g>
+    </g>
+  </g>
+</svg>
